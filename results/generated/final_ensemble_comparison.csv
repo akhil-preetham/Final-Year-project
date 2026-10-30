@@ -1,0 +1,2 @@
+ensemble,members,weights,status,reason
+none,,,not_evaluated,Completed runner does not retain training-side OOF predictions for leakage-safe weight selection.

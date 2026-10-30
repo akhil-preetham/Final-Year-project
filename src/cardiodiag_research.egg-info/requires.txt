@@ -1,0 +1,9 @@
+imbalanced-learn<0.15,>=0.14
+joblib<2,>=1.5
+lime<0.3,>=0.2.0.1
+matplotlib<4,>=3.9
+numpy<3,>=2.1
+pandas<3,>=2.2
+scikit-learn<1.8,>=1.6
+scipy<2,>=1.14
+xgboost<4,>=3.0

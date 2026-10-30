@@ -1,0 +1,298 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{url}
+
+\title{Leakage-Controlled Evaluation of Feature Stability and Selective Reliability in CARDIODIAG}
+
+\author{[AUTHOR NAMES AND AFFILIATIONS TO BE ADDED]}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This manuscript reports a leakage-controlled reproduction and extension of the
+CARDIODIAG cardiovascular disease prediction framework. The study separates the
+historical notebook protocol from a corrected pipeline in which imputation,
+encoding, outlier handling, feature selection, model selection, and uncertainty
+calibration respect data boundaries. A stability-aware training-only feature
+selection component is evaluated against corrected logistic, voting, and
+stacking baselines, and a separate selective-reliability layer measures whether
+confidence ranks correct decisions above errors. Internal nested-validation
+results are generated directly from machine-readable experiment artifacts.
+Independent external validation is reported only if a compatible dataset is
+frozen before final model selection; otherwise, the absence of independent
+validation is treated as a limitation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+cardiovascular disease, leakage control, nested validation, explainable AI,
+calibration, conformal prediction, selective prediction.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Cardiovascular prediction models must be evaluated for discrimination,
+calibration, robustness, and transportability rather than accuracy alone.
+CARDIODIAG provides an important starting point because it combines explainable
+feature reduction with optimized ensemble classifiers \cite{khan2026cardiodiag}.
+This study asks two falsifiable questions under properly separated validation:
+whether a resampled feature selector is more stable than the same relevance
+score applied once, and whether an abstention layer can identify higher-risk
+predictions. The latter is treated as empirical selective reliability rather
+than evidence that a model semantically understands uncertainty.
+
+\textbf{Contribution status.} The proposed contribution is a
+leakage-controlled stability--reliability decoupling audit for CARDIODIAG, not
+a confirmed novel algorithm. It tests whether more stable selected feature sets
+actually yield better discrimination, calibration, or selective reliability.
+The current evidence is internal and does not establish clinical utility,
+deployment readiness, or external validity.
+
+\section{Related Work and Research Gap}
+Feature-selection stability is an established property of a selection procedure,
+not a substitute for predictive validation. Nogueira \emph{et al.} provide a
+chance-corrected stability statistic for comparing selected sets
+\cite{nogueira2018stability}, while resampling-based stability selection has
+distinct assumptions and error-control goals \cite{meinshausen2010stability}.
+Nested validation is required when the same data support model selection and
+performance estimation \cite{varma2006bias,cawley2010overfitting}. Calibration,
+discrimination, and selective risk are likewise distinct properties of a
+prediction model \cite{vancalster2019calibration}. Conformal prediction can
+provide marginal coverage under exchangeability, but coverage should not be
+assumed under population shift \cite{angelopoulos2023conformal}.
+
+The gap is narrower than a new feature-selection algorithm: this study tests
+whether training-only feature-set stability in the CARDIODIAG representation is
+associated with held-out predictive and selective reliability. The reporting
+and risk-of-bias framing follows TRIPOD+AI and PROBAST+AI
+\cite{collins2024tripodai,moons2025probastai}.
+
+\section{Audit of the Original Implementation}
+The supplied repository is notebook-centric and contains multiple historical
+protocols. The historical reproduction and its deviations are documented in
+\texttt{docs/baseline\_reproduction\_report.md}. In particular, available
+notebooks contain paths where resampling, preprocessing, and dimensionality
+reduction occur before the evaluation split.
+
+\section{Methods}
+\subsection{Corrected Pipeline}
+All data-dependent operations are fitted on the training data of the relevant
+fold. Feature types are declared in the local dataset manifest: nominal and
+ordinal coded predictors are one-hot encoded, identifiers are excluded, and
+numeric missingness/outlier treatment is training-only. Unknown external data
+must provide an explicit feature mapping before the external gate can pass.
+
+\subsection{Stability-Aware Feature Reduction}
+For feature $j$ and inner resample $b$, let $r_{j,b}$ denote the combined
+training-only relevance score and $s_{j,b}$ its selection indicator. Relevance
+is estimated after splitting each resample into a fitting part and a validation
+part; permutation importance is evaluated on the latter, which remains inside
+the outer training boundary. We define
+\begin{equation}
+\pi_j = \frac{1}{B}\sum_{b=1}^{B}s_{j,b}, \qquad
+\bar r_j = \frac{1}{B}\sum_{b=1}^{B}r_{j,b}.
+\end{equation}
+Features are retained when their selection frequency and mean relevance pass
+the prespecified thresholds. To test whether this improves stability, the
+selected sets are compared with a single-pass relevance selector over matched
+repeated stratified training perturbations using the chance-corrected stability
+statistic of Nogueira \emph{et al.} \cite{nogueira2018stability}. The reported
+interval is a paired bootstrap interval over repeat-level stability estimates.
+This is an operational stability rule, not a causal interpretation of feature
+importance.
+
+\subsection{Uncertainty and Calibration}
+The project reports Brier score, reliability-bin error, calibration intercept
+and slope, split-conformal prediction-set coverage, abstention rate, confidence-
+error AUC, area under the risk-coverage curve (AURC), and selective risk. The
+confidence-error AUC tests whether confidence ranks correct predictions above
+errors; it is not a probability of correctness. Conformal coverage is
+interpreted under its exchangeability assumption \cite{angelopoulos2023conformal}
+and is measured again under any available dataset shift.
+
+\section{Experimental Protocol}
+The historical protocol, corrected common-split protocol, and nested-validation
+protocol are kept separate. Hyperparameter selection is performed only in inner
+folds. The final internal holdout is not repeatedly consulted. Reporting follows
+the transparency principles of TRIPOD+AI \cite{collins2024tripodai} and the
+development/evaluation distinctions in PROBAST+AI \cite{moons2025probastai}.
+
+For feature stability, five stratified folds were repeated ten times. Each
+training fold was transformed using training data only, and the stable selector
+was compared with a one-shot selector on the same transformed feature universe.
+For selective reliability, ten random seeds used a 56.25\% fitting, 18.75\%
+calibration, and 25\% evaluation split. No evaluation labels were used for
+fitting, calibration, threshold selection, or model selection.
+
+The primary endpoint is paired outer-fold ROC-AUC for the stable candidate
+against its matched corrected candidate. PR-AUC, Brier score, calibration,
+feature stability, and selective metrics are secondary. The repeated intervals
+are descriptive paired bootstrap summaries over the recorded perturbations or
+seeds; they are not treated as independent-patient confidence intervals.
+
+\section{Datasets and Provenance}
+The supplied Five States and Mendeley datasets are development/replication
+benchmarks because they were already used by the base study. Their hashes and
+roles are stored in \texttt{data/manifests/local\_datasets.json}. A dataset
+used for external validation must be frozen in
+\texttt{data/manifests/external\_dataset.json} before any label-based modeling
+decision.
+
+\section{Results}
+Table~\ref{tab:nested} preserves the earlier corrected nested-validation
+artifacts generated before the explicit coded-category schema correction. It is
+an internal result only and must not be described as independent external
+evidence. The post-correction bounded sensitivity results are reported
+separately below so that the earlier artifact is not silently overwritten.
+
+\begin{table*}[t]
+\centering
+\caption{Nested internal validation summary.}
+\label{tab:nested}
+\input{tables/nested_summary.tex}
+\end{table*}
+
+\subsection{Schema-Corrected Sensitivity Rerun}
+The schema-corrected bounded rerun used two outer and two inner folds for each
+candidate. The results were generated directly from
+\texttt{results/generated/schema\_corrected\_*nested\_2x2.json}; the source
+table is reproduced in Table~\ref{tab:schema_corrected}. Corrected OVEC had the
+highest bounded ROC-AUC mean on both datasets (0.928 on Five States and 0.995 on
+Mendeley). Stable logistic was similar on Five States, while stable OSEC had
+higher ECE than corrected OVEC on both datasets. Because this rerun is bounded,
+it is sensitivity evidence rather than a replacement for a full confirmatory
+analysis.
+
+\begin{table*}[t]
+\centering
+\caption{Schema-corrected bounded nested sensitivity results.}
+\label{tab:schema_corrected}
+\input{tables/schema_corrected_nested_2x2.tex}
+\end{table*}
+
+\subsection{Reliability}
+Reliability artifacts are stored under \texttt{results/generated/}. The
+repeated internal analysis is summarized in Table~\ref{tab:uncertainty}. The
+confidence-error AUC exceeded 0.5 for both datasets, and conformal coverage was
+close to the nominal 90\% target. The stability-aware selector did not improve
+all reliability quantities consistently.
+
+\begin{table*}[t]
+\centering
+\caption{Repeated internal selective-reliability evidence. Values are means
+over ten seeds; confidence intervals are stored in the machine-readable result
+files.}
+\label{tab:uncertainty}
+\input{tables/uncertainty_evidence.tex}
+\end{table*}
+
+\subsection{Feature-Selection Stability}
+The stability comparison is shown in Table~\ref{tab:stability}. The stable
+selector was more stable than the one-shot comparator on the Mendeley benchmark
+with a paired difference of 0.078 and 95\% bootstrap interval [0.035, 0.119].
+On the Five States benchmark, the difference was 0.098 but the interval
+[-0.111, 0.254] included zero. Thus, the evidence supports a dataset-conditional
+stability effect, not a universal claim.
+
+\begin{table}[t]
+\centering
+\caption{Repeated feature-selection stability evidence. $\Phi$ is the
+chance-corrected stability statistic.}
+\label{tab:stability}
+\input{tables/stability_evidence.tex}
+\end{table}
+
+\subsection{Stability--Reliability Linkage}
+Table~\ref{tab:linkage} tests whether a more stable selected set translated into
+better held-out reliability on the same repeated splits. Differences are
+stable OSEC minus corrected OSEC; positive AURC or ECE differences indicate
+worse selective risk or calibration, respectively. The paired intervals include
+zero for the main discrimination and reliability comparisons. On Five States,
+the stable candidate had a small adverse AURC difference; on Mendeley, the
+differences were close to zero. Thus, selector stability did not act as a
+surrogate for predictive or selective reliability.
+
+\begin{table*}[t]
+\centering
+\caption{Paired stability--reliability linkage. $\Phi$ is cross-seed selected-
+set stability. $\Delta$ values are stable OSEC minus corrected OSEC means; the
+full bootstrap intervals are stored in the machine-readable linkage artifacts.}
+\label{tab:linkage}
+\input{tables/stability_reliability_linkage.tex}
+\end{table*}
+
+\section{Discussion}
+The nested results do not support a uniform performance advantage for the
+stability-aware selector. On the Five States benchmark, corrected OVEC has the
+highest mean ROC-AUC among the listed candidates, while stable OSEC is lower.
+On the Mendeley benchmark, corrected OVEC and stable OSEC are similar. The
+additional evidence separates two claims that are often conflated: feature-set
+stability and predictive reliability. The feature-set comparison is positive on
+Mendeley but inconclusive on Five States; confidence is empirically informative
+on both datasets, but the stable selector is not consistently better calibrated
+or better at selective ranking. A selector is not justified merely because it
+reduces dimensionality or uses an XAI term.
+
+\section{External Validation and Threats to Validity}
+No independent compatible dataset was available for a defensible frozen
+external evaluation within this project. The supplied Mendeley dataset is not
+new external evidence because it was used in the base paper, and the public UCI
+component sources overlap the Five States composite. Consequently, this study
+reports internal nested validation and reliability analysis only, and does not
+claim independent external validation. This caution is consistent with the
+documented heterogeneity and performance degradation commonly observed when
+cardiovascular prediction models are evaluated outside their development data
+\cite{wessler2021external}.
+
+\section{Statistical Analysis and Robustness}
+The study prespecifies ROC-AUC as the primary comparison and reports PR-AUC,
+classification metrics, Brier score, calibration intercept and slope, uniform
+ten-bin ECE, selected-set stability, confidence-error AUC, AURC, and conformal
+coverage as secondary quantities. Paired comparisons use identical partitions
+for the candidates. No multiplicity-adjusted confirmatory claim is made across
+the secondary metrics. Synthetic missingness or measurement perturbations,
+when run, will be reported as stress tests and not as independent validation.
+
+The bounded post-correction stability runs found positive comparative stability
+for the stable selector on both local benchmarks: the paired difference was
+0.189 [0.027, 0.425] on Five States and 0.269 [0.039, 0.574] on Mendeley.
+However, the four-seed linkage runs found no consistent reliability advantage:
+the paired ROC-AUC difference was 0.0009 [0.0002, 0.0019] on Five States and
+-0.0004 [-0.0013, 0.0004] on Mendeley, while calibration and selective metrics
+did not uniformly favor the stable candidate. These are bounded internal
+results and remain subject to dependence and small-repeat uncertainty.
+
+An evaluation-only stress test at seed 42 applied 10\% independent missingness
+and numeric noise with standard deviation equal to 5\% of each training feature
+standard deviation. On Mendeley, ROC-AUC fell from 0.998 to 0.810 under the
+numeric-noise perturbation for corrected OSEC and from 0.998 to 0.815 for stable
+OSEC. On Five States, 10\% missingness reduced ROC-AUC from approximately 0.935
+to 0.922 for both candidates. These are synthetic single-split stress tests,
+not independent external validation.
+
+\section{Limitations and Ethical Considerations}
+The study is retrospective, benchmark-based, and not a clinical diagnostic
+device. It does not establish prospective utility, patient benefit, fairness
+across unsupported demographic groups, or clinical safety. Dataset provenance,
+license conditions, outcome definitions, and possible source overlap constrain
+transportability.
+
+\section{Reproducibility}
+The code, tests, dependency lock, data manifests, protocol reports, and result
+generators are maintained in the repository. Raw restricted data must not be
+committed.
+
+\section{Conclusion}
+This work delivers a reproducible leakage-controlled audit and a falsifiable
+stability--reliability decoupling audit for CARDIODIAG. Internal evidence shows
+that feature-set stability and selective reliability can move independently:
+the stable selector does not produce a consistent predictive or reliability
+benefit despite positive comparative stability evidence on one benchmark.
+Independent external and prospective evaluation remain necessary before any
+generalization or clinical-readiness claim.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

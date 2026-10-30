@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: cardiodiag-research
+Version: 0.1.0
+Summary: Leakage-controlled reproduction and robustness extension of CARDIODIAG
+Requires-Python: <3.14,>=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE_AND_ATTRIBUTION.md
+Requires-Dist: imbalanced-learn<0.15,>=0.14
+Requires-Dist: joblib<2,>=1.5
+Requires-Dist: lime<0.3,>=0.2.0.1
+Requires-Dist: matplotlib<4,>=3.9
+Requires-Dist: numpy<3,>=2.1
+Requires-Dist: pandas<3,>=2.2
+Requires-Dist: scikit-learn<1.8,>=1.6
+Requires-Dist: scipy<2,>=1.14
+Requires-Dist: xgboost<4,>=3.0
+Dynamic: license-file
+
+# CARDIODIAG Research Extension
+
+This repository preserves the original CARDIODIAG notebooks and datasets while
+adding a separate, leakage-controlled research implementation. The research
+implementation is not a clinical diagnostic device and must not be used for
+patient care.
+
+## Current status
+
+The initial audit is documented in `docs/initial_audit.md`. The current
+research extension combines training-only stability analysis of the paper's
+XAIH-DRC feature reduction with an empirical selective-reliability layer. The
+current contribution is framed as a stability--reliability decoupling audit:
+feature-set stability is tested separately from predictive reliability. The
+result is mixed across the two development benchmarks, the uncertainty result
+is internal only, and no external clinical validation is claimed yet. See
+`docs/contribution_and_evidence.md` for the falsifiable hypotheses and generated
+evidence.
+
+## Setup
+
+```text
+uv venv --python 3.11 .venv
+uv sync
+```
+
+## Checks
+
+```text
+uv run pytest
+uv run ruff check src tests
+```
+
+See `docs/roadmap.md` for the experimental gates and `docs/dataset_provenance.md`
+for provenance and external-validation rules.
+
+When an independent dataset is frozen, evaluate it only through the gated
+one-way runner in `experiments/run_external_evaluation.py`; it fits and
+calibrates on development data and never fits on external rows.
+
+## One-command internal stage
+
+After setup, run the development-only nested validation stage with:
+
+```text
+uv run python experiments/run_internal_stage.py
+```
+
+This evaluates only the two existing benchmark datasets, writes JSON results
+and a stage manifest under `results/generated/`, and does not perform or claim
+external validation. Review `docs/execution_plan.md` before freezing any
+external dataset or research conclusion.

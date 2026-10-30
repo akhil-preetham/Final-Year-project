@@ -1,0 +1,48 @@
+{
+  "selector_protocol": "post_boundary_correction_v1",
+  "experiment_type": "tuned_models_and_oof_ensemble_provenance_correction",
+  "dataset_path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+  "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+  "target": "cardio",
+  "configuration": {
+    "stage": "tuned_priority_models_and_prespecified_oof_ensemble",
+    "outer_splits": 3,
+    "inner_splits": 2,
+    "seed": 42,
+    "scoring": "roc_auc",
+    "ensemble_members": [
+      "xgboost",
+      "hist_gradient_boosting",
+      "logistic"
+    ],
+    "ensemble_weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "models_requested": [
+      "logistic",
+      "random_forest",
+      "hist_gradient_boosting",
+      "xgboost",
+      "lightgbm",
+      "catboost"
+    ]
+  },
+  "python_version": "3.11.16",
+  "package_versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.17.1",
+    "imbalanced-learn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10"
+  },
+  "git_head": "e63b02c8a2aba6344a48025f657696fd99ac3a5f",
+  "working_tree_dirty": true,
+  "seed": 42,
+  "source_artifact": "results\\generated\\kaggle70k_tuned_priority_oof_ensemble.json",
+  "note": "Sidecar created without modifying the completed result artifact; it records optional booster versions omitted by the original runner."
+}

@@ -1,0 +1,363 @@
+{
+  "dataset": "heart5.csv",
+  "target": "HeartDisease",
+  "dropped_identifier_columns": [],
+  "protocol": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "fit_fraction": 0.5625,
+    "calibration_fraction": 0.1875,
+    "evaluation_fraction": 0.25,
+    "external_labels_used": false,
+    "candidate_pair": "corrected_osec versus stable_osec",
+    "linkage_question": "does training-only selector stability predict selective reliability on the same held-out split?"
+  },
+  "dataset_summary": {
+    "path": "heart5.csv",
+    "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+    "rows": 918,
+    "columns": [
+      "Age",
+      "Sex",
+      "ChestPainType",
+      "RestingBP",
+      "Cholesterol",
+      "FastingBS",
+      "RestingECG",
+      "MaxHR",
+      "ExerciseAngina",
+      "Oldpeak",
+      "ST_Slope",
+      "HeartDisease"
+    ],
+    "missing_by_column": {
+      "Age": 0,
+      "Sex": 0,
+      "ChestPainType": 0,
+      "RestingBP": 0,
+      "Cholesterol": 0,
+      "FastingBS": 0,
+      "RestingECG": 0,
+      "MaxHR": 0,
+      "ExerciseAngina": 0,
+      "Oldpeak": 0,
+      "ST_Slope": 0,
+      "HeartDisease": 0
+    },
+    "duplicate_rows": 0,
+    "target": "HeartDisease",
+    "target_counts": {
+      "0": 410,
+      "1": 508
+    },
+    "numeric_features": [
+      "Age",
+      "RestingBP",
+      "Cholesterol",
+      "MaxHR",
+      "Oldpeak"
+    ],
+    "categorical_features": [
+      "Sex",
+      "ChestPainType",
+      "FastingBS",
+      "RestingECG",
+      "ExerciseAngina",
+      "ST_Slope"
+    ]
+  },
+  "stability": {
+    "mean_internal_nogueira": 0.7410947345081825,
+    "mean_internal_nogueira_bootstrap_ci": {
+      "low": 0.6016844185113147,
+      "high": 0.8887406855439643
+    },
+    "cross_seed_selected_set_nogueira": 0.2557989690721645,
+    "mean_selected_feature_count": 19.4,
+    "feature_universe": [
+      "Age",
+      "ChestPainType_ASY",
+      "ChestPainType_ATA",
+      "ChestPainType_NAP",
+      "ChestPainType_TA",
+      "Cholesterol",
+      "ExerciseAngina_N",
+      "ExerciseAngina_Y",
+      "FastingBS_0",
+      "FastingBS_1",
+      "MaxHR",
+      "Oldpeak",
+      "RestingBP",
+      "RestingECG_LVH",
+      "RestingECG_Normal",
+      "RestingECG_ST",
+      "ST_Slope_Down",
+      "ST_Slope_Flat",
+      "ST_Slope_Up",
+      "Sex_F",
+      "Sex_M"
+    ]
+  },
+  "paired_reliability_differences": {
+    "roc_auc": {
+      "mean": 4.5868052901187895e-05,
+      "bootstrap_ci": {
+        "low": -0.0023239813469918104,
+        "high": 0.0019264582218485593
+      }
+    },
+    "confidence_error_auc": {
+      "mean": 0.0031827638296672454,
+      "bootstrap_ci": {
+        "low": -0.011127604616159026,
+        "high": 0.016297133105708107
+      }
+    },
+    "aurc": {
+      "mean": 0.0006283991365260922,
+      "bootstrap_ci": {
+        "low": -0.002557035854131015,
+        "high": 0.0052307723276073595
+      }
+    },
+    "full_coverage_risk": {
+      "mean": -0.0008695652173912993,
+      "bootstrap_ci": {
+        "low": -0.003478260869565214,
+        "high": 0.0017391304347826153
+      }
+    },
+    "conformal_coverage": {
+      "mean": 0.00260869565217392,
+      "bootstrap_ci": {
+        "low": -0.003478260869565197,
+        "high": 0.00869565217391306
+      }
+    },
+    "ece_uniform": {
+      "mean": -0.01149809477679212,
+      "bootstrap_ci": {
+        "low": -0.02583792237349688,
+        "high": 0.0026564444679021944
+      }
+    }
+  },
+  "stability_reliability_rank_correlations": {
+    "roc_auc": {
+      "spearman_rho": -0.19999999999999998,
+      "p_value": 0.7470600781046621
+    },
+    "confidence_error_auc": {
+      "spearman_rho": -0.3,
+      "p_value": 0.623837664781073
+    },
+    "aurc": {
+      "spearman_rho": 0.09999999999999999,
+      "p_value": 0.8728885715695384
+    },
+    "full_coverage_risk": {
+      "spearman_rho": 0.20519567041703082,
+      "p_value": 0.7405819415910723
+    },
+    "conformal_coverage": {
+      "spearman_rho": -0.39999999999999997,
+      "p_value": 0.5046315754686912
+    },
+    "ece_uniform": {
+      "spearman_rho": 0.7,
+      "p_value": 0.1881204043741873
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "corrected_osec": {
+        "roc_auc": 0.9293631985322223,
+        "confidence_error_auc": 0.7182995803685459,
+        "aurc": 0.0555805273760895,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9391304347826087,
+        "ece_uniform": 0.08841180440569299
+      },
+      "stable_osec": {
+        "roc_auc": 0.9296689855515633,
+        "confidence_error_auc": 0.725597518700967,
+        "aurc": 0.054500259834612125,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9434782608695652,
+        "ece_uniform": 0.07314905511987141,
+        "selector_internal_nogueira_stability": 0.5728813559322032,
+        "selected_feature_count": 19
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0003057870193410306,
+        "confidence_error_auc": 0.0072979383324210945,
+        "aurc": -0.0010802675414773727,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.004347826086956497,
+        "ece_uniform": -0.01526274928582158
+      }
+    },
+    {
+      "seed": 43,
+      "corrected_osec": {
+        "roc_auc": 0.9493922482990597,
+        "confidence_error_auc": 0.8403333333333334,
+        "aurc": 0.03359790109428408,
+        "full_coverage_risk": 0.13043478260869565,
+        "conformal_coverage": 0.9260869565217391,
+        "ece_uniform": 0.13297327086430205
+      },
+      "stable_osec": {
+        "roc_auc": 0.9517620976989527,
+        "confidence_error_auc": 0.8485160404872191,
+        "aurc": 0.03004526311624809,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9391304347826087,
+        "ece_uniform": 0.11430315639156947,
+        "selector_internal_nogueira_stability": 0.6888888888888887,
+        "selected_feature_count": 19
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0023698493998930426,
+        "confidence_error_auc": 0.008182707153885693,
+        "aurc": -0.00355263797803599,
+        "full_coverage_risk": -0.004347826086956524,
+        "conformal_coverage": 0.013043478260869601,
+        "ece_uniform": -0.018670114472732577
+      }
+    },
+    {
+      "seed": 44,
+      "corrected_osec": {
+        "roc_auc": 0.9117804449201131,
+        "confidence_error_auc": 0.6663235546405901,
+        "aurc": 0.06864285066723114,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.12097308648264989
+      },
+      "stable_osec": {
+        "roc_auc": 0.9117804449201131,
+        "confidence_error_auc": 0.6663235546405901,
+        "aurc": 0.06864285066723114,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.12097308648264993,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 21
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0,
+        "confidence_error_auc": 0.0,
+        "aurc": 0.0,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.0,
+        "ece_uniform": 4.163336342344337e-17
+      }
+    },
+    {
+      "seed": 45,
+      "corrected_osec": {
+        "roc_auc": 0.9311979206482685,
+        "confidence_error_auc": 0.7359970808246671,
+        "aurc": 0.05186440348457662,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.0746214567499785
+      },
+      "stable_osec": {
+        "roc_auc": 0.9334913232933263,
+        "confidence_error_auc": 0.7604314002828854,
+        "aurc": 0.04973713814802951,
+        "full_coverage_risk": 0.12173913043478261,
+        "conformal_coverage": 0.9217391304347826,
+        "ece_uniform": 0.0879036790894893,
+        "selector_internal_nogueira_stability": 0.8568181818181818,
+        "selected_feature_count": 18
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0022934026450578404,
+        "confidence_error_auc": 0.02443431945821828,
+        "aurc": -0.002127265336547106,
+        "full_coverage_risk": 0.004347826086956524,
+        "conformal_coverage": 0.004347826086956497,
+        "ece_uniform": 0.013282222339510805
+      }
+    },
+    {
+      "seed": 46,
+      "corrected_osec": {
+        "roc_auc": 0.9318094946869505,
+        "confidence_error_auc": 0.8431592213975634,
+        "aurc": 0.0439294667585007,
+        "full_coverage_risk": 0.1608695652173913,
+        "conformal_coverage": 0.8913043478260869,
+        "ece_uniform": 0.13773053600166654
+      },
+      "stable_osec": {
+        "roc_auc": 0.9270697958871645,
+        "confidence_error_auc": 0.8191580756013745,
+        "aurc": 0.05383163329719163,
+        "full_coverage_risk": 0.1565217391304348,
+        "conformal_coverage": 0.8826086956521739,
+        "ece_uniform": 0.10089070353674925,
+        "selector_internal_nogueira_stability": 0.5868852459016393,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.004739698799785974,
+        "confidence_error_auc": -0.02400114579618884,
+        "aurc": 0.009902166538690929,
+        "full_coverage_risk": -0.004347826086956497,
+        "conformal_coverage": -0.008695652173912993,
+        "ece_uniform": -0.03683983246491729
+      }
+    }
+  ],
+  "interpretation": "Positive evidence that stability improves reliability would require repeated paired differences favoring the stable candidate. A weak or absent rank correlation indicates that feature-set stability and predictive reliability are distinct empirical properties. Neither result establishes external validity.",
+  "provenance": {
+    "selector_protocol": "post_boundary_correction_v1",
+    "experiment_type": "stability_reliability_linkage",
+    "dataset_path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\heart5.csv",
+    "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+    "target": "HeartDisease",
+    "configuration": {
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "fit_fraction": 0.5625,
+      "calibration_fraction": 0.1875,
+      "evaluation_fraction": 0.25,
+      "candidate_pair": "corrected_osec versus stable_osec",
+      "external_labels_used": false
+    },
+    "python_version": "3.11.16",
+    "package_versions": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "imbalanced-learn": "0.14.2",
+      "xgboost": "3.2.0"
+    },
+    "git_head": "e63b02c8a2aba6344a48025f657696fd99ac3a5f",
+    "working_tree_dirty": true,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ]
+  }
+}

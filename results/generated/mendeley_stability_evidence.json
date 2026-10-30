@@ -1,0 +1,1708 @@
+{
+  "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+  "target": "target",
+  "dropped_identifier_columns": [
+    "patientid"
+  ],
+  "protocol": {
+    "n_splits": 5,
+    "n_repeats": 10,
+    "n_resamples": 8,
+    "stability_threshold": 0.75,
+    "relevance_threshold": 0.02,
+    "selection_baseline": "single-pass correlation/permutation selector",
+    "feature_universe": "union of training-fold transformed feature names; absent fold-local categories are recorded as not selected",
+    "test_labels_used": false
+  },
+  "methods": {
+    "stable_xaih_drc": {
+      "n_training_perturbations": 50,
+      "feature_universe_size": 12,
+      "mean_selected_features": 9.7,
+      "overall_nogueira_stability": 0.7306232219467796,
+      "repeat_nogueira_stability": {
+        "0": 0.7217068645640073,
+        "1": 0.8527004909983633,
+        "2": 0.7217068645640073,
+        "3": 0.7395833333333333,
+        "4": 0.7395833333333333,
+        "5": 0.6103896103896103,
+        "6": 0.4771241830065358,
+        "7": 0.6874999999999998,
+        "8": 0.8036006546644844,
+        "9": 0.7217068645640073
+      },
+      "mean_repeat_nogueira_stability": 0.7075602199417682,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": 0.6393085347592515,
+        "high": 0.7616155414051499
+      },
+      "selection_frequency": [
+        {
+          "feature": "age",
+          "frequency": 0.06
+        },
+        {
+          "feature": "chestpain",
+          "frequency": 1.0
+        },
+        {
+          "feature": "exerciseangia",
+          "frequency": 0.34
+        },
+        {
+          "feature": "fastingbloodsugar",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gender",
+          "frequency": 0.3
+        },
+        {
+          "feature": "maxheartrate",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels",
+          "frequency": 1.0
+        },
+        {
+          "feature": "oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro",
+          "frequency": 1.0
+        },
+        {
+          "feature": "serumcholestrol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope",
+          "frequency": 1.0
+        }
+      ]
+    },
+    "one_shot_xaih_drc": {
+      "n_training_perturbations": 50,
+      "feature_universe_size": 12,
+      "mean_selected_features": 9.94,
+      "overall_nogueira_stability": 0.6811461198337239,
+      "repeat_nogueira_stability": {
+        "0": 0.6399999999999999,
+        "1": 0.6399999999999999,
+        "2": 0.6399999999999999,
+        "3": 0.6399999999999999,
+        "4": 0.6660482374768089,
+        "5": 0.5799999999999998,
+        "6": 0.5199999999999998,
+        "7": 0.6660482374768089,
+        "8": 0.6660482374768089,
+        "9": 0.6399999999999999
+      },
+      "mean_repeat_nogueira_stability": 0.6298144712430426,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": 0.5998144712430424,
+        "high": 0.6530241187384044
+      },
+      "selection_frequency": [
+        {
+          "feature": "age",
+          "frequency": 0.04
+        },
+        {
+          "feature": "chestpain",
+          "frequency": 1.0
+        },
+        {
+          "feature": "exerciseangia",
+          "frequency": 0.46
+        },
+        {
+          "feature": "fastingbloodsugar",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gender",
+          "frequency": 0.44
+        },
+        {
+          "feature": "maxheartrate",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels",
+          "frequency": 1.0
+        },
+        {
+          "feature": "oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro",
+          "frequency": 1.0
+        },
+        {
+          "feature": "serumcholestrol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope",
+          "frequency": 1.0
+        }
+      ]
+    }
+  },
+  "paired_stability_difference": {
+    "stable_minus_one_shot_mean": 0.07774574869872564,
+    "bootstrap_ci": {
+      "low": 0.035004155217857616,
+      "high": 0.11878868974870113
+    },
+    "positive_stability_evidence": true,
+    "interpretation": "positive evidence requires the paired 95% interval to exclude zero; this is comparative evidence, not a universal proof"
+  },
+  "perturbation_records": [
+    {
+      "repeat": 0,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 3,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 3,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 3,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 11,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 3,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 3,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 4,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 4,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 4,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 4,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 4,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 5,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 5,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 5,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 11,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 5,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 5,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 6,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 6,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 6,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 11,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 6,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 6,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 7,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 7,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 7,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 7,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 7,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 8,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 8,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 11,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 8,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 8,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 8,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 9,
+      "fold": 0,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 9,
+      "fold": 1,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 9,
+      "fold": 2,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 9,
+      "fold": 3,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "gender",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    },
+    {
+      "repeat": 9,
+      "fold": 4,
+      "transformed_feature_count": 12,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ],
+      "one_shot_selected_features": [
+        "chestpain",
+        "exerciseangia",
+        "fastingbloodsugar",
+        "maxheartrate",
+        "noofmajorvessels",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro",
+        "serumcholestrol",
+        "slope"
+      ]
+    }
+  ]
+}

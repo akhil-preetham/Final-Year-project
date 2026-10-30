@@ -1,0 +1,15 @@
+{
+  "stage": "internal_nested_validation",
+  "completed_at_utc": "2026-10-24T19:51:11.341306+00:00",
+  "external_validation": false,
+  "parameters": {
+    "outer_splits": 3,
+    "inner_splits": 3,
+    "seed": 42
+  },
+  "artifacts": [
+    "results\\generated\\heart5_nested_validation.json",
+    "results\\generated\\mendeley_nested_validation.json"
+  ],
+  "next_gate": "review nested metrics and complete/freeze an independent external manifest"
+}

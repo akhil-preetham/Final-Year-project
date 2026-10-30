@@ -1,0 +1,19 @@
+{
+  "status": "NOT_FROZEN",
+  "dataset_name": "",
+  "source_url": "",
+  "persistent_identifier": "",
+  "version_or_release": "",
+  "access_date": "",
+  "license": "",
+  "rows": null,
+  "target_column": "",
+  "target_definition": "",
+  "features_used": [],
+  "features_unavailable": [],
+  "patient_identifier_available": false,
+  "overlap_assessment": "",
+  "independence_justification": "",
+  "preprocessing_frozen_before_labels": false,
+  "approved_for_external_evaluation": false
+}

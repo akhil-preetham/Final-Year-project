@@ -1,0 +1,474 @@
+{
+  "dataset": "heart5.csv",
+  "target": "HeartDisease",
+  "dropped_identifier_columns": [],
+  "protocol": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "fit_fraction": 0.5625,
+    "calibration_fraction": 0.1875,
+    "evaluation_fraction": 0.25,
+    "external_labels_used": false,
+    "candidate_pair": "corrected_osec versus stable_osec",
+    "linkage_question": "does training-only selector stability predict selective reliability on the same held-out split?"
+  },
+  "dataset_summary": {
+    "path": "heart5.csv",
+    "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+    "rows": 918,
+    "columns": [
+      "Age",
+      "Sex",
+      "ChestPainType",
+      "RestingBP",
+      "Cholesterol",
+      "FastingBS",
+      "RestingECG",
+      "MaxHR",
+      "ExerciseAngina",
+      "Oldpeak",
+      "ST_Slope",
+      "HeartDisease"
+    ],
+    "missing_by_column": {
+      "Age": 0,
+      "Sex": 0,
+      "ChestPainType": 0,
+      "RestingBP": 0,
+      "Cholesterol": 0,
+      "FastingBS": 0,
+      "RestingECG": 0,
+      "MaxHR": 0,
+      "ExerciseAngina": 0,
+      "Oldpeak": 0,
+      "ST_Slope": 0,
+      "HeartDisease": 0
+    },
+    "duplicate_rows": 0,
+    "target": "HeartDisease",
+    "target_counts": {
+      "0": 410,
+      "1": 508
+    },
+    "numeric_features": [
+      "Age",
+      "RestingBP",
+      "Cholesterol",
+      "MaxHR",
+      "Oldpeak"
+    ],
+    "categorical_features": [
+      "Sex",
+      "ChestPainType",
+      "FastingBS",
+      "RestingECG",
+      "ExerciseAngina",
+      "ST_Slope"
+    ]
+  },
+  "stability": {
+    "mean_internal_nogueira": 0.7984489712549631,
+    "mean_internal_nogueira_bootstrap_ci": {
+      "low": 0.6911359108026396,
+      "high": 0.9027234474597591
+    },
+    "cross_seed_selected_set_nogueira": 0.20068027210884332,
+    "mean_selected_feature_count": 19.6,
+    "feature_universe": [
+      "Age",
+      "ChestPainType_ASY",
+      "ChestPainType_ATA",
+      "ChestPainType_NAP",
+      "ChestPainType_TA",
+      "Cholesterol",
+      "ExerciseAngina_N",
+      "ExerciseAngina_Y",
+      "FastingBS_0",
+      "FastingBS_1",
+      "MaxHR",
+      "Oldpeak",
+      "RestingBP",
+      "RestingECG_LVH",
+      "RestingECG_Normal",
+      "RestingECG_ST",
+      "ST_Slope_Down",
+      "ST_Slope_Flat",
+      "ST_Slope_Up",
+      "Sex_F",
+      "Sex_M"
+    ]
+  },
+  "paired_reliability_differences": {
+    "roc_auc": {
+      "mean": -0.0008638483296383725,
+      "bootstrap_ci": {
+        "low": -0.0026834722116046137,
+        "high": 0.0007187906123385646
+      }
+    },
+    "confidence_error_auc": {
+      "mean": -0.0015292536657732336,
+      "bootstrap_ci": {
+        "low": -0.015049270992406064,
+        "high": 0.011359787276111494
+      }
+    },
+    "aurc": {
+      "mean": 0.0011280483930586698,
+      "bootstrap_ci": {
+        "low": -0.0010374335015599877,
+        "high": 0.003588726188885442
+      }
+    },
+    "full_coverage_risk": {
+      "mean": -0.0004347826086956483,
+      "bootstrap_ci": {
+        "low": -0.004347826086956519,
+        "high": 0.0034782608695652223
+      }
+    },
+    "conformal_coverage": {
+      "mean": 0.0013043478260869712,
+      "bootstrap_ci": {
+        "low": -0.0034782608695651863,
+        "high": 0.00565217391304349
+      }
+    },
+    "ece_uniform": {
+      "mean": -0.00011334941589490749,
+      "bootstrap_ci": {
+        "low": -0.015189703082626835,
+        "high": 0.018460962607158855
+      }
+    }
+  },
+  "stability_reliability_rank_correlations": {
+    "roc_auc": {
+      "spearman_rho": -0.43082021842766455,
+      "p_value": 0.21388074797633633
+    },
+    "confidence_error_auc": {
+      "spearman_rho": -0.36927447293799814,
+      "p_value": 0.2936450914229569
+    },
+    "aurc": {
+      "spearman_rho": 0.14155521462623263,
+      "p_value": 0.6964784955351249
+    },
+    "full_coverage_risk": {
+      "spearman_rho": -0.0375,
+      "p_value": 0.9180840091459006
+    },
+    "conformal_coverage": {
+      "spearman_rho": -0.18691679485471005,
+      "p_value": 0.6051079616803979
+    },
+    "ece_uniform": {
+      "spearman_rho": 0.4985205384662975,
+      "p_value": 0.1424826458439213
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "corrected_osec": {
+        "roc_auc": 0.9293631985322223,
+        "confidence_error_auc": 0.7182995803685459,
+        "aurc": 0.0555805273760895,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9391304347826087,
+        "ece_uniform": 0.08841180440569299
+      },
+      "stable_osec": {
+        "roc_auc": 0.9296689855515633,
+        "confidence_error_auc": 0.725597518700967,
+        "aurc": 0.054500259834612125,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9434782608695652,
+        "ece_uniform": 0.07314905511987141,
+        "selector_internal_nogueira_stability": 0.5728813559322032,
+        "selected_feature_count": 19
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0003057870193410306,
+        "confidence_error_auc": 0.0072979383324210945,
+        "aurc": -0.0010802675414773727,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.004347826086956497,
+        "ece_uniform": -0.01526274928582158
+      }
+    },
+    {
+      "seed": 43,
+      "corrected_osec": {
+        "roc_auc": 0.9493922482990597,
+        "confidence_error_auc": 0.8403333333333334,
+        "aurc": 0.03359790109428408,
+        "full_coverage_risk": 0.13043478260869565,
+        "conformal_coverage": 0.9260869565217391,
+        "ece_uniform": 0.13297327086430205
+      },
+      "stable_osec": {
+        "roc_auc": 0.9517620976989527,
+        "confidence_error_auc": 0.8485160404872191,
+        "aurc": 0.03004526311624809,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9391304347826087,
+        "ece_uniform": 0.11430315639156947,
+        "selector_internal_nogueira_stability": 0.6888888888888887,
+        "selected_feature_count": 19
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0023698493998930426,
+        "confidence_error_auc": 0.008182707153885693,
+        "aurc": -0.00355263797803599,
+        "full_coverage_risk": -0.004347826086956524,
+        "conformal_coverage": 0.013043478260869601,
+        "ece_uniform": -0.018670114472732577
+      }
+    },
+    {
+      "seed": 44,
+      "corrected_osec": {
+        "roc_auc": 0.9117804449201131,
+        "confidence_error_auc": 0.6663235546405901,
+        "aurc": 0.06864285066723114,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.12097308648264989
+      },
+      "stable_osec": {
+        "roc_auc": 0.9117804449201131,
+        "confidence_error_auc": 0.6663235546405901,
+        "aurc": 0.06864285066723114,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.12097308648264993,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 21
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0,
+        "confidence_error_auc": 0.0,
+        "aurc": 0.0,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.0,
+        "ece_uniform": 4.163336342344337e-17
+      }
+    },
+    {
+      "seed": 45,
+      "corrected_osec": {
+        "roc_auc": 0.9311979206482685,
+        "confidence_error_auc": 0.7359970808246671,
+        "aurc": 0.05186440348457662,
+        "full_coverage_risk": 0.11739130434782609,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.0746214567499785
+      },
+      "stable_osec": {
+        "roc_auc": 0.9334913232933263,
+        "confidence_error_auc": 0.7604314002828854,
+        "aurc": 0.04973713814802951,
+        "full_coverage_risk": 0.12173913043478261,
+        "conformal_coverage": 0.9217391304347826,
+        "ece_uniform": 0.0879036790894893,
+        "selector_internal_nogueira_stability": 0.8568181818181818,
+        "selected_feature_count": 18
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0022934026450578404,
+        "confidence_error_auc": 0.02443431945821828,
+        "aurc": -0.002127265336547106,
+        "full_coverage_risk": 0.004347826086956524,
+        "conformal_coverage": 0.004347826086956497,
+        "ece_uniform": 0.013282222339510805
+      }
+    },
+    {
+      "seed": 46,
+      "corrected_osec": {
+        "roc_auc": 0.9318094946869505,
+        "confidence_error_auc": 0.8431592213975634,
+        "aurc": 0.0439294667585007,
+        "full_coverage_risk": 0.1608695652173913,
+        "conformal_coverage": 0.8913043478260869,
+        "ece_uniform": 0.13773053600166654
+      },
+      "stable_osec": {
+        "roc_auc": 0.9270697958871645,
+        "confidence_error_auc": 0.8191580756013745,
+        "aurc": 0.05383163329719163,
+        "full_coverage_risk": 0.1565217391304348,
+        "conformal_coverage": 0.8826086956521739,
+        "ece_uniform": 0.10089070353674925,
+        "selector_internal_nogueira_stability": 0.5868852459016393,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.004739698799785974,
+        "confidence_error_auc": -0.02400114579618884,
+        "aurc": 0.009902166538690929,
+        "full_coverage_risk": -0.004347826086956497,
+        "conformal_coverage": -0.008695652173912993,
+        "ece_uniform": -0.03683983246491729
+      }
+    },
+    {
+      "seed": 47,
+      "corrected_osec": {
+        "roc_auc": 0.9280636037000229,
+        "confidence_error_auc": 0.779572373481003,
+        "aurc": 0.05087295832724131,
+        "full_coverage_risk": 0.14347826086956522,
+        "conformal_coverage": 0.8739130434782608,
+        "ece_uniform": 0.1039830432257958
+      },
+      "stable_osec": {
+        "roc_auc": 0.9287516244935403,
+        "confidence_error_auc": 0.7918781725888323,
+        "aurc": 0.04830340461313143,
+        "full_coverage_risk": 0.14347826086956522,
+        "conformal_coverage": 0.8739130434782608,
+        "ece_uniform": 0.162776270671129,
+        "selector_internal_nogueira_stability": 0.5868852459016393,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": 0.0006880207935173743,
+        "confidence_error_auc": 0.012305799107829363,
+        "aurc": -0.0025695537141098845,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.0,
+        "ece_uniform": 0.05879322744533319
+      }
+    },
+    {
+      "seed": 48,
+      "corrected_osec": {
+        "roc_auc": 0.933414876538491,
+        "confidence_error_auc": 0.7573529411764706,
+        "aurc": 0.04229591834844302,
+        "full_coverage_risk": 0.11304347826086956,
+        "conformal_coverage": 0.9304347826086956,
+        "ece_uniform": 0.1292832591220043
+      },
+      "stable_osec": {
+        "roc_auc": 0.9327268557449737,
+        "confidence_error_auc": 0.7118252467968915,
+        "aurc": 0.04406429383535449,
+        "full_coverage_risk": 0.1,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.16782380664619698,
+        "selector_internal_nogueira_stability": 0.9003952569169961,
+        "selected_feature_count": 19
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.0006880207935172633,
+        "confidence_error_auc": -0.04552769437957904,
+        "aurc": 0.001768375486911472,
+        "full_coverage_risk": -0.01304347826086956,
+        "conformal_coverage": -0.01304347826086949,
+        "ece_uniform": 0.03854054752419267
+      }
+    },
+    {
+      "seed": 49,
+      "corrected_osec": {
+        "roc_auc": 0.9317330479321152,
+        "confidence_error_auc": 0.7515868931206039,
+        "aurc": 0.05249242338405179,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9304347826086956,
+        "ece_uniform": 0.10121068368092892
+      },
+      "stable_osec": {
+        "roc_auc": 0.9309685803837627,
+        "confidence_error_auc": 0.7467833247555328,
+        "aurc": 0.054225244195025044,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9304347826086956,
+        "ece_uniform": 0.09159678731617157,
+        "selector_internal_nogueira_stability": 0.7917355371900825,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.0007644675483524654,
+        "confidence_error_auc": -0.00480356836507112,
+        "aurc": 0.0017328208109732568,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.0,
+        "ece_uniform": -0.009613896364757346
+      }
+    },
+    {
+      "seed": 50,
+      "corrected_osec": {
+        "roc_auc": 0.9266875621129883,
+        "confidence_error_auc": 0.755018013381369,
+        "aurc": 0.04586746112504564,
+        "full_coverage_risk": 0.12608695652173912,
+        "conformal_coverage": 0.9130434782608695,
+        "ece_uniform": 0.1179265082112233
+      },
+      "stable_osec": {
+        "roc_auc": 0.92569375430013,
+        "confidence_error_auc": 0.7817234848484849,
+        "aurc": 0.04787593595908834,
+        "full_coverage_risk": 0.1391304347826087,
+        "conformal_coverage": 0.9173913043478261,
+        "ece_uniform": 0.10856444547256017,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.000993807812858294,
+        "confidence_error_auc": 0.026705471467115882,
+        "aurc": 0.002008474834042699,
+        "full_coverage_risk": 0.013043478260869573,
+        "conformal_coverage": 0.004347826086956608,
+        "ece_uniform": -0.009362062738663135
+      }
+    },
+    {
+      "seed": 51,
+      "corrected_osec": {
+        "roc_auc": 0.9331855362739853,
+        "confidence_error_auc": 0.7668876262626263,
+        "aurc": 0.05944381747281328,
+        "full_coverage_risk": 0.1391304347826087,
+        "conformal_coverage": 0.9,
+        "ece_uniform": 0.2075603547115926
+      },
+      "stable_osec": {
+        "roc_auc": 0.9260759880743062,
+        "confidence_error_auc": 0.7470012626262627,
+        "aurc": 0.06464218830295197,
+        "full_coverage_risk": 0.1391304347826087,
+        "conformal_coverage": 0.908695652173913,
+        "ece_uniform": 0.18555951857049874,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 20
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.007109548199679017,
+        "confidence_error_auc": -0.019886363636363646,
+        "aurc": 0.005198370830138695,
+        "full_coverage_risk": 0.0,
+        "conformal_coverage": 0.008695652173912993,
+        "ece_uniform": -0.022000836141093855
+      }
+    }
+  ],
+  "interpretation": "Positive evidence that stability improves reliability would require repeated paired differences favoring the stable candidate. A weak or absent rank correlation indicates that feature-set stability and predictive reliability are distinct empirical properties. Neither result establishes external validity."
+}

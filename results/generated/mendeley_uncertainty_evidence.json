@@ -1,0 +1,320 @@
+{
+  "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+  "target": "target",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "protocol": "Repeated internal 56.25% fit, 18.75% calibration, 25% evaluation splits; no test labels used for fitting or calibration",
+  "candidates": {
+    "corrected_osec": {
+      "confidence_error_auc": {
+        "mean": 0.9169117990308406,
+        "bootstrap_ci": {
+          "low": 0.8949665360067369,
+          "high": 0.935386787608869
+        }
+      },
+      "aurc": {
+        "mean": 0.002724501944523538,
+        "bootstrap_ci": {
+          "low": 0.0019608934718144165,
+          "high": 0.0035693168644603023
+        }
+      },
+      "full_coverage_risk": {
+        "mean": 0.0256,
+        "bootstrap_ci": {
+          "low": 0.020790000000000013,
+          "high": 0.0312
+        }
+      },
+      "conformal_coverage": {
+        "mean": 0.914,
+        "bootstrap_ci": {
+          "low": 0.8960000000000001,
+          "high": 0.9331999999999999
+        }
+      },
+      "abstention_rate": {
+        "mean": 0.07520000000000002,
+        "bootstrap_ci": {
+          "low": 0.05600000000000001,
+          "high": 0.09319999999999999
+        }
+      },
+      "ece_uniform": {
+        "mean": 0.18354685817235605,
+        "bootstrap_ci": {
+          "low": 0.14061321583728853,
+          "high": 0.21532704083789383
+        }
+      }
+    },
+    "stable_osec": {
+      "confidence_error_auc": {
+        "mean": 0.9248958016491391,
+        "bootstrap_ci": {
+          "low": 0.9054542466697064,
+          "high": 0.9426771034035528
+        }
+      },
+      "aurc": {
+        "mean": 0.0027533972157857737,
+        "bootstrap_ci": {
+          "low": 0.0018084760003629454,
+          "high": 0.003799862300102728
+        }
+      },
+      "full_coverage_risk": {
+        "mean": 0.0264,
+        "bootstrap_ci": {
+          "low": 0.0216,
+          "high": 0.031200000000000006
+        }
+      },
+      "conformal_coverage": {
+        "mean": 0.9172,
+        "bootstrap_ci": {
+          "low": 0.8976,
+          "high": 0.9364100000000001
+        }
+      },
+      "abstention_rate": {
+        "mean": 0.0704,
+        "bootstrap_ci": {
+          "low": 0.05000000000000001,
+          "high": 0.0912
+        }
+      },
+      "ece_uniform": {
+        "mean": 0.20808033908268042,
+        "bootstrap_ci": {
+          "low": 0.18308625691098673,
+          "high": 0.23453897786346375
+        }
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9624489795918367,
+          "aurc": 0.001032369042725511,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.944,
+          "abstention_rate": 0.048,
+          "ece_uniform": 0.19678218000600925
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9534693877551021,
+          "aurc": 0.0012050365470369507,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.948,
+          "abstention_rate": 0.044,
+          "ece_uniform": 0.1717510454658416
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9030049448459491,
+          "aurc": 0.0056296530353847915,
+          "full_coverage_risk": 0.044,
+          "conformal_coverage": 0.888,
+          "abstention_rate": 0.088,
+          "ece_uniform": 0.20944357684866474
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9030049448459491,
+          "aurc": 0.0056296530353847915,
+          "full_coverage_risk": 0.044,
+          "conformal_coverage": 0.888,
+          "abstention_rate": 0.088,
+          "ece_uniform": 0.20944357684866474
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9191836734693877,
+          "aurc": 0.002137537008546493,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.904,
+          "abstention_rate": 0.092,
+          "ece_uniform": 0.19876711136951805
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9151020408163266,
+          "aurc": 0.0022613461673218205,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.9,
+          "abstention_rate": 0.096,
+          "ece_uniform": 0.15971587333911452
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9412110523221634,
+          "aurc": 0.002283760540583249,
+          "full_coverage_risk": 0.028,
+          "conformal_coverage": 0.884,
+          "abstention_rate": 0.112,
+          "ece_uniform": 0.10014126375284141
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9376837154614933,
+          "aurc": 0.0024420963165319005,
+          "full_coverage_risk": 0.028,
+          "conformal_coverage": 0.868,
+          "abstention_rate": 0.128,
+          "ece_uniform": 0.16235690290429985
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.923265306122449,
+          "aurc": 0.0018697132152846407,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.916,
+          "abstention_rate": 0.072,
+          "ece_uniform": 0.23863245204529626
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9257142857142857,
+          "aurc": 0.0018302618936905004,
+          "full_coverage_risk": 0.02,
+          "conformal_coverage": 0.94,
+          "abstention_rate": 0.048,
+          "ece_uniform": 0.2886087889668087
+        }
+      }
+    },
+    {
+      "seed": 47,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9441504997060552,
+          "aurc": 0.002177486231280307,
+          "full_coverage_risk": 0.028,
+          "conformal_coverage": 0.94,
+          "abstention_rate": 0.048,
+          "ece_uniform": 0.2220915144269759
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9617486338797814,
+          "aurc": 0.0012836474100633595,
+          "full_coverage_risk": 0.024,
+          "conformal_coverage": 0.924,
+          "abstention_rate": 0.068,
+          "ece_uniform": 0.1802915287670634
+        }
+      }
+    },
+    {
+      "seed": 48,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9004149377593361,
+          "aurc": 0.004687117164346116,
+          "full_coverage_risk": 0.036,
+          "conformal_coverage": 0.892,
+          "abstention_rate": 0.092,
+          "ece_uniform": 0.2186938303189201
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.8708677685950413,
+          "aurc": 0.005226515245149783,
+          "full_coverage_risk": 0.032,
+          "conformal_coverage": 0.928,
+          "abstention_rate": 0.048,
+          "ece_uniform": 0.2739789137448569
+        }
+      }
+    },
+    {
+      "seed": 49,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9043715846994534,
+          "aurc": 0.002918129248363423,
+          "full_coverage_risk": 0.024,
+          "conformal_coverage": 0.944,
+          "abstention_rate": 0.044,
+          "ece_uniform": 0.031462578163365
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.8818342151675486,
+          "aurc": 0.004279381259540933,
+          "full_coverage_risk": 0.028,
+          "conformal_coverage": 0.944,
+          "abstention_rate": 0.036,
+          "ece_uniform": 0.2025656149775444
+        }
+      }
+    },
+    {
+      "seed": 50,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.9289617486338798,
+          "aurc": 0.00215612077362631,
+          "full_coverage_risk": 0.024,
+          "conformal_coverage": 0.868,
+          "abstention_rate": 0.124,
+          "ece_uniform": 0.20939063681355907
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9462809917355373,
+          "aurc": 0.002431853772566893,
+          "full_coverage_risk": 0.032,
+          "conformal_coverage": 0.872,
+          "abstention_rate": 0.116,
+          "ece_uniform": 0.24199571620892554
+        }
+      }
+    },
+    {
+      "seed": 51,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.8421052631578948,
+          "aurc": 0.0023531331850945416,
+          "full_coverage_risk": 0.012,
+          "conformal_coverage": 0.96,
+          "abstention_rate": 0.032,
+          "ece_uniform": 0.21006343797841076
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.9532520325203252,
+          "aurc": 0.0009441805105708036,
+          "full_coverage_risk": 0.016,
+          "conformal_coverage": 0.96,
+          "abstention_rate": 0.032,
+          "ece_uniform": 0.1900954296036846
+        }
+      }
+    }
+  ],
+  "interpretation": "These are repeated internal reliability estimates. They can show confidence/error association and coverage variability, but cannot establish external validity or semantic understanding of uncertainty."
+}

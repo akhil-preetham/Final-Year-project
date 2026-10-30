@@ -1,0 +1,435 @@
+{
+  "dataset": "heart5.csv",
+  "target": "HeartDisease",
+  "dropped_identifier_columns": [],
+  "protocol": {
+    "n_splits": 2,
+    "n_repeats": 2,
+    "n_resamples": 2,
+    "stability_threshold": 0.75,
+    "relevance_threshold": 0.02,
+    "selection_baseline": "single-pass correlation/permutation selector",
+    "feature_universe": "union of training-fold transformed feature names; absent fold-local categories are recorded as not selected",
+    "test_labels_used": false
+  },
+  "methods": {
+    "stable_xaih_drc": {
+      "n_training_perturbations": 4,
+      "feature_universe_size": 21,
+      "mean_selected_features": 20.25,
+      "overall_nogueira_stability": 0.1934156378600821,
+      "repeat_nogueira_stability": {
+        "0": -0.024390243902437936,
+        "1": -0.049999999999998934
+      },
+      "mean_repeat_nogueira_stability": -0.037195121951218435,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": -0.049999999999998934,
+        "high": -0.024390243902437936
+      },
+      "selection_frequency": [
+        {
+          "feature": "Age",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_ASY",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_ATA",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_NAP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_TA",
+          "frequency": 0.75
+        },
+        {
+          "feature": "Cholesterol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ExerciseAngina_N",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ExerciseAngina_Y",
+          "frequency": 1.0
+        },
+        {
+          "feature": "FastingBS_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "FastingBS_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "MaxHR",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "RestingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "RestingECG_LVH",
+          "frequency": 0.5
+        },
+        {
+          "feature": "RestingECG_Normal",
+          "frequency": 1.0
+        },
+        {
+          "feature": "RestingECG_ST",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Down",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Flat",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Up",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Sex_F",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Sex_M",
+          "frequency": 1.0
+        }
+      ]
+    },
+    "one_shot_xaih_drc": {
+      "n_training_perturbations": 4,
+      "feature_universe_size": 21,
+      "mean_selected_features": 20.0,
+      "overall_nogueira_stability": 0.125000000000001,
+      "repeat_nogueira_stability": {
+        "0": -0.024390243902437936,
+        "1": -0.07692307692307732
+      },
+      "mean_repeat_nogueira_stability": -0.050656660412757626,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": -0.07692307692307732,
+        "high": -0.024390243902437936
+      },
+      "selection_frequency": [
+        {
+          "feature": "Age",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_ASY",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_ATA",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_NAP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ChestPainType_TA",
+          "frequency": 0.75
+        },
+        {
+          "feature": "Cholesterol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ExerciseAngina_N",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ExerciseAngina_Y",
+          "frequency": 1.0
+        },
+        {
+          "feature": "FastingBS_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "FastingBS_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "MaxHR",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "RestingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "RestingECG_LVH",
+          "frequency": 0.5
+        },
+        {
+          "feature": "RestingECG_Normal",
+          "frequency": 0.75
+        },
+        {
+          "feature": "RestingECG_ST",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Down",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Flat",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ST_Slope_Up",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Sex_F",
+          "frequency": 1.0
+        },
+        {
+          "feature": "Sex_M",
+          "frequency": 1.0
+        }
+      ]
+    }
+  },
+  "paired_stability_difference": {
+    "stable_minus_one_shot_mean": 0.013461538461539191,
+    "bootstrap_ci": {
+      "low": 0.0,
+      "high": 0.026923076923078382
+    },
+    "positive_stability_evidence": false,
+    "interpretation": "positive evidence requires the paired 95% interval to exclude zero; this is comparative evidence, not a universal proof"
+  },
+  "perturbation_records": [
+    {
+      "repeat": 0,
+      "fold": 0,
+      "transformed_feature_count": 21,
+      "stable_selected_count": 21,
+      "one_shot_selected_count": 21,
+      "stable_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_LVH",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ],
+      "one_shot_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_LVH",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 1,
+      "transformed_feature_count": 21,
+      "stable_selected_count": 20,
+      "one_shot_selected_count": 20,
+      "stable_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ],
+      "one_shot_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 0,
+      "transformed_feature_count": 21,
+      "stable_selected_count": 20,
+      "one_shot_selected_count": 19,
+      "stable_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_LVH",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ],
+      "one_shot_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_LVH",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 1,
+      "transformed_feature_count": 21,
+      "stable_selected_count": 20,
+      "one_shot_selected_count": 20,
+      "stable_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ],
+      "one_shot_selected_features": [
+        "Age",
+        "ChestPainType_ASY",
+        "ChestPainType_ATA",
+        "ChestPainType_NAP",
+        "ChestPainType_TA",
+        "Cholesterol",
+        "ExerciseAngina_N",
+        "ExerciseAngina_Y",
+        "FastingBS_0",
+        "FastingBS_1",
+        "MaxHR",
+        "Oldpeak",
+        "RestingBP",
+        "RestingECG_Normal",
+        "RestingECG_ST",
+        "ST_Slope_Down",
+        "ST_Slope_Flat",
+        "ST_Slope_Up",
+        "Sex_F",
+        "Sex_M"
+      ]
+    }
+  ]
+}

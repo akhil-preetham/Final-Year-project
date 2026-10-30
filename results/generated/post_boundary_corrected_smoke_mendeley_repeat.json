@@ -1,0 +1,501 @@
+{
+  "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+  "target": "target",
+  "dropped_identifier_columns": [
+    "patientid"
+  ],
+  "protocol": {
+    "n_splits": 2,
+    "n_repeats": 2,
+    "n_resamples": 2,
+    "stability_threshold": 0.75,
+    "relevance_threshold": 0.02,
+    "selection_baseline": "single-pass correlation/permutation selector",
+    "feature_universe": "union of training-fold transformed feature names; absent fold-local categories are recorded as not selected",
+    "test_labels_used": false
+  },
+  "methods": {
+    "stable_xaih_drc": {
+      "n_training_perturbations": 4,
+      "feature_universe_size": 26,
+      "mean_selected_features": 23.0,
+      "overall_nogueira_stability": -0.004830917874395935,
+      "repeat_nogueira_stability": {
+        "0": -0.06122448979591821,
+        "1": -0.20930232558139505
+      },
+      "mean_repeat_nogueira_stability": -0.13526340768865663,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": -0.20930232558139505,
+        "high": -0.06122448979591821
+      },
+      "selection_frequency": [
+        {
+          "feature": "age",
+          "frequency": 0.5
+        },
+        {
+          "feature": "chestpain_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_3",
+          "frequency": 0.75
+        },
+        {
+          "feature": "exerciseangia_0",
+          "frequency": 0.75
+        },
+        {
+          "feature": "exerciseangia_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "fastingbloodsugar_0",
+          "frequency": 0.75
+        },
+        {
+          "feature": "fastingbloodsugar_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "gender_0",
+          "frequency": 0.75
+        },
+        {
+          "feature": "gender_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "maxheartrate",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_1",
+          "frequency": 0.5
+        },
+        {
+          "feature": "noofmajorvessels_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_3",
+          "frequency": 0.75
+        },
+        {
+          "feature": "oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "serumcholestrol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_3",
+          "frequency": 1.0
+        }
+      ]
+    },
+    "one_shot_xaih_drc": {
+      "n_training_perturbations": 4,
+      "feature_universe_size": 26,
+      "mean_selected_features": 23.25,
+      "overall_nogueira_stability": 0.017269468882371908,
+      "repeat_nogueira_stability": {
+        "0": -0.08333333333333393,
+        "1": -0.1555555555555559
+      },
+      "mean_repeat_nogueira_stability": -0.11944444444444491,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": -0.1555555555555559,
+        "high": -0.08333333333333393
+      },
+      "selection_frequency": [
+        {
+          "feature": "age",
+          "frequency": 0.5
+        },
+        {
+          "feature": "chestpain_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "chestpain_3",
+          "frequency": 0.75
+        },
+        {
+          "feature": "exerciseangia_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "exerciseangia_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "fastingbloodsugar_0",
+          "frequency": 0.75
+        },
+        {
+          "feature": "fastingbloodsugar_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "gender_0",
+          "frequency": 0.75
+        },
+        {
+          "feature": "gender_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "maxheartrate",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_1",
+          "frequency": 0.5
+        },
+        {
+          "feature": "noofmajorvessels_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "noofmajorvessels_3",
+          "frequency": 0.75
+        },
+        {
+          "feature": "oldpeak",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingBP",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "restingrelectro_1",
+          "frequency": 0.75
+        },
+        {
+          "feature": "restingrelectro_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "serumcholestrol",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_0",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "slope_3",
+          "frequency": 1.0
+        }
+      ]
+    }
+  },
+  "paired_stability_difference": {
+    "stable_minus_one_shot_mean": -0.015818963244211726,
+    "bootstrap_ci": {
+      "low": -0.05374677002583916,
+      "high": 0.022108843537415712
+    },
+    "positive_stability_evidence": false,
+    "interpretation": "positive evidence requires the paired 95% interval to exclude zero; this is comparative evidence, not a universal proof"
+  },
+  "perturbation_records": [
+    {
+      "repeat": 0,
+      "fold": 0,
+      "transformed_feature_count": 26,
+      "stable_selected_count": 25,
+      "one_shot_selected_count": 25,
+      "stable_selected_features": [
+        "age",
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 1,
+      "transformed_feature_count": 26,
+      "stable_selected_count": 24,
+      "one_shot_selected_count": 23,
+      "stable_selected_features": [
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_1",
+        "noofmajorvessels_2",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ],
+      "one_shot_selected_features": [
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_1",
+        "noofmajorvessels_2",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 0,
+      "transformed_feature_count": 26,
+      "stable_selected_count": 19,
+      "one_shot_selected_count": 21,
+      "stable_selected_features": [
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ],
+      "one_shot_selected_features": [
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "fastingbloodsugar_0",
+        "fastingbloodsugar_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 1,
+      "transformed_feature_count": 26,
+      "stable_selected_count": 24,
+      "one_shot_selected_count": 24,
+      "stable_selected_features": [
+        "age",
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_1",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "chestpain_0",
+        "chestpain_1",
+        "chestpain_2",
+        "chestpain_3",
+        "exerciseangia_0",
+        "exerciseangia_1",
+        "gender_0",
+        "gender_1",
+        "maxheartrate",
+        "noofmajorvessels_0",
+        "noofmajorvessels_1",
+        "noofmajorvessels_2",
+        "noofmajorvessels_3",
+        "oldpeak",
+        "restingBP",
+        "restingrelectro_0",
+        "restingrelectro_1",
+        "restingrelectro_2",
+        "serumcholestrol",
+        "slope_0",
+        "slope_1",
+        "slope_2",
+        "slope_3"
+      ]
+    }
+  ]
+}

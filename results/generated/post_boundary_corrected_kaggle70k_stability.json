@@ -1,0 +1,673 @@
+{
+  "dataset": "data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+  "target": "cardio",
+  "dropped_identifier_columns": [
+    "id"
+  ],
+  "provenance": {
+    "selector_protocol": "post_boundary_correction_v1",
+    "experiment_type": "stability_evidence",
+    "dataset_path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+    "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+    "target": "cardio",
+    "configuration": {
+      "n_splits": 5,
+      "n_repeats": 3,
+      "n_resamples": 8,
+      "stability_threshold": 0.75,
+      "relevance_threshold": 0.02,
+      "seed": 42
+    },
+    "python_version": "3.11.16",
+    "package_versions": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "imbalanced-learn": "0.14.2",
+      "xgboost": "3.2.0"
+    },
+    "git_head": "e63b02c8a2aba6344a48025f657696fd99ac3a5f",
+    "working_tree_dirty": true,
+    "seed": 42
+  },
+  "protocol": {
+    "n_splits": 5,
+    "n_repeats": 3,
+    "n_resamples": 8,
+    "stability_threshold": 0.75,
+    "relevance_threshold": 0.02,
+    "selection_baseline": "single-pass correlation/permutation selector",
+    "feature_universe": "union of training-fold transformed feature names; absent fold-local categories are recorded as not selected",
+    "test_labels_used": false
+  },
+  "methods": {
+    "stable_xaih_drc": {
+      "n_training_perturbations": 15,
+      "feature_universe_size": 19,
+      "mean_selected_features": 10.6,
+      "overall_nogueira_stability": 0.855709579429256,
+      "repeat_nogueira_stability": {
+        "0": 0.8283649503161699,
+        "1": 0.872994652406417,
+        "2": 0.8283649503161699
+      },
+      "mean_repeat_nogueira_stability": 0.8432415176795857,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": 0.8283649503161699,
+        "high": 0.872994652406417
+      },
+      "selection_frequency": [
+        {
+          "feature": "active_0",
+          "frequency": 0.4666666666666667
+        },
+        {
+          "feature": "active_1",
+          "frequency": 0.3333333333333333
+        },
+        {
+          "feature": "age",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ap_hi",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ap_lo",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_3",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gluc_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gluc_2",
+          "frequency": 0.8
+        },
+        {
+          "feature": "gluc_3",
+          "frequency": 1.0
+        },
+        {
+          "feature": "weight",
+          "frequency": 1.0
+        }
+      ]
+    },
+    "one_shot_xaih_drc": {
+      "n_training_perturbations": 15,
+      "feature_universe_size": 19,
+      "mean_selected_features": 10.666666666666666,
+      "overall_nogueira_stability": 0.8513928571428571,
+      "repeat_nogueira_stability": {
+        "0": 0.8283649503161699,
+        "1": 0.872994652406417,
+        "2": 0.8272727272727273
+      },
+      "mean_repeat_nogueira_stability": 0.8428774433317714,
+      "mean_repeat_nogueira_stability_ci": {
+        "low": 0.8272727272727273,
+        "high": 0.872994652406417
+      },
+      "selection_frequency": [
+        {
+          "feature": "active_0",
+          "frequency": 0.4666666666666667
+        },
+        {
+          "feature": "active_1",
+          "frequency": 0.4
+        },
+        {
+          "feature": "age",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ap_hi",
+          "frequency": 1.0
+        },
+        {
+          "feature": "ap_lo",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_2",
+          "frequency": 1.0
+        },
+        {
+          "feature": "cholesterol_3",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gluc_1",
+          "frequency": 1.0
+        },
+        {
+          "feature": "gluc_2",
+          "frequency": 0.8
+        },
+        {
+          "feature": "gluc_3",
+          "frequency": 1.0
+        },
+        {
+          "feature": "weight",
+          "frequency": 1.0
+        }
+      ]
+    }
+  },
+  "paired_stability_difference": {
+    "stable_minus_one_shot_mean": 0.0003640743478141954,
+    "bootstrap_ci": {
+      "low": 0.0,
+      "high": 0.0010922230434425861
+    },
+    "positive_stability_evidence": false,
+    "interpretation": "positive evidence requires the paired 95% interval to exclude zero; this is comparative evidence, not a universal proof"
+  },
+  "perturbation_records": [
+    {
+      "repeat": 0,
+      "fold": 0,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 12,
+      "stable_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 1,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 11,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "active_0",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 2,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 3,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 12,
+      "stable_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 0,
+      "fold": 4,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 0,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 1,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 12,
+      "stable_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 2,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 3,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 1,
+      "fold": 4,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 9,
+      "one_shot_selected_count": 9,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 0,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 1,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 12,
+      "stable_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 2,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 10,
+      "stable_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 3,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 12,
+      "one_shot_selected_count": 12,
+      "stable_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_2",
+        "gluc_3",
+        "weight"
+      ]
+    },
+    {
+      "repeat": 2,
+      "fold": 4,
+      "transformed_feature_count": 19,
+      "stable_selected_count": 10,
+      "one_shot_selected_count": 11,
+      "stable_selected_features": [
+        "active_0",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ],
+      "one_shot_selected_features": [
+        "active_0",
+        "active_1",
+        "age",
+        "ap_hi",
+        "ap_lo",
+        "cholesterol_1",
+        "cholesterol_2",
+        "cholesterol_3",
+        "gluc_1",
+        "gluc_3",
+        "weight"
+      ]
+    }
+  ]
+}

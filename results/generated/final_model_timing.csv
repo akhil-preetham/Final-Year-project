@@ -1,0 +1,12 @@
+model,status,total_seconds
+dummy,completed,1.4976786999995966
+logistic,completed,1.8786984999997003
+lda,completed,1.804977400000098
+gaussian_nb,completed,3.616920100000243
+random_forest,completed,63.215494500000204
+extra_trees,completed,60.54206950000025
+hist_gradient_boosting,completed,13.540404899999885
+gradient_boosting,completed,46.938952900000004
+adaboost,completed,32.423669800000425
+mlp,completed,24.3264666999994
+xgboost,completed,10.58302249999997

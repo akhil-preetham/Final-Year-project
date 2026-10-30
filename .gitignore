@@ -1,0 +1,16 @@
+.venv/
+venv/
+env/
+.git/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+catboost_info/
+*.pyc
+*.pyo
+*.log
+*.tmp
+dist/
+kaggle/output/

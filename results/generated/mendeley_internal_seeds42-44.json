@@ -1,0 +1,1142 @@
+[
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.98,
+      "balanced_accuracy": 0.9801313628899835,
+      "precision": 0.9861111111111112,
+      "recall": 0.9793103448275862,
+      "specificity": 0.9809523809523809,
+      "f1": 0.9826989619377162,
+      "roc_auc": 0.9985550082101806,
+      "pr_auc": 0.9989173030062451,
+      "brier": 0.01788733356310427,
+      "ece_uniform": 0.20594566288546262,
+      "tn": 103,
+      "fp": 2,
+      "fn": 3,
+      "tp": 142
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.944,
+      "balanced_accuracy": 0.9412151067323482,
+      "precision": 0.9455782312925171,
+      "recall": 0.9586206896551724,
+      "specificity": 0.9238095238095239,
+      "f1": 0.952054794520548,
+      "roc_auc": 0.9876518883415435,
+      "pr_auc": 0.9909279916297731,
+      "brier": 0.0418960397379534,
+      "ece_uniform": 0.09501312662369762,
+      "tn": 97,
+      "fp": 8,
+      "fn": 6,
+      "tp": 139
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.968,
+      "balanced_accuracy": 0.9697865353037767,
+      "precision": 0.9858156028368794,
+      "recall": 0.9586206896551724,
+      "specificity": 0.9809523809523809,
+      "f1": 0.972027972027972,
+      "roc_auc": 0.9931691297208538,
+      "pr_auc": 0.9937706970685664,
+      "brier": 0.02355705670681325,
+      "ece_uniform": 0.14173585499735442,
+      "tn": 103,
+      "fp": 2,
+      "fn": 6,
+      "tp": 139
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "ovec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.984,
+      "balanced_accuracy": 0.9822660098522167,
+      "precision": 0.9795918367346939,
+      "recall": 0.993103448275862,
+      "specificity": 0.9714285714285714,
+      "f1": 0.9863013698630136,
+      "roc_auc": 0.9986206896551724,
+      "pr_auc": 0.9990250715080669,
+      "brier": 0.019057265765615186,
+      "ece_uniform": 0.16630580905142758,
+      "tn": 102,
+      "fp": 3,
+      "fn": 1,
+      "tp": 144
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "ovec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.952,
+      "balanced_accuracy": 0.9507389162561577,
+      "precision": 0.9586206896551724,
+      "recall": 0.9586206896551724,
+      "specificity": 0.9428571428571428,
+      "f1": 0.9586206896551724,
+      "roc_auc": 0.993431855500821,
+      "pr_auc": 0.9953682551516553,
+      "brier": 0.033397914002015326,
+      "ece_uniform": 0.05059913306279871,
+      "tn": 99,
+      "fp": 6,
+      "fn": 6,
+      "tp": 139
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "ovec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.98,
+      "balanced_accuracy": 0.9775041050903119,
+      "precision": 0.972972972972973,
+      "recall": 0.993103448275862,
+      "specificity": 0.9619047619047619,
+      "f1": 0.9829351535836177,
+      "roc_auc": 0.9955336617405582,
+      "pr_auc": 0.9962760257588767,
+      "brier": 0.02234360556170624,
+      "ece_uniform": 0.14740573479293223,
+      "tn": 101,
+      "fp": 4,
+      "fn": 1,
+      "tp": 144
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.984,
+      "balanced_accuracy": 0.9835796387520526,
+      "precision": 0.9862068965517241,
+      "recall": 0.9862068965517241,
+      "specificity": 0.9809523809523809,
+      "f1": 0.9862068965517241,
+      "roc_auc": 0.9988834154351396,
+      "pr_auc": 0.9992086454017857,
+      "brier": 0.0134917726516634,
+      "ece_uniform": 0.16964224904388278,
+      "tn": 103,
+      "fp": 2,
+      "fn": 2,
+      "tp": 143
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.952,
+      "balanced_accuracy": 0.9520525451559934,
+      "precision": 0.965034965034965,
+      "recall": 0.9517241379310345,
+      "specificity": 0.9523809523809523,
+      "f1": 0.9583333333333334,
+      "roc_auc": 0.9910016420361248,
+      "pr_auc": 0.9934603857403113,
+      "brier": 0.03610637550384628,
+      "ece_uniform": 0.2279247929966965,
+      "tn": 100,
+      "fp": 5,
+      "fn": 7,
+      "tp": 138
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.984,
+      "balanced_accuracy": 0.9835796387520526,
+      "precision": 0.9862068965517241,
+      "recall": 0.9862068965517241,
+      "specificity": 0.9809523809523809,
+      "f1": 0.9862068965517241,
+      "roc_auc": 0.9957963875205255,
+      "pr_auc": 0.9964863643675234,
+      "brier": 0.016011973861194875,
+      "ece_uniform": 0.23326408142774746,
+      "tn": 103,
+      "fp": 2,
+      "fn": 2,
+      "tp": 143
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.972,
+      "balanced_accuracy": 0.9732348111658456,
+      "precision": 0.9859154929577465,
+      "recall": 0.9655172413793104,
+      "specificity": 0.9809523809523809,
+      "f1": 0.975609756097561,
+      "roc_auc": 0.9974384236453201,
+      "pr_auc": 0.99809324748774,
+      "brier": 0.02278011888869679,
+      "ece_uniform": 0.14794385754872974,
+      "tn": 103,
+      "fp": 2,
+      "fn": 5,
+      "tp": 140
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.932,
+      "balanced_accuracy": 0.9321839080459771,
+      "precision": 0.9507042253521126,
+      "recall": 0.9310344827586207,
+      "specificity": 0.9333333333333333,
+      "f1": 0.9407665505226481,
+      "roc_auc": 0.9842364532019704,
+      "pr_auc": 0.9887120424648372,
+      "brier": 0.049724581234469684,
+      "ece_uniform": 0.14452711639863533,
+      "tn": 98,
+      "fp": 7,
+      "fn": 10,
+      "tp": 135
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "logistic",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.964,
+      "balanced_accuracy": 0.9637110016420362,
+      "precision": 0.9722222222222222,
+      "recall": 0.9655172413793104,
+      "specificity": 0.9619047619047619,
+      "f1": 0.9688581314878892,
+      "roc_auc": 0.9899507389162562,
+      "pr_auc": 0.9906313694787269,
+      "brier": 0.028952012388768524,
+      "ece_uniform": 0.19738689998144016,
+      "tn": 101,
+      "fp": 4,
+      "fn": 5,
+      "tp": 140
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.976,
+      "balanced_accuracy": 0.9766830870279146,
+      "precision": 0.986013986013986,
+      "recall": 0.9724137931034482,
+      "specificity": 0.9809523809523809,
+      "f1": 0.9791666666666666,
+      "roc_auc": 0.9988834154351396,
+      "pr_auc": 0.9992196511875465,
+      "brier": 0.014594526589338058,
+      "ece_uniform": 0.24877426711754827,
+      "tn": 103,
+      "fp": 2,
+      "fn": 4,
+      "tp": 141
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.948,
+      "balanced_accuracy": 0.9472906403940886,
+      "precision": 0.9583333333333334,
+      "recall": 0.9517241379310345,
+      "specificity": 0.9428571428571428,
+      "f1": 0.9550173010380623,
+      "roc_auc": 0.9889655172413793,
+      "pr_auc": 0.9922319414135721,
+      "brier": 0.04322838934509402,
+      "ece_uniform": 0.2080844915245037,
+      "tn": 99,
+      "fp": 6,
+      "fn": 7,
+      "tp": 138
+    }
+  },
+  {
+    "config": {
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "target": "target",
+      "variant": "osec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "rows": 1000,
+      "columns": [
+        "patientid",
+        "age",
+        "gender",
+        "chestpain",
+        "restingBP",
+        "serumcholestrol",
+        "fastingbloodsugar",
+        "restingrelectro",
+        "maxheartrate",
+        "exerciseangia",
+        "oldpeak",
+        "slope",
+        "noofmajorvessels",
+        "target"
+      ],
+      "missing_by_column": {
+        "patientid": 0,
+        "age": 0,
+        "gender": 0,
+        "chestpain": 0,
+        "restingBP": 0,
+        "serumcholestrol": 0,
+        "fastingbloodsugar": 0,
+        "restingrelectro": 0,
+        "maxheartrate": 0,
+        "exerciseangia": 0,
+        "oldpeak": 0,
+        "slope": 0,
+        "noofmajorvessels": 0,
+        "target": 0
+      },
+      "duplicate_rows": 0,
+      "target": "target",
+      "target_counts": {
+        "0": 420,
+        "1": 580
+      }
+    },
+    "dropped_identifier_columns": [
+      "patientid"
+    ],
+    "metrics": {
+      "n": 250,
+      "positive_count": 145,
+      "prevalence": 0.58,
+      "accuracy": 0.98,
+      "balanced_accuracy": 0.9775041050903119,
+      "precision": 0.972972972972973,
+      "recall": 0.993103448275862,
+      "specificity": 0.9619047619047619,
+      "f1": 0.9829351535836177,
+      "roc_auc": 0.9947454844006568,
+      "pr_auc": 0.9953195219135356,
+      "brier": 0.017459448074437275,
+      "ece_uniform": 0.22784796850501804,
+      "tn": 101,
+      "fp": 4,
+      "fn": 1,
+      "tp": 144
+    }
+  }
+]

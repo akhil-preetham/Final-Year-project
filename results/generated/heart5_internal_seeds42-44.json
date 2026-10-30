@@ -1,0 +1,1052 @@
+[
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8956521739130435,
+      "balanced_accuracy": 0.8935861172693219,
+      "precision": 0.8992248062015504,
+      "recall": 0.9133858267716536,
+      "specificity": 0.8737864077669902,
+      "f1": 0.90625,
+      "roc_auc": 0.9342557908416788,
+      "pr_auc": 0.940757998532253,
+      "brier": 0.09508024315796619,
+      "ece_uniform": 0.10318669065815005,
+      "tn": 90,
+      "fp": 13,
+      "fn": 11,
+      "tp": 116
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8956521739130435,
+      "balanced_accuracy": 0.8935861172693219,
+      "precision": 0.8992248062015504,
+      "recall": 0.9133858267716536,
+      "specificity": 0.8737864077669902,
+      "f1": 0.90625,
+      "roc_auc": 0.9478633132023545,
+      "pr_auc": 0.95948009287717,
+      "brier": 0.09030438230598108,
+      "ece_uniform": 0.11066543909978614,
+      "tn": 90,
+      "fp": 13,
+      "fn": 11,
+      "tp": 116
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8565217391304348,
+      "balanced_accuracy": 0.856318324287134,
+      "precision": 0.8790322580645161,
+      "recall": 0.8582677165354331,
+      "specificity": 0.8543689320388349,
+      "f1": 0.8685258964143426,
+      "roc_auc": 0.9032184083785643,
+      "pr_auc": 0.9208226601274012,
+      "brier": 0.1191481895538919,
+      "ece_uniform": 0.10585868137671298,
+      "tn": 88,
+      "fp": 15,
+      "fn": 18,
+      "tp": 109
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "ovec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8913043478260869,
+      "balanced_accuracy": 0.8868970262212369,
+      "precision": 0.8805970149253731,
+      "recall": 0.9291338582677166,
+      "specificity": 0.8446601941747572,
+      "f1": 0.9042145593869731,
+      "roc_auc": 0.945340570292791,
+      "pr_auc": 0.9469534135306713,
+      "brier": 0.0827854233126428,
+      "ece_uniform": 0.10192452985964762,
+      "tn": 87,
+      "fp": 16,
+      "fn": 9,
+      "tp": 118
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "ovec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8956521739130435,
+      "balanced_accuracy": 0.8908340340952526,
+      "precision": 0.8814814814814815,
+      "recall": 0.937007874015748,
+      "specificity": 0.8446601941747572,
+      "f1": 0.9083969465648855,
+      "roc_auc": 0.9537497133246694,
+      "pr_auc": 0.9653835263819882,
+      "brier": 0.08495329312558607,
+      "ece_uniform": 0.08932783787189459,
+      "tn": 87,
+      "fp": 16,
+      "fn": 8,
+      "tp": 119
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "ovec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8652173913043478,
+      "balanced_accuracy": 0.8632749789771423,
+      "precision": 0.875,
+      "recall": 0.8818897637795275,
+      "specificity": 0.8446601941747572,
+      "f1": 0.8784313725490196,
+      "roc_auc": 0.9121626786942895,
+      "pr_auc": 0.9136493151766663,
+      "brier": 0.10992339084791784,
+      "ece_uniform": 0.10900197969661445,
+      "tn": 87,
+      "fp": 16,
+      "fn": 15,
+      "tp": 112
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8956521739130435,
+      "balanced_accuracy": 0.8963382004433912,
+      "precision": 0.9186991869918699,
+      "recall": 0.889763779527559,
+      "specificity": 0.9029126213592233,
+      "f1": 0.904,
+      "roc_auc": 0.9347909181255255,
+      "pr_auc": 0.9319852989430412,
+      "brier": 0.08747034255265376,
+      "ece_uniform": 0.08470435744252153,
+      "tn": 93,
+      "fp": 10,
+      "fn": 14,
+      "tp": 113
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8739130434782608,
+      "balanced_accuracy": 0.8711489947251738,
+      "precision": 0.8769230769230769,
+      "recall": 0.8976377952755905,
+      "specificity": 0.8446601941747572,
+      "f1": 0.8871595330739299,
+      "roc_auc": 0.9535203730601636,
+      "pr_auc": 0.9623073604383965,
+      "brier": 0.09158381511598618,
+      "ece_uniform": 0.14450841344004356,
+      "tn": 87,
+      "fp": 16,
+      "fn": 13,
+      "tp": 114
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": false
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8478260869565217,
+      "balanced_accuracy": 0.8475269474810794,
+      "precision": 0.8709677419354839,
+      "recall": 0.8503937007874016,
+      "specificity": 0.8446601941747572,
+      "f1": 0.8605577689243028,
+      "roc_auc": 0.9021481538108707,
+      "pr_auc": 0.91326230602173,
+      "brier": 0.11842719603354449,
+      "ece_uniform": 0.11597123735026768,
+      "tn": 87,
+      "fp": 16,
+      "fn": 19,
+      "tp": 108
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8869565217391304,
+      "balanced_accuracy": 0.8847947404632672,
+      "precision": 0.8914728682170543,
+      "recall": 0.905511811023622,
+      "specificity": 0.8640776699029126,
+      "f1": 0.8984375,
+      "roc_auc": 0.9349438116351961,
+      "pr_auc": 0.9409323298607406,
+      "brier": 0.09466575066239294,
+      "ece_uniform": 0.08169966164867526,
+      "tn": 89,
+      "fp": 14,
+      "fn": 12,
+      "tp": 115
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8956521739130435,
+      "balanced_accuracy": 0.8935861172693219,
+      "precision": 0.8992248062015504,
+      "recall": 0.9133858267716536,
+      "specificity": 0.8737864077669902,
+      "f1": 0.90625,
+      "roc_auc": 0.9476339729378488,
+      "pr_auc": 0.9593274481664165,
+      "brier": 0.09020874410554404,
+      "ece_uniform": 0.11193790668754615,
+      "tn": 90,
+      "fp": 13,
+      "fn": 11,
+      "tp": 116
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "logistic",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8565217391304348,
+      "balanced_accuracy": 0.856318324287134,
+      "precision": 0.8790322580645161,
+      "recall": 0.8582677165354331,
+      "specificity": 0.8543689320388349,
+      "f1": 0.8685258964143426,
+      "roc_auc": 0.9032184083785643,
+      "pr_auc": 0.9208226601274012,
+      "brier": 0.11914818955389189,
+      "ece_uniform": 0.10585868137671302,
+      "tn": 88,
+      "fp": 15,
+      "fn": 18,
+      "tp": 109
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 42,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.9,
+      "balanced_accuracy": 0.9002752083174069,
+      "precision": 0.9193548387096774,
+      "recall": 0.8976377952755905,
+      "specificity": 0.9029126213592233,
+      "f1": 0.9083665338645418,
+      "roc_auc": 0.9360140662028897,
+      "pr_auc": 0.9333845034495823,
+      "brier": 0.08642839675104677,
+      "ece_uniform": 0.08893149175371293,
+      "tn": 93,
+      "fp": 10,
+      "fn": 13,
+      "tp": 114
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 43,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8739130434782608,
+      "balanced_accuracy": 0.8711489947251738,
+      "precision": 0.8769230769230769,
+      "recall": 0.8976377952755905,
+      "specificity": 0.8446601941747572,
+      "f1": 0.8871595330739299,
+      "roc_auc": 0.9510740769054353,
+      "pr_auc": 0.9615418868538156,
+      "brier": 0.09163805377455372,
+      "ece_uniform": 0.2017237022288076,
+      "tn": 87,
+      "fp": 16,
+      "fn": 13,
+      "tp": 114
+    }
+  },
+  {
+    "config": {
+      "dataset": "heart5.csv",
+      "target": "HeartDisease",
+      "variant": "osec",
+      "seed": 44,
+      "test_size": 0.25,
+      "outlier_strategy": "median",
+      "use_stable_selector": true
+    },
+    "dataset_summary": {
+      "path": "heart5.csv",
+      "sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "rows": 918,
+      "columns": [
+        "Age",
+        "Sex",
+        "ChestPainType",
+        "RestingBP",
+        "Cholesterol",
+        "FastingBS",
+        "RestingECG",
+        "MaxHR",
+        "ExerciseAngina",
+        "Oldpeak",
+        "ST_Slope",
+        "HeartDisease"
+      ],
+      "missing_by_column": {
+        "Age": 0,
+        "Sex": 0,
+        "ChestPainType": 0,
+        "RestingBP": 0,
+        "Cholesterol": 0,
+        "FastingBS": 0,
+        "RestingECG": 0,
+        "MaxHR": 0,
+        "ExerciseAngina": 0,
+        "Oldpeak": 0,
+        "ST_Slope": 0,
+        "HeartDisease": 0
+      },
+      "duplicate_rows": 0,
+      "target": "HeartDisease",
+      "target_counts": {
+        "0": 410,
+        "1": 508
+      }
+    },
+    "dropped_identifier_columns": [],
+    "metrics": {
+      "n": 230,
+      "positive_count": 127,
+      "prevalence": 0.5521739130434783,
+      "accuracy": 0.8478260869565217,
+      "balanced_accuracy": 0.8475269474810794,
+      "precision": 0.8709677419354839,
+      "recall": 0.8503937007874016,
+      "specificity": 0.8446601941747572,
+      "f1": 0.8605577689243028,
+      "roc_auc": 0.9021481538108707,
+      "pr_auc": 0.91326230602173,
+      "brier": 0.11842719603354449,
+      "ece_uniform": 0.11597123735026768,
+      "tn": 87,
+      "fp": 16,
+      "fn": 19,
+      "tp": 108
+    }
+  }
+]

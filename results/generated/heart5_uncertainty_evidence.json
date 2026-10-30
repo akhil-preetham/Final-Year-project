@@ -1,0 +1,320 @@
+{
+  "dataset": "heart5.csv",
+  "target": "HeartDisease",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "protocol": "Repeated internal 56.25% fit, 18.75% calibration, 25% evaluation splits; no test labels used for fitting or calibration",
+  "candidates": {
+    "corrected_osec": {
+      "confidence_error_auc": {
+        "mean": 0.7617322690698369,
+        "bootstrap_ci": {
+          "low": 0.7343700216873466,
+          "high": 0.789191754473453
+        }
+      },
+      "aurc": {
+        "mean": 0.05107556455908232,
+        "bootstrap_ci": {
+          "low": 0.04564176387985308,
+          "high": 0.056751031874656604
+        }
+      },
+      "full_coverage_risk": {
+        "mean": 0.1308695652173913,
+        "bootstrap_ci": {
+          "low": 0.12260869565217392,
+          "high": 0.13956521739130437
+        }
+      },
+      "conformal_coverage": {
+        "mean": 0.912608695652174,
+        "bootstrap_ci": {
+          "low": 0.9030434782608696,
+          "high": 0.9213043478260868
+        }
+      },
+      "abstention_rate": {
+        "mean": 0.13304347826086957,
+        "bootstrap_ci": {
+          "low": 0.10478260869565217,
+          "high": 0.1617391304347826
+        }
+      },
+      "ece_uniform": {
+        "mean": 0.11198611947496968,
+        "bootstrap_ci": {
+          "low": 0.09666293056130423,
+          "high": 0.12978883522622542
+        }
+      }
+    },
+    "stable_osec": {
+      "confidence_error_auc": {
+        "mean": 0.7546018286492372,
+        "bootstrap_ci": {
+          "low": 0.7201574279524671,
+          "high": 0.7851428466971784
+        }
+      },
+      "aurc": {
+        "mean": 0.05360651357807485,
+        "bootstrap_ci": {
+          "low": 0.046973428633503615,
+          "high": 0.06122801828084352
+        }
+      },
+      "full_coverage_risk": {
+        "mean": 0.12956521739130436,
+        "bootstrap_ci": {
+          "low": 0.12217391304347824,
+          "high": 0.1378260869565217
+        }
+      },
+      "conformal_coverage": {
+        "mean": 0.9130434782608695,
+        "bootstrap_ci": {
+          "low": 0.9026086956521739,
+          "high": 0.9217391304347826
+        }
+      },
+      "abstention_rate": {
+        "mean": 0.13130434782608696,
+        "bootstrap_ci": {
+          "low": 0.09956521739130435,
+          "high": 0.16130434782608696
+        }
+      },
+      "ece_uniform": {
+        "mean": 0.1150256476642336,
+        "bootstrap_ci": {
+          "low": 0.09928054652669792,
+          "high": 0.13255464567670516
+        }
+      }
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7185143288084465,
+          "aurc": 0.05342732811361147,
+          "full_coverage_risk": 0.11304347826086956,
+          "conformal_coverage": 0.9304347826086956,
+          "abstention_rate": 0.1782608695652174,
+          "ece_uniform": 0.08080230554784604
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.7100487804878048,
+          "aurc": 0.05280295021439119,
+          "full_coverage_risk": 0.10869565217391304,
+          "conformal_coverage": 0.9304347826086956,
+          "abstention_rate": 0.17391304347826086,
+          "ece_uniform": 0.0933854324886173
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.837,
+          "aurc": 0.034246008772646996,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.9260869565217391,
+          "abstention_rate": 0.14347826086956522,
+          "ece_uniform": 0.12107824632167379
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.837,
+          "aurc": 0.034246008772646996,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.9260869565217391,
+          "abstention_rate": 0.14347826086956522,
+          "ece_uniform": 0.12107824632167379
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.6813333333333333,
+          "aurc": 0.06875987702769086,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.9173913043478261,
+          "abstention_rate": 0.1956521739130435,
+          "ece_uniform": 0.09382531411377758
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.64076170869789,
+          "aurc": 0.08078242112710045,
+          "full_coverage_risk": 0.12608695652173912,
+          "conformal_coverage": 0.9130434782608695,
+          "abstention_rate": 0.19130434782608696,
+          "ece_uniform": 0.09894323559102045
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.732165663200146,
+          "aurc": 0.052739735219864685,
+          "full_coverage_risk": 0.11739130434782609,
+          "conformal_coverage": 0.9173913043478261,
+          "abstention_rate": 0.09130434782608696,
+          "ece_uniform": 0.1047566770317366
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.765,
+          "aurc": 0.055103486951535295,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.9217391304347826,
+          "abstention_rate": 0.1,
+          "ece_uniform": 0.10010895843601694
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.8379778742473042,
+          "aurc": 0.044915075206544725,
+          "full_coverage_risk": 0.1608695652173913,
+          "conformal_coverage": 0.8826086956521739,
+          "abstention_rate": 0.08695652173913043,
+          "ece_uniform": 0.12407629769703458
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.826354852261588,
+          "aurc": 0.05460222269826704,
+          "full_coverage_risk": 0.1608695652173913,
+          "conformal_coverage": 0.8956521739130435,
+          "abstention_rate": 0.11304347826086956,
+          "ece_uniform": 0.163300574184236
+        }
+      }
+    },
+    {
+      "seed": 47,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7788032610367636,
+          "aurc": 0.05236968176572058,
+          "full_coverage_risk": 0.14347826086956522,
+          "conformal_coverage": 0.8913043478260869,
+          "abstention_rate": 0.07391304347826087,
+          "ece_uniform": 0.10998302239848756
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.751,
+          "aurc": 0.051463106060480324,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.8782608695652174,
+          "abstention_rate": 0.043478260869565216,
+          "ece_uniform": 0.1022167532880998
+        }
+      }
+    },
+    {
+      "seed": 48,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7679255610290093,
+          "aurc": 0.04238408952862705,
+          "full_coverage_risk": 0.11739130434782609,
+          "conformal_coverage": 0.9130434782608695,
+          "abstention_rate": 0.11304347826086956,
+          "ece_uniform": 0.14290968881441352
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.7679255610290093,
+          "aurc": 0.04238408952862705,
+          "full_coverage_risk": 0.11739130434782609,
+          "conformal_coverage": 0.9130434782608695,
+          "abstention_rate": 0.11304347826086956,
+          "ece_uniform": 0.14290968881441346
+        }
+      }
+    },
+    {
+      "seed": 49,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7387201921427347,
+          "aurc": 0.054829707822346245,
+          "full_coverage_risk": 0.12608695652173912,
+          "conformal_coverage": 0.9260869565217391,
+          "abstention_rate": 0.2,
+          "ece_uniform": 0.09388965712449718
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.7387201921427347,
+          "aurc": 0.054829707822346245,
+          "full_coverage_risk": 0.12608695652173912,
+          "conformal_coverage": 0.9260869565217391,
+          "abstention_rate": 0.2,
+          "ece_uniform": 0.09388965712449715
+        }
+      }
+    },
+    {
+      "seed": 50,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7738693467336684,
+          "aurc": 0.04665019255433041,
+          "full_coverage_risk": 0.13478260869565217,
+          "conformal_coverage": 0.908695652173913,
+          "abstention_rate": 0.1565217391304348,
+          "ece_uniform": 0.08249853505567842
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.7591666666666667,
+          "aurc": 0.047911414547409076,
+          "full_coverage_risk": 0.13043478260869565,
+          "conformal_coverage": 0.9173913043478261,
+          "abstention_rate": 0.1608695652173913,
+          "ece_uniform": 0.0836102851186707
+        }
+      }
+    },
+    {
+      "seed": 51,
+      "candidates": {
+        "corrected_osec": {
+          "confidence_error_auc": 0.7510131301669637,
+          "aurc": 0.060433949579440226,
+          "full_coverage_risk": 0.13478260869565217,
+          "conformal_coverage": 0.9130434782608695,
+          "abstention_rate": 0.09130434782608696,
+          "ece_uniform": 0.16604145064455156
+        },
+        "stable_osec": {
+          "confidence_error_auc": 0.7500405252066785,
+          "aurc": 0.06193972805794487,
+          "full_coverage_risk": 0.13478260869565217,
+          "conformal_coverage": 0.908695652173913,
+          "abstention_rate": 0.07391304347826087,
+          "ece_uniform": 0.1508136452750904
+        }
+      }
+    }
+  ],
+  "interpretation": "These are repeated internal reliability estimates. They can show confidence/error association and coverage variability, but cannot establish external validity or semantic understanding of uncertainty."
+}

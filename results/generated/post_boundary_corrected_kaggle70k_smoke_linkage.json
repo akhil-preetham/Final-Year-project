@@ -1,0 +1,294 @@
+{
+  "dataset": "data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+  "target": "cardio",
+  "dropped_identifier_columns": [
+    "id"
+  ],
+  "protocol": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "fit_fraction": 0.5625,
+    "calibration_fraction": 0.1875,
+    "evaluation_fraction": 0.25,
+    "external_labels_used": false,
+    "candidate_pair": "corrected_osec versus stable_osec",
+    "linkage_question": "does training-only selector stability predict selective reliability on the same held-out split?"
+  },
+  "dataset_summary": {
+    "path": "data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+    "sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+    "rows": 70000,
+    "columns": [
+      "id",
+      "age",
+      "gender",
+      "height",
+      "weight",
+      "ap_hi",
+      "ap_lo",
+      "cholesterol",
+      "gluc",
+      "smoke",
+      "alco",
+      "active",
+      "cardio"
+    ],
+    "missing_by_column": {
+      "id": 0,
+      "age": 0,
+      "gender": 0,
+      "height": 0,
+      "weight": 0,
+      "ap_hi": 0,
+      "ap_lo": 0,
+      "cholesterol": 0,
+      "gluc": 0,
+      "smoke": 0,
+      "alco": 0,
+      "active": 0,
+      "cardio": 0
+    },
+    "duplicate_rows": 0,
+    "target": "cardio",
+    "target_counts": {
+      "0": 35021,
+      "1": 34979
+    },
+    "numeric_features": [
+      "age",
+      "height",
+      "weight",
+      "ap_hi",
+      "ap_lo"
+    ],
+    "categorical_features": [
+      "gender",
+      "cholesterol",
+      "gluc",
+      "smoke",
+      "alco",
+      "active"
+    ]
+  },
+  "stability": {
+    "mean_internal_nogueira": 1.0,
+    "mean_internal_nogueira_bootstrap_ci": {
+      "low": 1.0,
+      "high": 1.0
+    },
+    "cross_seed_selected_set_nogueira": -0.058823529411764275,
+    "mean_selected_feature_count": 11.333333333333334,
+    "feature_universe": [
+      "active_0",
+      "active_1",
+      "age",
+      "ap_hi",
+      "ap_lo",
+      "cholesterol_1",
+      "cholesterol_2",
+      "cholesterol_3",
+      "gluc_1",
+      "gluc_2",
+      "gluc_3",
+      "weight"
+    ]
+  },
+  "paired_reliability_differences": {
+    "roc_auc": {
+      "mean": -0.0007602549421240242,
+      "bootstrap_ci": {
+        "low": -0.0012111220281214585,
+        "high": -0.000436480142524065
+      }
+    },
+    "confidence_error_auc": {
+      "mean": 3.4745289238450695e-05,
+      "bootstrap_ci": {
+        "low": -0.0011806543776449185,
+        "high": 0.0008370067396967773
+      }
+    },
+    "aurc": {
+      "mean": 0.00028934353091569776,
+      "bootstrap_ci": {
+        "low": 0.00013397177165552776,
+        "high": 0.0003843037369032354
+      }
+    },
+    "full_coverage_risk": {
+      "mean": 0.000723809523809534,
+      "bootstrap_ci": {
+        "low": 0.00034285714285714475,
+        "high": 0.001085714285714301
+      }
+    },
+    "conformal_coverage": {
+      "mean": -0.0002666666666666373,
+      "bootstrap_ci": {
+        "low": -0.0008571428571428896,
+        "high": 0.0004571428571429337
+      }
+    },
+    "ece_uniform": {
+      "mean": 0.00046091041314285687,
+      "bootstrap_ci": {
+        "low": 0.00014772865414409454,
+        "high": 0.0007583366707623121
+      }
+    }
+  },
+  "stability_reliability_rank_correlations": {
+    "roc_auc": {
+      "spearman_rho": null,
+      "p_value": null
+    },
+    "confidence_error_auc": {
+      "spearman_rho": null,
+      "p_value": null
+    },
+    "aurc": {
+      "spearman_rho": null,
+      "p_value": null
+    },
+    "full_coverage_risk": {
+      "spearman_rho": null,
+      "p_value": null
+    },
+    "conformal_coverage": {
+      "spearman_rho": null,
+      "p_value": null
+    },
+    "ece_uniform": {
+      "spearman_rho": null,
+      "p_value": null
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "corrected_osec": {
+        "roc_auc": 0.7919500773714538,
+        "confidence_error_auc": 0.6687200079365263,
+        "aurc": 0.18308638719290948,
+        "full_coverage_risk": 0.2736571428571429,
+        "conformal_coverage": 0.9002285714285714,
+        "ece_uniform": 0.021979835406110964
+      },
+      "stable_osec": {
+        "roc_auc": 0.7907389553433324,
+        "confidence_error_auc": 0.6675393535588814,
+        "aurc": 0.18347069092981272,
+        "full_coverage_risk": 0.274,
+        "conformal_coverage": 0.9006857142857143,
+        "ece_uniform": 0.022456501320633128,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 10
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.0012111220281214585,
+        "confidence_error_auc": -0.0011806543776449185,
+        "aurc": 0.0003843037369032354,
+        "full_coverage_risk": 0.00034285714285714475,
+        "conformal_coverage": 0.0004571428571429337,
+        "ece_uniform": 0.000476665914522164
+      }
+    },
+    {
+      "seed": 43,
+      "corrected_osec": {
+        "roc_auc": 0.7996664554012916,
+        "confidence_error_auc": 0.6745563339792593,
+        "aurc": 0.1731391909771229,
+        "full_coverage_risk": 0.26657142857142857,
+        "conformal_coverage": 0.8998857142857143,
+        "ece_uniform": 0.01441259873232263
+      },
+      "stable_osec": {
+        "roc_auc": 0.799033292745565,
+        "confidence_error_auc": 0.6753933407189561,
+        "aurc": 0.17327316274877844,
+        "full_coverage_risk": 0.26765714285714287,
+        "conformal_coverage": 0.8990285714285714,
+        "ece_uniform": 0.014560327386466725,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 12
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.0006331626557265491,
+        "confidence_error_auc": 0.0008370067396967773,
+        "aurc": 0.00013397177165552776,
+        "full_coverage_risk": 0.001085714285714301,
+        "conformal_coverage": -0.0008571428571428896,
+        "ece_uniform": 0.00014772865414409454
+      }
+    },
+    {
+      "seed": 44,
+      "corrected_osec": {
+        "roc_auc": 0.7890857303137078,
+        "confidence_error_auc": 0.6596697186121244,
+        "aurc": 0.18797057769136863,
+        "full_coverage_risk": 0.27217142857142856,
+        "conformal_coverage": 0.8985714285714286,
+        "ece_uniform": 0.01933654917842675
+      },
+      "stable_osec": {
+        "roc_auc": 0.7886492501711837,
+        "confidence_error_auc": 0.6601176021177879,
+        "aurc": 0.18832033277555696,
+        "full_coverage_risk": 0.2729142857142857,
+        "conformal_coverage": 0.8981714285714286,
+        "ece_uniform": 0.020094885849189063,
+        "selector_internal_nogueira_stability": 1.0,
+        "selected_feature_count": 12
+      },
+      "paired_difference_stable_minus_corrected": {
+        "roc_auc": -0.000436480142524065,
+        "confidence_error_auc": 0.00044788350566349333,
+        "aurc": 0.0003497550841883301,
+        "full_coverage_risk": 0.0007428571428571562,
+        "conformal_coverage": -0.00039999999999995595,
+        "ece_uniform": 0.0007583366707623121
+      }
+    }
+  ],
+  "interpretation": "Positive evidence that stability improves reliability would require repeated paired differences favoring the stable candidate. A weak or absent rank correlation indicates that feature-set stability and predictive reliability are distinct empirical properties. Neither result establishes external validity.",
+  "provenance": {
+    "selector_protocol": "post_boundary_correction_v1",
+    "experiment_type": "stability_reliability_linkage",
+    "dataset_path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\data\\kaggle_cardiovascular_70k\\cardio_train.csv",
+    "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+    "target": "cardio",
+    "configuration": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "fit_fraction": 0.5625,
+      "calibration_fraction": 0.1875,
+      "evaluation_fraction": 0.25,
+      "candidate_pair": "corrected_osec versus stable_osec",
+      "external_labels_used": false
+    },
+    "python_version": "3.11.16",
+    "package_versions": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "imbalanced-learn": "0.14.2",
+      "xgboost": "3.2.0"
+    },
+    "git_head": "e63b02c8a2aba6344a48025f657696fd99ac3a5f",
+    "working_tree_dirty": true,
+    "seeds": [
+      42,
+      43,
+      44
+    ]
+  }
+}
