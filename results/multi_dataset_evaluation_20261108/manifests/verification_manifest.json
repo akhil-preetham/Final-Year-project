@@ -1,0 +1,1376 @@
+{
+  "status": "passed",
+  "source_checksum_count": 7,
+  "source_checksums_verified": [
+    "uci_cleveland",
+    "uci_hungary",
+    "uci_switzerland",
+    "uci_va_long_beach",
+    "uci_heart_failure_519",
+    "uci_mi_complications_579",
+    "uci_spectf_heart"
+  ],
+  "prepared_checksum_count": 9,
+  "prepared_checksums_verified": [
+    "uci_cleveland",
+    "uci_hungary",
+    "uci_switzerland",
+    "uci_va_long_beach",
+    "uci_heart_failure_519",
+    "uci_mi_complications_579",
+    "uci_spectf_heart:train",
+    "uci_spectf_heart:test",
+    "uci_spectf_heart:all"
+  ],
+  "saved_ground_truth_matches_prepared_data": {
+    "within_task_label_groups": 42,
+    "cross_task_label_groups": 72
+  },
+  "prediction_and_metric_consistency": {
+    "prediction_group_count": 42,
+    "all_pooled_metrics_recomputed": true,
+    "groups": [
+      {
+        "dataset": "uci_cleveland",
+        "model": "knn",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_cleveland",
+        "model": "logistic",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_cleveland",
+        "model": "osec",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_cleveland",
+        "model": "ovec",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_cleveland",
+        "model": "random_forest",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_cleveland",
+        "model": "svm",
+        "n": 303,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "knn",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "logistic",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "osec",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "ovec",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "random_forest",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_heart_failure_519",
+        "model": "svm",
+        "n": 299,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "knn",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "logistic",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "osec",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "ovec",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "random_forest",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_hungary",
+        "model": "svm",
+        "n": 294,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "knn",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "logistic",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "osec",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "ovec",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "random_forest",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_mi_complications_579",
+        "model": "svm",
+        "n": 1700,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "knn",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "logistic",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "osec",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "ovec",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "random_forest",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_spectf_heart",
+        "model": "svm",
+        "n": 187,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "knn",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "logistic",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "osec",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "ovec",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "random_forest",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_switzerland",
+        "model": "svm",
+        "n": 123,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "knn",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "logistic",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "osec",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "ovec",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "random_forest",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      },
+      {
+        "dataset": "uci_va_long_beach",
+        "model": "svm",
+        "n": 200,
+        "checks": [
+          "accuracy",
+          "precision",
+          "recall",
+          "specificity",
+          "f1",
+          "roc_auc",
+          "pr_auc",
+          "brier"
+        ]
+      }
+    ]
+  },
+  "cross_prediction_and_metric_consistency": {
+    "prediction_group_count": 72,
+    "all_cross_metrics_recomputed": true
+  },
+  "fold_assignment_groups_checked": 24,
+  "fold_assignments": [
+    {
+      "dataset": "uci_cleveland",
+      "fold": "1",
+      "model": NaN,
+      "rows": 303,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_cleveland",
+      "fold": "2",
+      "model": NaN,
+      "rows": 303,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_cleveland",
+      "fold": "3",
+      "model": NaN,
+      "rows": 303,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_heart_failure_519",
+      "fold": "1",
+      "model": NaN,
+      "rows": 299,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_heart_failure_519",
+      "fold": "2",
+      "model": NaN,
+      "rows": 299,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_heart_failure_519",
+      "fold": "3",
+      "model": NaN,
+      "rows": 299,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_hungary",
+      "fold": "1",
+      "model": NaN,
+      "rows": 294,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_hungary",
+      "fold": "2",
+      "model": NaN,
+      "rows": 294,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_hungary",
+      "fold": "3",
+      "model": NaN,
+      "rows": 294,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_mi_complications_579",
+      "fold": "1",
+      "model": NaN,
+      "rows": 1700,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_mi_complications_579",
+      "fold": "2",
+      "model": NaN,
+      "rows": 1700,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_mi_complications_579",
+      "fold": "3",
+      "model": NaN,
+      "rows": 1700,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "knn",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "logistic",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "osec",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "ovec",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "random_forest",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_spectf_heart",
+      "fold": "official_split",
+      "model": "svm",
+      "rows": 267,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "official_test"
+      ]
+    },
+    {
+      "dataset": "uci_switzerland",
+      "fold": "1",
+      "model": NaN,
+      "rows": 123,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_switzerland",
+      "fold": "2",
+      "model": NaN,
+      "rows": 123,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_switzerland",
+      "fold": "3",
+      "model": NaN,
+      "rows": 123,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "fold": "1",
+      "model": NaN,
+      "rows": 200,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "fold": "2",
+      "model": NaN,
+      "rows": 200,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "fold": "3",
+      "model": NaN,
+      "rows": 200,
+      "roles": [
+        "conformal_calibration",
+        "development",
+        "outer_test"
+      ]
+    }
+  ],
+  "cross_dataset_assignment_groups_checked": 72,
+  "cross_dataset_assignments": [
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "knn",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "logistic",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "osec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "ovec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "random_forest",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_hungary",
+      "model": "svm",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "knn",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "logistic",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "osec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "ovec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "random_forest",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_switzerland",
+      "model": "svm",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "knn",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "logistic",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "osec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "ovec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "random_forest",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_cleveland",
+      "target": "uci_va_long_beach",
+      "model": "svm",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "knn",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "logistic",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "osec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "ovec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "random_forest",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_cleveland",
+      "model": "svm",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "knn",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "logistic",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "osec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "ovec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "random_forest",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_switzerland",
+      "model": "svm",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "knn",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "logistic",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "osec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "ovec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "random_forest",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_hungary",
+      "target": "uci_va_long_beach",
+      "model": "svm",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "knn",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "logistic",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "osec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "ovec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "random_forest",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_cleveland",
+      "model": "svm",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "knn",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "logistic",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "osec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "ovec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "random_forest",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_hungary",
+      "model": "svm",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "knn",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "logistic",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "osec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "ovec",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "random_forest",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_switzerland",
+      "target": "uci_va_long_beach",
+      "model": "svm",
+      "target_rows": 200
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "knn",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "logistic",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "osec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "ovec",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "random_forest",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_cleveland",
+      "model": "svm",
+      "target_rows": 303
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "knn",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "logistic",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "osec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "ovec",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "random_forest",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_hungary",
+      "model": "svm",
+      "target_rows": 294
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "knn",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "logistic",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "osec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "ovec",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "random_forest",
+      "target_rows": 123
+    },
+    {
+      "source": "uci_va_long_beach",
+      "target": "uci_switzerland",
+      "model": "svm",
+      "target_rows": 123
+    }
+  ],
+  "cross_dataset_prediction_groups_checked": 72,
+  "no_duplicate_scored_row_within_dataset_model": true,
+  "cross_dataset_prediction_rows": 16560,
+  "fold_metric_rows": 114,
+  "no_existing_artifact_paths_touched": "Outputs confined to new multi_dataset_evaluation_20261108 directory and new report paths."
+}

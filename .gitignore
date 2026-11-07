@@ -26,3 +26,7 @@ data/processed/
 /results/generated/
 /results/**/*predictions*.csv
 /results/**/*.joblib
+
+# Keep row-level multi-dataset predictions and resumable checkpoints local.
+/results/multi_dataset_evaluation_20261108/experiments/
+/results/multi_dataset_evaluation_20261108/predictions/

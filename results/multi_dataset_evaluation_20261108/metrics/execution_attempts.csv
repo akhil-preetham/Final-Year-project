@@ -1,0 +1,3 @@
+run_id,status,included_in_final_metrics,reason,log
+20261107T202151Z,aborted_incomplete,False,Stopped after detecting incorrect learning-curve score-array indexing; partial results excluded.,results/multi_dataset_evaluation_20261108/logs/run_20261107T202151Z.log
+20261107T202404Z,completed_with_failures,True,Complete corrected evaluation; six Switzerland learning curves failed because the smallest training subset contained one class.,results\multi_dataset_evaluation_20261108\logs\run_20261107T202404Z.log

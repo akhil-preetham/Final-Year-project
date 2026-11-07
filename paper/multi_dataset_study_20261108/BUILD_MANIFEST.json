@@ -1,0 +1,39 @@
+{
+  "project": "CARDIODIAG",
+  "experiment_run_id": "20261107T202404Z",
+  "branch": "codex/multi-dataset-evaluation-2026-11-08",
+  "build_status": "success",
+  "compiler": "Tectonic 0.17.0",
+  "output_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf",
+  "pages": 6,
+  "page_size": "US Letter, 612 x 792 pt",
+  "output_pdf_sha256": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b",
+  "source_files_sha256": {
+    "paper/multi_dataset_study_20261108/main.bbl": "81aa94c77a496fb79ca1807cad345fc727e5b3c6dda6f212bd6de36487436262",
+    "paper/multi_dataset_study_20261108/main.tex": "a352dce2d77af4eb2030cb37a6a80d66872ac9ca79568fa84fcb8350e6c77600",
+    "paper/multi_dataset_study_20261108/README.md": "d7471d5417dc8030081cd0b9b882d0297692fd64dea396aec4d0524e38ff0bcc",
+    "paper/multi_dataset_study_20261108/references.bbl": "81aa94c77a496fb79ca1807cad345fc727e5b3c6dda6f212bd6de36487436262",
+    "paper/multi_dataset_study_20261108/references.bib": "4d905ce29728cd7799ad773d8e5252e1287aeda8d3f3faf0ef71d298757d1b57",
+    "paper/multi_dataset_study_20261108/run_metadata.tex": "8c2e2104452665363bf7e1ae6488118d1084a80137475d56616939f723de62fc",
+    "paper/multi_dataset_study_20261108/figures/calibration_curves.pdf": "8c86ddbeab528edd410bcf522ad0550c53736b8ce4dfcd9420c5e749bc05dcb3",
+    "paper/multi_dataset_study_20261108/figures/cross_dataset_mean_auc_heatmap.pdf": "be615b619477e6670c4ab71df40c50cb67b92855537f984ab28fe08899bc0c39",
+    "paper/multi_dataset_study_20261108/figures/model_performance_comparison.pdf": "64e1d4d8adcdd8c94e3fe684f4a915793f6d87e7349ec8edfc4461dabc354c89",
+    "paper/multi_dataset_study_20261108/tables/cad_model_metrics.tex": "d2fde7bd20d75385b36f7883b2fb11ad88ec477f678f3d24935644289aa4ddbb",
+    "paper/multi_dataset_study_20261108/tables/cross_cohort_summary.tex": "ccd94063b14527cec4460a4799bf66fb3d506c539050dc62ef7635720c659937",
+    "paper/multi_dataset_study_20261108/tables/dataset_characteristics.tex": "644f30413427fb1a9258bd3ba5af5e34406c164cf1d3dc1f501c366d3a5eba83",
+    "paper/multi_dataset_study_20261108/tables/model_auc_matrix.tex": "3e83d422ee08a8a2ca55a6d2030a40807e16518cfe92708a7326bab44261164a",
+    "paper/multi_dataset_study_20261108/tables/other_task_model_metrics.tex": "36305648c359fc30333204cde5bf557005b21149af3b7e287e62dbaf91ea6faa",
+    "paper/multi_dataset_study_20261108/tables/uncertainty_ranges.tex": "fbe7dd89fb1df556dc44c9d5b7f7a96b6dd5c160c9e32ce5697e9fa3e83f1d1f"
+  },
+  "verification": {
+    "fresh_source_bundle_build": true,
+    "citations_resolved": true,
+    "visual_render_reviewed": true,
+    "page_count_verified": true,
+    "nonfatal_warnings": [
+      "Font-shape substitutions for TU/ptm; default shapes substituted.",
+      "Two underfull vertical-box warnings on pages 5 and 6.",
+      "Fontconfig reported no default config file; output was produced and validated."
+    ]
+  }
+}

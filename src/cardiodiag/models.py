@@ -79,3 +79,37 @@ def build_osec_xgboost(random_state: int = 42) -> StackingClassifier:
         random_state=random_state,
     )
     return base
+
+
+def build_individual_model(variant: str, random_state: int = 42):
+    """Build a deterministic individual baseline for matched comparisons.
+
+    OVEC and OSEC keep their original definitions above. This helper exposes
+    standalone baselines from those model families for nested evaluation.
+    """
+
+    models = {
+        "logistic": LogisticRegression(
+            max_iter=2000,
+            class_weight="balanced",
+            random_state=random_state,
+        ),
+        "knn": KNeighborsClassifier(n_neighbors=7),
+        "svm": SVC(
+            probability=True,
+            class_weight="balanced",
+            random_state=random_state,
+        ),
+        "random_forest": RandomForestClassifier(
+            n_estimators=200,
+            class_weight="balanced",
+            n_jobs=1,
+            random_state=random_state,
+        ),
+    }
+    try:
+        return models[variant]
+    except KeyError as exc:
+        raise ValueError(
+            f"Unknown individual model {variant!r}; choose from {sorted(models)}"
+        ) from exc

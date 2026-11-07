@@ -7,14 +7,13 @@ from pathlib import Path
 from typing import Any
 
 from sklearn.base import clone
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
 from .data import drop_identifier_columns, load_dataset, summarize_dataset
 from .evaluation import evaluate_predictions
 from .feature_selection import StableXAIHDRC
-from .models import build_osec, build_ovec
+from .models import build_individual_model, build_osec, build_ovec
 from .preprocessing import TrainingOnlyCleaner, make_tabular_preprocessor
 
 
@@ -49,11 +48,10 @@ def build_corrected_pipeline(
     ]
     numeric = [column for column in X_train.columns if column not in categorical]
     models = {
-        "logistic": LogisticRegression(
-            max_iter=2000,
-            class_weight="balanced",
-            random_state=seed,
-        ),
+        "logistic": build_individual_model("logistic", random_state=seed),
+        "knn": build_individual_model("knn", random_state=seed),
+        "svm": build_individual_model("svm", random_state=seed),
+        "random_forest": build_individual_model("random_forest", random_state=seed),
         "ovec": build_ovec(random_state=seed),
         "osec": build_osec(random_state=seed),
     }

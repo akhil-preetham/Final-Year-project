@@ -1,0 +1,7 @@
+dataset,model,stage,error_type,reason
+uci_switzerland,logistic,learning_curve,ValueError,"This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(1)"
+uci_switzerland,knn,learning_curve,ValueError,"Got predict_proba of shape (41, 1), but need classifier with two classes."
+uci_switzerland,svm,learning_curve,ValueError,The number of classes has to be greater than one; got 1 class
+uci_switzerland,random_forest,learning_curve,ValueError,"Got predict_proba of shape (41, 1), but need classifier with two classes."
+uci_switzerland,ovec,learning_curve,ValueError,"This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(0)"
+uci_switzerland,osec,learning_curve,ValueError,"This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(0)"

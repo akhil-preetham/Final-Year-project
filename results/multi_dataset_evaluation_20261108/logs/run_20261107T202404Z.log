@@ -1,0 +1,447 @@
+2026-11-08 01:54:04,455 INFO START dataset=uci_cleveland n=303 p=13
+2026-11-08 01:54:04,455 INFO RUN nested dataset=uci_cleveland model=logistic
+2026-11-08 01:54:05,348 INFO PASS nested dataset=uci_cleveland model=logistic outer_roc_auc=0.9106
+2026-11-08 01:54:05,348 INFO RUN nested dataset=uci_cleveland model=knn
+2026-11-08 01:54:07,130 INFO PASS nested dataset=uci_cleveland model=knn outer_roc_auc=0.8891
+2026-11-08 01:54:07,130 INFO RUN nested dataset=uci_cleveland model=svm
+2026-11-08 01:54:08,959 INFO PASS nested dataset=uci_cleveland model=svm outer_roc_auc=0.9092
+2026-11-08 01:54:08,959 INFO RUN nested dataset=uci_cleveland model=random_forest
+2026-11-08 01:54:15,514 INFO PASS nested dataset=uci_cleveland model=random_forest outer_roc_auc=0.9108
+2026-11-08 01:54:15,514 INFO RUN nested dataset=uci_cleveland model=ovec
+2026-11-08 01:54:17,779 INFO PASS nested dataset=uci_cleveland model=ovec outer_roc_auc=0.9088
+2026-11-08 01:54:17,780 INFO RUN nested dataset=uci_cleveland model=osec
+2026-11-08 01:54:33,681 INFO PASS nested dataset=uci_cleveland model=osec outer_roc_auc=0.9026
+2026-11-08 01:54:44,979 INFO START dataset=uci_hungary n=294 p=13
+2026-11-08 01:54:44,980 INFO RUN nested dataset=uci_hungary model=logistic
+2026-11-08 01:54:45,877 INFO PASS nested dataset=uci_hungary model=logistic outer_roc_auc=0.8791
+2026-11-08 01:54:45,877 INFO RUN nested dataset=uci_hungary model=knn
+2026-11-08 01:54:47,457 INFO PASS nested dataset=uci_hungary model=knn outer_roc_auc=0.8756
+2026-11-08 01:54:47,457 INFO RUN nested dataset=uci_hungary model=svm
+2026-11-08 01:54:49,154 INFO PASS nested dataset=uci_hungary model=svm outer_roc_auc=0.8765
+2026-11-08 01:54:49,154 INFO RUN nested dataset=uci_hungary model=random_forest
+2026-11-08 01:54:55,492 INFO PASS nested dataset=uci_hungary model=random_forest outer_roc_auc=0.8799
+2026-11-08 01:54:55,492 INFO RUN nested dataset=uci_hungary model=ovec
+2026-11-08 01:54:57,587 INFO PASS nested dataset=uci_hungary model=ovec outer_roc_auc=0.8896
+2026-11-08 01:54:57,588 INFO RUN nested dataset=uci_hungary model=osec
+2026-11-08 01:55:12,712 INFO PASS nested dataset=uci_hungary model=osec outer_roc_auc=0.8756
+2026-11-08 01:55:23,650 INFO START dataset=uci_switzerland n=123 p=13
+2026-11-08 01:55:23,651 WARNING Switzerland has only 8 negative cases; metrics will be unstable
+2026-11-08 01:55:23,654 INFO RUN nested dataset=uci_switzerland model=logistic
+2026-11-08 01:55:24,517 INFO PASS nested dataset=uci_switzerland model=logistic outer_roc_auc=0.7717
+2026-11-08 01:55:24,517 INFO RUN nested dataset=uci_switzerland model=knn
+2026-11-08 01:55:26,023 INFO PASS nested dataset=uci_switzerland model=knn outer_roc_auc=0.5301
+2026-11-08 01:55:26,023 INFO RUN nested dataset=uci_switzerland model=svm
+2026-11-08 01:55:27,604 INFO PASS nested dataset=uci_switzerland model=svm outer_roc_auc=0.5688
+2026-11-08 01:55:27,604 INFO RUN nested dataset=uci_switzerland model=random_forest
+2026-11-08 01:55:33,377 INFO PASS nested dataset=uci_switzerland model=random_forest outer_roc_auc=0.7356
+2026-11-08 01:55:33,378 INFO RUN nested dataset=uci_switzerland model=ovec
+2026-11-08 01:55:35,313 INFO PASS nested dataset=uci_switzerland model=ovec outer_roc_auc=0.7321
+2026-11-08 01:55:35,314 INFO RUN nested dataset=uci_switzerland model=osec
+2026-11-08 01:55:49,979 INFO PASS nested dataset=uci_switzerland model=osec outer_roc_auc=0.7506
+2026-11-08 01:55:50,202 ERROR Learning curve failed: uci_switzerland / logistic
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\pipeline.py", line 663, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py", line 1335, in fit
+    raise ValueError(
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(1)
+2026-11-08 01:55:50,767 ERROR Learning curve failed: uci_switzerland / knn
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 881, in _fit_and_score
+    test_scores = _score(
+                  ^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 942, in _score
+    scores = scorer(estimator, X_test, y_test, **score_params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 308, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 400, in _score
+    y_pred = method_caller(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 90, in _cached_call
+    result, _ = _get_response_values(
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_response.py", line 217, in _get_response_values
+    y_pred = _process_predict_proba(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_response.py", line 54, in _process_predict_proba
+    raise ValueError(
+ValueError: Got predict_proba of shape (41, 1), but need classifier with two classes.
+2026-11-08 01:55:51,077 ERROR Learning curve failed: uci_switzerland / svm
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\pipeline.py", line 663, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\svm\_base.py", line 207, in fit
+    y = self._validate_targets(y)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\svm\_base.py", line 751, in _validate_targets
+    raise ValueError(
+ValueError: The number of classes has to be greater than one; got 1 class
+2026-11-08 01:55:52,417 ERROR Learning curve failed: uci_switzerland / random_forest
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 881, in _fit_and_score
+    test_scores = _score(
+                  ^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 942, in _score
+    scores = scorer(estimator, X_test, y_test, **score_params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 308, in __call__
+    return self._score(partial(_cached_call, None), estimator, X, y_true, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 400, in _score
+    y_pred = method_caller(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\metrics\_scorer.py", line 90, in _cached_call
+    result, _ = _get_response_values(
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_response.py", line 217, in _get_response_values
+    y_pred = _process_predict_proba(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_response.py", line 54, in _process_predict_proba
+    raise ValueError(
+ValueError: Got predict_proba of shape (41, 1), but need classifier with two classes.
+2026-11-08 01:55:53,739 ERROR Learning curve failed: uci_switzerland / ovec
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\pipeline.py", line 663, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_voting.py", line 405, in fit
+    return super().fit(X, transformed_y, **fit_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_voting.py", line 99, in fit
+    self.estimators_ = Parallel(n_jobs=self.n_jobs)(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_base.py", line 39, in _fit_single_estimator
+    estimator.fit(X, y, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py", line 1335, in fit
+    raise ValueError(
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(0)
+2026-11-08 01:55:57,453 ERROR Learning curve failed: uci_switzerland / osec
+Traceback (most recent call last):
+  File "C:\Users\akhil\.codex\worktrees\cardiodiag-multidataset-eval\Cardio-Diag-Approach-Code\experiments\run_multi_dataset_evaluation.py", line 751, in run_learning_curves
+    sizes, train_scores, validation_scores = learning_curve(
+                                             ^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 2065, in learning_curve
+    results = parallel(
+              ^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\model_selection\_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\pipeline.py", line 663, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_stacking.py", line 706, in fit
+    return super().fit(X, y_encoded, **fit_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_stacking.py", line 211, in fit
+    self.estimators_ = Parallel(n_jobs=self.n_jobs)(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 82, in __call__
+    return super().__call__(iterable_with_config_and_warning_filters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\joblib\parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\utils\parallel.py", line 147, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\ensemble\_base.py", line 39, in _fit_single_estimator
+    estimator.fit(X, y, **fit_params)
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akhil\Downloads\Final_Year_Project\Cardio-Diag-Approach-Code\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py", line 1335, in fit
+    raise ValueError(
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(0)
+2026-11-08 01:55:57,501 INFO START dataset=uci_va_long_beach n=200 p=13
+2026-11-08 01:55:57,504 INFO RUN nested dataset=uci_va_long_beach model=logistic
+2026-11-08 01:55:58,398 INFO PASS nested dataset=uci_va_long_beach model=logistic outer_roc_auc=0.6235
+2026-11-08 01:55:58,398 INFO RUN nested dataset=uci_va_long_beach model=knn
+2026-11-08 01:55:59,965 INFO PASS nested dataset=uci_va_long_beach model=knn outer_roc_auc=0.6408
+2026-11-08 01:55:59,966 INFO RUN nested dataset=uci_va_long_beach model=svm
+2026-11-08 01:56:01,625 INFO PASS nested dataset=uci_va_long_beach model=svm outer_roc_auc=0.6326
+2026-11-08 01:56:01,625 INFO RUN nested dataset=uci_va_long_beach model=random_forest
+2026-11-08 01:56:07,968 INFO PASS nested dataset=uci_va_long_beach model=random_forest outer_roc_auc=0.6789
+2026-11-08 01:56:07,968 INFO RUN nested dataset=uci_va_long_beach model=ovec
+2026-11-08 01:56:10,099 INFO PASS nested dataset=uci_va_long_beach model=ovec outer_roc_auc=0.6545
+2026-11-08 01:56:10,099 INFO RUN nested dataset=uci_va_long_beach model=osec
+2026-11-08 01:56:25,438 INFO PASS nested dataset=uci_va_long_beach model=osec outer_roc_auc=0.6119
+2026-11-08 01:56:36,351 INFO START dataset=uci_heart_failure_519 n=299 p=11
+2026-11-08 01:56:36,363 INFO RUN nested dataset=uci_heart_failure_519 model=logistic
+2026-11-08 01:56:37,237 INFO PASS nested dataset=uci_heart_failure_519 model=logistic outer_roc_auc=0.7352
+2026-11-08 01:56:37,237 INFO RUN nested dataset=uci_heart_failure_519 model=knn
+2026-11-08 01:56:38,810 INFO PASS nested dataset=uci_heart_failure_519 model=knn outer_roc_auc=0.6612
+2026-11-08 01:56:38,810 INFO RUN nested dataset=uci_heart_failure_519 model=svm
+2026-11-08 01:56:40,549 INFO PASS nested dataset=uci_heart_failure_519 model=svm outer_roc_auc=0.5650
+2026-11-08 01:56:40,549 INFO RUN nested dataset=uci_heart_failure_519 model=random_forest
+2026-11-08 01:56:47,172 INFO PASS nested dataset=uci_heart_failure_519 model=random_forest outer_roc_auc=0.7393
+2026-11-08 01:56:47,172 INFO RUN nested dataset=uci_heart_failure_519 model=ovec
+2026-11-08 01:56:49,320 INFO PASS nested dataset=uci_heart_failure_519 model=ovec outer_roc_auc=0.7520
+2026-11-08 01:56:49,320 INFO RUN nested dataset=uci_heart_failure_519 model=osec
+2026-11-08 01:57:05,075 INFO PASS nested dataset=uci_heart_failure_519 model=osec outer_roc_auc=0.7361
+2026-11-08 01:57:16,071 INFO START dataset=uci_mi_complications_579 n=1700 p=100
+2026-11-08 01:57:16,077 INFO RUN nested dataset=uci_mi_complications_579 model=logistic
+2026-11-08 01:57:20,444 INFO PASS nested dataset=uci_mi_complications_579 model=logistic outer_roc_auc=0.8540
+2026-11-08 01:57:20,444 INFO RUN nested dataset=uci_mi_complications_579 model=knn
+2026-11-08 01:57:28,388 INFO PASS nested dataset=uci_mi_complications_579 model=knn outer_roc_auc=0.7358
+2026-11-08 01:57:28,388 INFO RUN nested dataset=uci_mi_complications_579 model=svm
+2026-11-08 01:57:57,312 INFO PASS nested dataset=uci_mi_complications_579 model=svm outer_roc_auc=0.8455
+2026-11-08 01:57:57,312 INFO RUN nested dataset=uci_mi_complications_579 model=random_forest
+2026-11-08 01:58:16,703 INFO PASS nested dataset=uci_mi_complications_579 model=random_forest outer_roc_auc=0.8695
+2026-11-08 01:58:16,703 INFO RUN nested dataset=uci_mi_complications_579 model=ovec
+2026-11-08 01:58:22,808 INFO PASS nested dataset=uci_mi_complications_579 model=ovec outer_roc_auc=0.8664
+2026-11-08 01:58:22,808 INFO RUN nested dataset=uci_mi_complications_579 model=osec
+2026-11-08 01:58:50,327 INFO PASS nested dataset=uci_mi_complications_579 model=osec outer_roc_auc=0.8677
+2026-11-08 01:59:19,990 INFO RUN official SPECTF split
+2026-11-08 01:59:46,473 INFO PASS official SPECTF split
+2026-11-08 01:59:46,473 INFO RUN transfer source=uci_cleveland target=uci_hungary
+2026-11-08 01:59:47,953 INFO PASS transfer uci_cleveland -> uci_hungary model=logistic auc=0.8837
+2026-11-08 01:59:49,661 INFO PASS transfer uci_cleveland -> uci_hungary model=knn auc=0.8730
+2026-11-08 01:59:51,523 INFO PASS transfer uci_cleveland -> uci_hungary model=svm auc=0.8931
+2026-11-08 01:59:55,207 INFO PASS transfer uci_cleveland -> uci_hungary model=random_forest auc=0.9032
+2026-11-08 01:59:57,091 INFO PASS transfer uci_cleveland -> uci_hungary model=ovec auc=0.9017
+2026-11-08 02:00:04,067 INFO PASS transfer uci_cleveland -> uci_hungary model=osec auc=0.8590
+2026-11-08 02:00:04,067 INFO RUN transfer source=uci_cleveland target=uci_switzerland
+2026-11-08 02:00:05,445 INFO PASS transfer uci_cleveland -> uci_switzerland model=logistic auc=0.7326
+2026-11-08 02:00:07,024 INFO PASS transfer uci_cleveland -> uci_switzerland model=knn auc=0.6386
+2026-11-08 02:00:08,775 INFO PASS transfer uci_cleveland -> uci_switzerland model=svm auc=0.7413
+2026-11-08 02:00:12,270 INFO PASS transfer uci_cleveland -> uci_switzerland model=random_forest auc=0.7413
+2026-11-08 02:00:14,077 INFO PASS transfer uci_cleveland -> uci_switzerland model=ovec auc=0.7293
+2026-11-08 02:00:21,017 INFO PASS transfer uci_cleveland -> uci_switzerland model=osec auc=0.6967
+2026-11-08 02:00:21,019 INFO RUN transfer source=uci_cleveland target=uci_va_long_beach
+2026-11-08 02:00:22,520 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=logistic auc=0.7238
+2026-11-08 02:00:24,239 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=knn auc=0.7088
+2026-11-08 02:00:26,201 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=svm auc=0.7268
+2026-11-08 02:00:29,916 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=random_forest auc=0.7292
+2026-11-08 02:00:31,877 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=ovec auc=0.7330
+2026-11-08 02:00:38,834 INFO PASS transfer uci_cleveland -> uci_va_long_beach model=osec auc=0.6923
+2026-11-08 02:00:38,834 INFO RUN transfer source=uci_hungary target=uci_cleveland
+2026-11-08 02:00:40,281 INFO PASS transfer uci_hungary -> uci_cleveland model=logistic auc=0.8388
+2026-11-08 02:00:42,000 INFO PASS transfer uci_hungary -> uci_cleveland model=knn auc=0.8197
+2026-11-08 02:00:43,777 INFO PASS transfer uci_hungary -> uci_cleveland model=svm auc=0.8732
+2026-11-08 02:00:47,308 INFO PASS transfer uci_hungary -> uci_cleveland model=random_forest auc=0.8371
+2026-11-08 02:00:49,215 INFO PASS transfer uci_hungary -> uci_cleveland model=ovec auc=0.8517
+2026-11-08 02:00:55,887 INFO PASS transfer uci_hungary -> uci_cleveland model=osec auc=0.8393
+2026-11-08 02:00:55,887 INFO RUN transfer source=uci_hungary target=uci_switzerland
+2026-11-08 02:00:57,285 INFO PASS transfer uci_hungary -> uci_switzerland model=logistic auc=0.7717
+2026-11-08 02:00:58,898 INFO PASS transfer uci_hungary -> uci_switzerland model=knn auc=0.6880
+2026-11-08 02:01:00,607 INFO PASS transfer uci_hungary -> uci_switzerland model=svm auc=0.7196
+2026-11-08 02:01:04,089 INFO PASS transfer uci_hungary -> uci_switzerland model=random_forest auc=0.8000
+2026-11-08 02:01:06,030 INFO PASS transfer uci_hungary -> uci_switzerland model=ovec auc=0.7717
+2026-11-08 02:01:12,947 INFO PASS transfer uci_hungary -> uci_switzerland model=osec auc=0.7826
+2026-11-08 02:01:12,948 INFO RUN transfer source=uci_hungary target=uci_va_long_beach
+2026-11-08 02:01:14,440 INFO PASS transfer uci_hungary -> uci_va_long_beach model=logistic auc=0.6934
+2026-11-08 02:01:16,205 INFO PASS transfer uci_hungary -> uci_va_long_beach model=knn auc=0.6889
+2026-11-08 02:01:18,037 INFO PASS transfer uci_hungary -> uci_va_long_beach model=svm auc=0.7389
+2026-11-08 02:01:21,691 INFO PASS transfer uci_hungary -> uci_va_long_beach model=random_forest auc=0.6904
+2026-11-08 02:01:23,587 INFO PASS transfer uci_hungary -> uci_va_long_beach model=ovec auc=0.7289
+2026-11-08 02:01:30,191 INFO PASS transfer uci_hungary -> uci_va_long_beach model=osec auc=0.7344
+2026-11-08 02:01:30,191 INFO RUN transfer source=uci_switzerland target=uci_cleveland
+2026-11-08 02:01:31,623 INFO PASS transfer uci_switzerland -> uci_cleveland model=logistic auc=0.5341
+2026-11-08 02:01:33,254 INFO PASS transfer uci_switzerland -> uci_cleveland model=knn auc=0.5594
+2026-11-08 02:01:34,918 INFO PASS transfer uci_switzerland -> uci_cleveland model=svm auc=0.6585
+2026-11-08 02:01:38,136 INFO PASS transfer uci_switzerland -> uci_cleveland model=random_forest auc=0.7730
+2026-11-08 02:01:39,955 INFO PASS transfer uci_switzerland -> uci_cleveland model=ovec auc=0.6741
+2026-11-08 02:01:46,364 INFO PASS transfer uci_switzerland -> uci_cleveland model=osec auc=0.6112
+2026-11-08 02:01:46,364 INFO RUN transfer source=uci_switzerland target=uci_hungary
+2026-11-08 02:01:47,878 INFO PASS transfer uci_switzerland -> uci_hungary model=logistic auc=0.8603
+2026-11-08 02:01:49,491 INFO PASS transfer uci_switzerland -> uci_hungary model=knn auc=0.6541
+2026-11-08 02:01:51,155 INFO PASS transfer uci_switzerland -> uci_hungary model=svm auc=0.8586
+2026-11-08 02:01:54,383 INFO PASS transfer uci_switzerland -> uci_hungary model=random_forest auc=0.7744
+2026-11-08 02:01:56,280 INFO PASS transfer uci_switzerland -> uci_hungary model=ovec auc=0.7584
+2026-11-08 02:02:02,768 INFO PASS transfer uci_switzerland -> uci_hungary model=osec auc=0.6604
+2026-11-08 02:02:02,768 INFO RUN transfer source=uci_switzerland target=uci_va_long_beach
+2026-11-08 02:02:04,178 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=logistic auc=0.5642
+2026-11-08 02:02:05,779 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=knn auc=0.5612
+2026-11-08 02:02:07,525 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=svm auc=0.4845
+2026-11-08 02:02:10,721 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=random_forest auc=0.5486
+2026-11-08 02:02:12,484 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=ovec auc=0.5785
+2026-11-08 02:02:18,923 INFO PASS transfer uci_switzerland -> uci_va_long_beach model=osec auc=0.4911
+2026-11-08 02:02:18,923 INFO RUN transfer source=uci_va_long_beach target=uci_cleveland
+2026-11-08 02:02:20,387 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=logistic auc=0.8318
+2026-11-08 02:02:22,051 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=knn auc=0.7754
+2026-11-08 02:02:23,840 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=svm auc=0.2377
+2026-11-08 02:02:27,325 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=random_forest auc=0.7793
+2026-11-08 02:02:29,253 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=ovec auc=0.8509
+2026-11-08 02:02:35,726 INFO PASS transfer uci_va_long_beach -> uci_cleveland model=osec auc=0.7636
+2026-11-08 02:02:35,726 INFO RUN transfer source=uci_va_long_beach target=uci_hungary
+2026-11-08 02:02:37,157 INFO PASS transfer uci_va_long_beach -> uci_hungary model=logistic auc=0.8534
+2026-11-08 02:02:38,821 INFO PASS transfer uci_va_long_beach -> uci_hungary model=knn auc=0.7519
+2026-11-08 02:02:40,605 INFO PASS transfer uci_va_long_beach -> uci_hungary model=svm auc=0.7024
+2026-11-08 02:02:44,063 INFO PASS transfer uci_va_long_beach -> uci_hungary model=random_forest auc=0.8358
+2026-11-08 02:02:45,952 INFO PASS transfer uci_va_long_beach -> uci_hungary model=ovec auc=0.8682
+2026-11-08 02:02:52,434 INFO PASS transfer uci_va_long_beach -> uci_hungary model=osec auc=0.8650
+2026-11-08 02:02:52,434 INFO RUN transfer source=uci_va_long_beach target=uci_switzerland
+2026-11-08 02:02:54,011 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=logistic auc=0.6804
+2026-11-08 02:02:55,724 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=knn auc=0.6103
+2026-11-08 02:02:57,488 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=svm auc=0.6337
+2026-11-08 02:03:00,948 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=random_forest auc=0.7109
+2026-11-08 02:03:02,808 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=ovec auc=0.6576
+2026-11-08 02:03:09,323 INFO PASS transfer uci_va_long_beach -> uci_switzerland model=osec auc=0.6804
+2026-11-08 02:03:58,411 INFO COMPLETE model_rows=42 cross_rows=72 failures=6

@@ -1,0 +1,49 @@
+{
+  "run_id": "20261107T202404Z",
+  "figures": [
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/roc_curves.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/roc_curves.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/precision_recall_curves.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/precision_recall_curves.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/confusion_matrices.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/confusion_matrices.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/model_performance_comparison.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/model_performance_comparison.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/training_validation_gaps.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/training_validation_gaps.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/learning_curves.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/learning_curves.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/calibration_curves.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/calibration_curves.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/risk_coverage_curves.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/risk_coverage_curves.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_roc_auc_heatmaps.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_roc_auc_heatmaps.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_ood_heatmaps.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_ood_heatmaps.png",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_mean_auc_heatmap.pdf",
+    "results/multi_dataset_evaluation_20261108/figures/20261107T202404Z/cross_dataset_mean_auc_heatmap.png"
+  ],
+  "manuscript_tables": [
+    "paper/multi_dataset_study_20261108/tables/dataset_characteristics.tex",
+    "paper/multi_dataset_study_20261108/tables/model_auc_matrix.tex",
+    "paper/multi_dataset_study_20261108/tables/cad_model_metrics.tex",
+    "paper/multi_dataset_study_20261108/tables/other_task_model_metrics.tex",
+    "paper/multi_dataset_study_20261108/tables/cross_cohort_summary.tex",
+    "paper/multi_dataset_study_20261108/tables/uncertainty_ranges.tex"
+  ],
+  "source_metrics": [
+    "results\\multi_dataset_evaluation_20261108\\metrics\\calibration_bins.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\conformal_metrics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\cross_dataset_metrics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\execution_attempts.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\failed_experiments.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\fold_metrics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\learning_curve_metrics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\model_metrics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\ood_diagnostics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\overfitting_analysis.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\selective_prediction_diagnostics.csv",
+    "results\\multi_dataset_evaluation_20261108\\metrics\\selective_prediction_metrics.csv"
+  ]
+}
