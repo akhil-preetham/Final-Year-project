@@ -2,20 +2,19 @@ import hashlib
 import json
 from pathlib import Path
 
-import pytest
-
-from cardiodiag.data import drop_identifier_columns, load_dataset, summarize_dataset
+from cardiodiag.data import (
+    drop_feature_columns,
+    drop_identifier_columns,
+    load_dataset,
+    summarize_dataset,
+)
 from cardiodiag.preprocessing import TrainingOnlyCleaner
 
 ROOT = Path(__file__).resolve().parents[1]
-HEART5 = ROOT / "heart5.csv"
-KAGGLE = ROOT / "data" / "kaggle_cardiovascular_70k" / "cardio_train.csv"
 
 
 def test_local_dataset_summary_matches_checked_in_data() -> None:
-    if not HEART5.exists():
-        pytest.skip("heart5.csv is not bundled because redistribution terms are unresolved")
-    summary = summarize_dataset(HEART5, "HeartDisease")
+    summary = summarize_dataset(ROOT / "heart5.csv", "HeartDisease")
 
     assert summary.rows == 918
     assert summary.duplicate_rows == 0
@@ -38,6 +37,21 @@ def test_identifier_columns_are_removed_before_modeling() -> None:
     assert "patientid" not in cleaned.columns
 
 
+def test_declared_feature_exclusion_preserves_schema_and_rejects_unknown_columns() -> None:
+    features, _ = load_dataset(ROOT / "MendeleyCardiovascular_Disease_Dataset.csv", "target")
+    cleaned = drop_feature_columns(features, ["noofmajorvessels"])
+
+    assert "noofmajorvessels" not in cleaned.columns
+    assert "noofmajorvessels" not in cleaned.attrs["categorical_columns"]
+    assert cleaned.attrs["numeric_columns"] == features.attrs["numeric_columns"]
+    try:
+        drop_feature_columns(features, ["not_a_feature"])
+    except ValueError as error:
+        assert "missing feature columns" in str(error)
+    else:
+        raise AssertionError("Expected an unknown-feature error")
+
+
 def test_integer_coded_mendeley_categories_have_explicit_schema() -> None:
     features, _ = load_dataset(ROOT / "MendeleyCardiovascular_Disease_Dataset.csv", "target")
 
@@ -48,9 +62,7 @@ def test_integer_coded_mendeley_categories_have_explicit_schema() -> None:
 
 
 def test_kaggle_cardiovascular_dataset_schema_and_target_boundary() -> None:
-    dataset = KAGGLE
-    if not dataset.exists():
-        pytest.skip("Kaggle 70k data must be attached separately")
+    dataset = ROOT / "data" / "kaggle_cardiovascular_70k" / "cardio_train.csv"
     features, target = load_dataset(dataset, "cardio")
 
     assert len(features) == len(target) == 70_000
@@ -75,9 +87,7 @@ def test_kaggle_cardiovascular_dataset_schema_and_target_boundary() -> None:
 
 
 def test_kaggle_identifier_is_removed_before_modeling() -> None:
-    dataset = KAGGLE
-    if not dataset.exists():
-        pytest.skip("Kaggle 70k data must be attached separately")
+    dataset = ROOT / "data" / "kaggle_cardiovascular_70k" / "cardio_train.csv"
     features, _ = load_dataset(dataset, "cardio")
     cleaned, dropped = drop_identifier_columns(features)
 
@@ -87,9 +97,7 @@ def test_kaggle_identifier_is_removed_before_modeling() -> None:
 
 
 def test_kaggle_manifest_provenance_and_training_schema() -> None:
-    dataset = KAGGLE
-    if not dataset.exists():
-        pytest.skip("Kaggle 70k data must be attached separately")
+    dataset = ROOT / "data" / "kaggle_cardiovascular_70k" / "cardio_train.csv"
     manifest = json.loads((ROOT / "data" / "manifests" / "local_datasets.json").read_text())[-1]
 
     assert manifest["path"] == "data/kaggle_cardiovascular_70k/cardio_train.csv"

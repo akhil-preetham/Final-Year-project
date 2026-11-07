@@ -30,6 +30,7 @@ RELIABILITY_METRICS = [
     "full_coverage_risk",
     "conformal_coverage",
     "ece_uniform",
+    "ece_weighted_uniform",
 ]
 
 
@@ -71,6 +72,7 @@ def _fit_candidate(
         "full_coverage_risk": _as_float(curve[-1]["risk"]),
         "conformal_coverage": _as_float(conformal.summarize(X_eval, labels)["coverage"]),
         "ece_uniform": _as_float(calibration["ece_uniform"]),
+        "ece_weighted_uniform": _as_float(calibration["ece_weighted_uniform"]),
     }
     selected_names: set[str] | None = None
     if stable_selector:

@@ -24,6 +24,8 @@ FIELDS = [
     "brier_sd",
     "ece_mean",
     "ece_sd",
+    "ece_weighted_mean",
+    "ece_weighted_sd",
 ]
 
 
@@ -53,6 +55,8 @@ def rows_from_result(path: Path) -> list[dict[str, str | float]]:
                 "brier_sd": std["brier"],
                 "ece_mean": mean["ece_uniform"],
                 "ece_sd": std["ece_uniform"],
+                "ece_weighted_mean": mean.get("ece_weighted_uniform", float("nan")),
+                "ece_weighted_sd": std.get("ece_weighted_uniform", float("nan")),
             }
         )
     return rows
@@ -73,9 +77,10 @@ def main() -> None:
     lines = [
         (
             "| Dataset | Candidate | ROC-AUC mean±SD | ROC-AUC bootstrap 95% CI | "
-            "PR-AUC mean±SD | Brier mean±SD | ECE mean±SD |"
+            "PR-AUC mean±SD | Brier mean±SD | Macro-bin ECE mean±SD | "
+            "Weighted ECE mean±SD |"
         ),
-        "|---|---|---:|---:|---:|---:|---:|",
+        "|---|---|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
@@ -84,7 +89,8 @@ def main() -> None:
             f"[{row['roc_auc_ci_low']:.3f}, {row['roc_auc_ci_high']:.3f}] | "
             f"{row['pr_auc_mean']:.3f}±{row['pr_auc_sd']:.3f} | "
             f"{row['brier_mean']:.3f}±{row['brier_sd']:.3f} | "
-            f"{row['ece_mean']:.3f}±{row['ece_sd']:.3f} |"
+            f"{row['ece_mean']:.3f}±{row['ece_sd']:.3f} | "
+            f"{row['ece_weighted_mean']:.3f}±{row['ece_weighted_sd']:.3f} |"
         )
     args.markdown.parent.mkdir(parents=True, exist_ok=True)
     args.markdown.write_text("\n".join(lines) + "\n", encoding="utf-8")

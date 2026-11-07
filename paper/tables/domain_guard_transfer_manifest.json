@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-11-05T19:46:22.884089+00:00",
+  "generator_hash": "114dd0a4ad37b395969f6e0134009fbe4b0008d0a30d14a26e31daa339133963",
+  "input_hashes": {
+    "results\\transfer_20261105_angiocad_domain_guard\\study_metrics.json": "6d4980a2258988c5bf551e3f1029309636a741c520897f47e0ebca434fac3469",
+    "results\\transfer_20261105_duke_acath_final\\study_metrics.json": "f0af181be3080c4352a088cdb96511701aeedbe0bb8c651f7fcaa91df62a795d"
+  },
+  "table_hash": "0a91eeb60fdf2047dc59dd5a31dda9f7e413ef476cbac23ca60e4a9ee820b893"
+}

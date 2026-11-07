@@ -1,8 +1,12 @@
 # Reviewer-readiness audit
 
-**Review date:** 2026-10-27  
+**Review date:** 2026-10-27
 **Reviewer stance:** skeptical journal reviewer; claims are checked against
 source code and saved artifacts rather than project summaries.
+
+> Historical review. Since this review, a Tectonic PDF build and visual check
+> completed. See `paper/README.md` for current build warnings and the remaining
+> venue/metadata gates.
 
 | Issue | Severity | Evidence | Required correction | Resolution |
 |---|---|---|---|---|

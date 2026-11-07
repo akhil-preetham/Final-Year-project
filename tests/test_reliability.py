@@ -17,6 +17,8 @@ def test_calibration_summary_returns_intercept_and_slope() -> None:
     assert result["n"] == 6
     assert "calibration_intercept" in result
     assert "calibration_slope" in result
+    assert "ece_uniform" in result
+    assert "ece_weighted_uniform" in result
 
 
 def test_selective_risk_decreases_or_stays_stable_at_lower_coverage() -> None:

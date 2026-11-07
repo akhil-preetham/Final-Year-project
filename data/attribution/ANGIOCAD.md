@@ -1,0 +1,5 @@
+# AngioCAD attribution
+
+Dataset: AngioCAD structured feature and artery-label workbooks, Zenodo record 15826856. Dataset DOI: [10.5281/zenodo.15826856](https://doi.org/10.5281/zenodo.15826856). Source record: <https://zenodo.org/records/15826856>. Dataset license: [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Companion article: Hosseini, M. S., Naghsh-Nilchi, A. R., Safayani, M., et al. (2026). *AngioCAD: A public X-ray angiography dataset and an adaptive fusion framework for stenosis detection*. *Computer Methods and Programs in Biomedicine*, 282, 109368. https://doi.org/10.1016/j.cmpb.2026.109368.
+
+If sharing these workbooks or adapted material, retain dataset creator/source attribution and license link and indicate changes. Cite both the dataset DOI and article. The local evaluation uses 377 ID-matched rows from 413 labeled IDs; 36 labels have no matching clinical-feature row. The age/FBS units are not fully documented in the workbook. No inference about cross-dataset patient independence should be made from the dataset license.

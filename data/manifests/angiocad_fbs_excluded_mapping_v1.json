@@ -1,0 +1,48 @@
+{
+  "mapping_id": "CD-DATA-004-FBS-EXCLUDED-MAP-V1",
+  "purpose": "Conservative mapping proposal for future AngioCAD replays",
+  "status": "posthoc_mapping_due_to_unverified_target_measurement_units",
+  "not_a_confirmatory_protocol": true,
+  "source_archive_sha256": "b17cd273da9ce1caa4710fce80227ea454d4dbf9fcbc8e6a9121672751563adc",
+  "target_feature_file_sha256": "978f2415ab52f11724e1ef00bb63597b8497487afd84b97f7112fc7975a33295",
+  "target_label_file_sha256": "5bba3f4ba8bed0df0d2f412d5e2ca6deacca0eff20d531a599fe1b8f4d897425",
+  "features": {
+    "age": {
+      "source_field": "age",
+      "target_field": "Age",
+      "canonical_field": "age_numeric_assumed_years",
+      "status": "provisional",
+      "mapping": "retain numeric; source is documented in years, target workbook does not state units",
+      "evidence_required": "confirm AngioCAD Age is measured in years"
+    },
+    "sex": {
+      "source_field": "sex",
+      "target_field": "Sex",
+      "canonical_field": "sex_male_female",
+      "status": "compatible_after_explicit_normalization",
+      "mapping": "UCI 1=male, 0=female; AngioCAD categories are male/female"
+    },
+    "fasting_blood_sugar": {
+      "source_field": "fbs_gt_120_mg_dl",
+      "target_field": "FBS",
+      "canonical_field": null,
+      "status": "excluded_until_unit_verified",
+      "mapping": null,
+      "reason": "AngioCAD workbook and public record do not state units; observed range is not unit evidence"
+    }
+  },
+  "outcome": {
+    "source": "UCI num>0",
+    "target": "any of 15 artery segments in stenosis categories 51-75, 76-90, 91-99, or 100",
+    "positive_cutpoint_alignment": "source >50%; target positive bins start above 50%",
+    "boundary_limit": "target 26-50 negative bin combines values below and at 50%; exact 50% cannot be isolated"
+  },
+  "cohort_audit": {
+    "label_rows": 413,
+    "feature_rows": 377,
+    "id_matched_rows": 377,
+    "label_ids_without_features": 36,
+    "unmatched_id_reason": "not supplied by the public release"
+  },
+  "full_audit": "results/data_provenance_audits/angiocad_compatibility/angiocad_compatibility_audit.json"
+}

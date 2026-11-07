@@ -55,32 +55,43 @@ others. Otherwise revise the claim to a negative or inconclusive result.
 **Human gate:** choose a compatible, genuinely independent dataset and verify
 provenance, overlap, license, target definition, and feature mapping.  
 **Artifact:** completed `data/manifests/external_dataset.json`.  
-**Gate:** manifest is frozen before external labels are used for tuning,
-calibration, threshold selection, or model choice.
+**Status:** completed for the one-site AngioCAD primary evaluation. A fresh
+follow-up search found CARDIIGAN data are unavailable and a new five-site
+APPROACH/Ottawa/UHN protocol is access-restricted. No untouched multi-site
+cohort is available to freeze. The approved manifest is at
+`data/manifests/angiocad_external.json`; AngioCAD labels have since been
+examined, so it cannot serve as a fresh confirmatory target.
 
 ### Stage 5 — One-way external evaluation
 
 **Command:** external evaluation runner in read-only model mode.  
 **Artifact:** external-validation report with all metrics, uncertainty,
 missing-feature decisions, and negative results.  
-**Gate:** the command cannot call `.fit` on the external data.
+**Status:** completed for CD-XD-004 AngioCAD with a frozen source-only model,
+saved predictions, exact rerun, and independent scoring. The same target's
+CD-XD-006 policy replay is explicitly post hoc; it does not restore
+confirmation. Further runs require a newly accessible compatible cohort.
 
 ### Stage 6 — Manuscript and demonstration
 
 **Command:** result-to-table/figure generator and LaTeX build.  
 **Artifact:** IEEE-editable manuscript, BibTeX, figures, tables, and a
 non-clinical demonstration.  
-**Gate:** every reported number resolves to a stored result artifact; no
-unsupported novelty, safety, fairness, or clinical-readiness claim remains.
+**Status:** complete as a checked engineering research draft. The 14-page PDF
+build, source hashes, tables, figures, and demo are present. Provisional author
+metadata is now inserted; factual ethics/data-use, funding, coauthor
+contributions, conflicts, venue choice, and venue-specific format review remain.
 
 ## Minimal human intervention points
 
 Only these decisions should require user input:
 
-1. Approve or reject the final research claim after Stage 3.
-2. Supply/approve an independent external dataset and its access conditions.
-3. Select the target IEEE journal after the evidence is complete.
-4. Supply author metadata and any required institutional/ethics statements.
+1. Confirm author order and each author's affiliation and contributions.
+2. Obtain an institutional ethics/data-use determination and confirm funding
+   and competing-interest declarations.
+3. Select a target journal and review its current author instructions.
+4. Obtain a new compatible multi-site dataset through an authorized investigator
+   or data-sharing agreement if confirmatory generalization evidence is required.
 
 Everything else should be repeatable from the repository commands.
 
@@ -88,5 +99,6 @@ Everything else should be repeatable from the repository commands.
 
 - Stages 0–3: complete for the supplied development datasets, including
   reliability and conformal/selective analysis.
-- Stage 4: blocked until an independent compatible dataset is frozen.
-- Stages 5–6: pending the external-data decision and final evidence review.
+- Stages 4–6: completed to the extent allowed by currently accessible data;
+  AngioCAD provides a one-site evaluation, while new multi-site confirmation
+  and factual publication inputs remain external dependencies.

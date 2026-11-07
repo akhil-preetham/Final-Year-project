@@ -1,127 +1,89 @@
 # CARDIODIAG handoff
 
-## Goal
+**Checkpoint:** 2026-11-05
 
-Deliver a reproducible, leakage-controlled research extension of CARDIODIAG,
-with honest internal validation, reliability analysis, an editable IEEE-style
-manuscript, and no unsupported clinical or novelty claims.
+**Status:** `GO` for the offline final-year research prototype and demonstration. Clinical/real-world readiness remains `NO_GO`; the measured transfer and OOD results do not establish dependable generalization.
 
-## State
+This is the current handoff. The active research focus is generalization-aware cardiovascular prediction under dataset shift, with source-only calibration and out-of-distribution (OOD) warnings. The work is a research prototype, not a clinically validated diagnostic system.
 
-Completed locally:
+## Current intended use and readiness
 
-- Historical and corrected protocol audit.
-- Nested validation on `heart5.csv` and the Mendeley benchmark.
-- Stability-aware selector, calibration, selective-risk, and conformal analyses.
-- Repeated feature-stability comparison and repeated uncertainty-evidence runs.
-- Paired stability--reliability linkage analysis using the same repeated splits.
-- External-manifest freeze gate.
-- Manuscript package and non-clinical demonstration.
-- 31 automated tests and Ruff checks.
+The project owner described the final-year project as research-based, with
+possible future clinical use. The current intended-use boundary is offline
+research only; future clinical use remains unspecified and unapproved. The
+machine-readable readiness decision is `NO_GO` (1 of 13 phases passed; G1 is
+partial). See `docs/INTENDED_USE_SCOPE.md` and
+`docs/REAL_WORLD_READINESS_WORKFLOW.md`.
 
-Incomplete/blocking:
+## Evidence by study
 
-- No genuinely independent compatible external dataset is frozen.
-- The manuscript therefore reports no independent external validation.
-- Final literature novelty review and target-journal selection remain open.
-- IEEE PDF compilation was not run because `pdflatex` is not installed on the
-  host.
+- **CD-XD-002 — retrospective leave-one-source-out pilot.** Each of four UCI cohorts was held out while the other three were used for fitting. Macro ROC-AUC was 0.760; OOD AUROC averaged 0.758 but ranged from 0.515 to 0.980. These cohorts already appear in the project's historical Heart5 composite, so this is not independent project-level external validation.
+- **CD-XD-003 — Z-Alizadeh Sani transport stress test.** The 303-row source-distinct cohort uses a `>=50%` endpoint while the source uses `>50%`. ROC-AUC was 0.720 and OOD AUROC was 0.604. Calibration changes were inconclusive; this is not endpoint-identical validation.
+- **CD-XD-004 — endpoint-aligned AngioCAD evaluation.** The study used 377 matched records from a distinct hospital. ROC-AUC was 0.787 (95% class-stratified bootstrap interval 0.734–0.838); calibration remained poor and OOD AUROC was 0.589. The result supports the evaluation workflow, not dependable shift detection or broad transportability.
+- **CD-XD-005 — Duke ACATH transport stress test.** A new public 3,504-row cohort was sourced and hashed. Its endpoint is >=75% stenosis rather than the UCI source's >50%. With age, sex, and cholesterol, ROC-AUC was 0.661; source Platt calibration worsened Brier from 0.216 to 0.241. Feature OOD AUROC was 0.556 for kNN and 0.598 for Isolation Forest. The inference boundary abstained on all records because Duke is unregistered.
+- **CD-XD-006 — endpoint-aligned AngioCAD policy replay.** The source-only pipeline was rebuilt with separate 70% fit, 15% Platt, and 15% conformal/OOD partitions, then scored on the previously examined AngioCAD target. ROC-AUC was 0.790; Brier changed 0.189 to 0.174 and ECE 0.211 to 0.192. Empirical set coverage was 100%, but only 8.8% had singleton sets; the combined rule accepted 21/377 (5.6%) with zero observed errors. The unknown-site gate returned no probability for all 377. This is exploratory and not a fresh final holdout.
 
-## Important files
+The UCI Statlog (Heart) release was also screened as a possible additional cohort. An exact comparison found that all 270 records duplicate Cleveland after harmonizing the binary outcome, so it contributes no unseen patients and is excluded. The reproducible comparison and archive hash are in `data/external/uci_statlog_heart/overlap_audit.json`.
 
-- `docs/final_status.md`: final evidence status and remaining gates.
-- `docs/execution_plan.md`: automated workflow and human intervention points.
-- `docs/baseline_reproduction_report.md`: historical/corrected audit.
-- `docs/literature_and_dataset_review.md`: targeted novelty and dataset review.
-- `src/cardiodiag/nested_validation.py`: nested validation.
-- `src/cardiodiag/reliability.py`: calibration and selective-risk metrics.
-- `src/cardiodiag/external_gate.py`: external dataset freeze gate.
-- `experiments/run_external_evaluation.py`: one-way external evaluator that
-  refuses incomplete manifests and never fits on external rows.
-- `results/generated/`: machine-readable experiment outputs.
-- `results/tables/nested_summary.csv`: generated summary table.
-- `paper/manuscript.tex`: editable IEEE-style manuscript.
-- `demo/run_demo.py`: non-clinical prediction-set demonstration.
+A 2026 Mendeley release advertised as a 918-patient clinical heart dataset was
+downloaded under its CC BY 4.0 record and verified against the repository's
+Heart5 table. The Mendeley API SHA-256 matched, and all 918 rows matched the
+full 12-column Heart5 multiset exactly. It is excluded as a duplicate, not
+counted as external evidence. The UCI source-lineage audit separately maps all
+918 Heart5 rows to UCI records (914 unique, four ambiguous due to source
+missingness). Reports and row maps are indexed in `results/RESULT_INDEX.md`.
 
-## Decisions
+The original 2021 Mendeley dataset is licensed CC BY 4.0, and its CSV and
+official codebook hashes now match the public API. The codebook defines the
+target as absence/presence of heart disease but omits the diagnostic reference
+standard, so this dataset remains a development benchmark and is not pooled
+with the angiographic endpoint. The six current ZIPs contain no byte-identical
+Heart5 or Kaggle 70K raw CSV; four historical packages do contain 70K-derived
+result files, whose rights are not established.
 
-- The stability-aware method is not claimed superior because nested results do
-  not show a uniform advantage.
-- The Mendeley dataset is not treated as independent external validation because
-  the base paper already used it.
-- Overlapping UCI component datasets are not treated as independent evidence.
-- The final manuscript explicitly reports the absence of independent external
-  validation rather than inventing or forcing a dataset choice.
-- The stability claim is dataset-conditional: positive on Mendeley, inconclusive
-  on `heart5.csv`.
-- The uncertainty claim is empirical selective reliability only; it is not a
-  claim that the model semantically understands uncertainty.
-- The current contribution framing is a stability--reliability decoupling audit:
-  feature-set stability did not translate into a consistent reliability gain.
+The feature-only OOD detectors remain weak, and abstention utility is low. The working method therefore fails closed using trusted source-domain metadata and exposes probabilities only for registered domains when the conformal set is singleton and the support score is within threshold. This is an operational boundary, not evidence of dependable feature-based site detection.
 
-## Checks
+## Current verification
 
-Passed using the accessible uv executable:
+The latest CD-XD-003 reproduction under
+`results/transfer_20261105_zas_completion_check/` produced byte-identical
+external and source-calibration predictions against the prior validation
+rerun. Data, protocol, and code hashes match, as do the metric, bootstrap, and
+OOD summaries.
 
-```text
-"C:/Users/akhil/.local/bin/uv.exe" lock --check
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with ruff --with-editable . ruff check .
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pytest --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python -m pytest -q
-```
+The CD-IV-001 internal sensitivity analysis completed seeds 43–47 across both
+development datasets. All five manifests share the same source-bundle and
+dependency-lock hashes; every outer row is covered once, and the summary
+recomputes pooled metrics within `1e-10`. The full summary is at
+`results/internal_seed_sensitivity_20261105/seed_repeat_summary.md`.
 
-Observed results: lock check passed, Ruff passed, and the current suite passed
-31 tests after adding schema-boundary and robustness invariants.
+- The complete automated suite passes, including direct AngioCAD schema/label checks, finite-sample conformal quantiles, disjoint calibration partitions, and known/unknown domain-gate behavior.
+- Ruff, Python compilation, dependency-lock, JSON/notebook, local dataset-hash, and demo checks pass.
+- `uv run python experiments/audit_domain_guard_artifacts.py` independently recomputes AUC, average precision, Brier, log loss, and 10-bin ECE for both target cohorts; it verifies all recorded input, code, and output hashes and checks that unknown-site rows receive no deployment probability.
+- The non-clinical demos exercise an accepted registered synthetic case, an in-domain uncertain case, an out-of-support case, and an unknown site. Every abstention withholds the probability; out-of-support cases also hide the conformal set. Each demo saves results plus a hash manifest beside its model bundle.
+- The current manuscript PDF is `output/pdf/CARDIODIAG_Research_Draft_20261105_Remediation.pdf`, with page count, text extraction, visual review, and source/compiler/output hashes recorded in `docs/QA_REPORT.md` and `paper/build/research_draft_20261105_remediation/publication_manifest.json`. It includes the predictor-timing, AngioCAD matching/unit, feature-ablation, and selective-policy audits and explicitly marks unresolved publication declarations.
+- The Tectonic build reports font fallback, underfull boxes, and a missing default Fontconfig configuration. No clipping, overlap, unresolved reference, missing figure, or overfull box was found. The PDF is a verified draft, not venue-specific proofing.
+- See `docs/QA_REPORT.md` for commands and check details. Run the test suite with `uv run python -m pytest -q`.
 
-Required literal commands were attempted but blocked before project execution
-because the shell resolves `uv` to a permission-blocked wrapper:
+## Limits and remaining work
 
-```text
-uv run ruff check .
-uv run python -m pytest -q
-```
+- AngioCAD's public feature workbook has rows for 377 of 413 labeled IDs. The workbook omits age and fasting-blood-sugar units; the conservative post-hoc subset excludes FBS but retains an unverified age-as-years assumption. Public identifiers do not support cross-dataset patient-level duplicate checks.
+- The validity audit confirms that excluding Mendeley's fluoroscopy-derived major-vessel field does not explain its high internal AUC, but its label reference standard and other predictor timing remain undocumented. An age/sex-only AngioCAD sensitivity gives a similar AUC, but is post hoc and cannot resolve the FBS unit.
+- The AngioCAD result is from one angiography-referred site with a high positive fraction. It does not establish performance across hospitals, care settings, or population screening.
+- The AngioCAD replay uses a target already examined in CD-XD-004; the fresh Duke cohort has a different disease threshold. Statlog duplicates Cleveland. No untouched, endpoint-compatible target remains available in the screened public datasets.
+- Source-only calibration and feature-only OOD detection are inconsistent under shift. The domain registry blocks unseen cohorts by metadata; an unflagged feature-space score must not be treated as proof of reliability.
+- Prospective validation, clinical utility, fairness, safety, and treatment impact are not established.
+- Exact original-paper reproduction and the full matched factorial ablation remain incomplete. The upstream licensing of the composite Heart5 and 70K data remains unresolved.
+- The manuscript includes provisionally supplied author names and one shared affiliation. Confirm author order and individual affiliations; obtain factual ethics/data-use, funding, competing-interest, and all coauthor contribution statements; select a venue and apply its formatting requirements.
+- The project is complete as a bounded engineering demonstration; it does not establish dependable unseen-site prediction. The exact limits, evidence, and best resolution paths are in `docs/VALIDITY_AUDIT_20261105.md`.
+- The checkout remains dirty and uncommitted. Review `git status --short --untracked-files=all` before staging or publishing.
 
-The failure is host-level (`Permission denied`), not a project test failure.
+## Key artifacts
 
-Manual smoke check passed:
-
-```text
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python demo/run_demo.py
-```
-
-The demonstration printed a probability, a conformal prediction set, and an
-abstention-capable prediction while displaying the non-clinical warning.
-
-Additional evidence commands passed:
-
-```text
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_stability_evidence.py --dataset heart5.csv --target HeartDisease --output results/generated/heart5_stability_evidence.json --n-splits 5 --n-repeats 10 --n-resamples 8 --seed 42
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_stability_evidence.py --dataset MendeleyCardiovascular_Disease_Dataset.csv --target target --output results/generated/mendeley_stability_evidence.json --n-splits 5 --n-repeats 10 --n-resamples 8 --seed 42
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_uncertainty_evidence.py --dataset heart5.csv --target HeartDisease --output results/generated/heart5_uncertainty_evidence.json --seeds 42 43 44 45 46 47 48 49 50 51
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_uncertainty_evidence.py --dataset MendeleyCardiovascular_Disease_Dataset.csv --target target --output results/generated/mendeley_uncertainty_evidence.json --seeds 42 43 44 45 46 47 48 49 50 51
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_stability_reliability_linkage.py --dataset heart5.csv --target HeartDisease --output results/generated/heart5_stability_reliability_linkage.json --seeds 42 43 44 45 46 47 48 49 50 51
-"C:/Users/akhil/.local/bin/uv.exe" run --no-project --with pandas --with numpy --with scipy --with scikit-learn --with imbalanced-learn --with xgboost --with lime --with-editable . python experiments/run_stability_reliability_linkage.py --dataset MendeleyCardiovascular_Disease_Dataset.csv --target target --output results/generated/mendeley_stability_reliability_linkage.json --seeds 42 43 44 45 46 47 48 49 50 51
-```
-
-Observed: stability evidence was positive on Mendeley (`0.078`, 95% CI
-`[0.035, 0.119]`) and inconclusive on `heart5.csv` (`0.098`, 95% CI
-`[-0.111, 0.254]`). Internal confidence-error AUC was above 0.5 for both
-datasets, but no external-shift evidence exists. The paired linkage run found
-near-zero ROC-AUC differences and no consistent reliability improvement from
-the stable selector.
-
-## Post-correction bounded evidence
-
-Post-correction sensitivity artifacts are kept separately under the
-`schema_corrected_*` prefix. They use explicit coded-category schemas and
-held-out relevance scoring inside selector resamples. The 2x2 nested runs,
-5-fold/3-repeat stability runs, four-seed uncertainty runs, and four-seed
-linkage runs completed for both datasets. The default 3x3 two-dataset internal
-stage exceeded the available ten-minute execution limit before writing output;
-it is not reported as passed. See `docs/schema_corrected_evidence.md`.
-
-## Next action
-
-If stronger external evidence is required, provide or approve one independent
-compatible dataset and complete `data/manifests/external_dataset.json`; then
-run `experiments/check_external_manifest.py` before adding any external labels
-to model selection or calibration.
+- Primary study reports: `docs/TRANSFER_STUDY_RESULTS_20261105.md`, `docs/TRANSFER_STUDY_RESULTS_20261105_ZAS.md`, and `docs/TRANSFER_STUDY_RESULTS_20261105_ANGIOCAD.md`.
+- Protocols and data manifests: `docs/TRANSFER_STUDY_PROTOCOL_20261105*.md` and `data/manifests/`.
+- Fresh validation outputs: `results/transfer_20261105_lodo_validation_rerun/`, `results/transfer_20261105_zas_validation_rerun/`, and `results/transfer_20261105_angiocad_validation_rerun/`.
+- New source-domain bundles and outputs: `results/transfer_20261105_angiocad_domain_guard/` and `results/transfer_20261105_duke_acath_final/`.
+- Runtime gate: `src/cardiodiag/domain_guard.py`; experiments: `experiments/run_aligned_angiocad_gate.py` and `experiments/run_duke_transfer.py`.
+- Current manuscript: `paper/manuscript.tex`; checked research draft: `output/pdf/CARDIODIAG_Research_Draft_20261105_Remediation.pdf`; publication manifest: `paper/build/research_draft_20261105_remediation/publication_manifest.json`.
+- Full status matrix and validation record: `docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md` and `docs/VALIDATION_CLOSEOUT_20261105.md`.

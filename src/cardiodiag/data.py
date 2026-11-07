@@ -67,6 +67,22 @@ def drop_identifier_columns(frame: pd.DataFrame) -> tuple[pd.DataFrame, list[str
     return cleaned, dropped
 
 
+def drop_feature_columns(frame: pd.DataFrame, columns: list[str] | tuple[str, ...]) -> pd.DataFrame:
+    """Drop declared predictors while preserving the fitted schema metadata."""
+
+    requested = list(dict.fromkeys(columns))
+    missing = set(requested) - set(frame.columns)
+    if missing:
+        raise ValueError(f"Cannot exclude missing feature columns: {sorted(missing)}")
+    cleaned = frame.drop(columns=requested)
+    for key in ("categorical_columns", "numeric_columns"):
+        if key in frame.attrs:
+            cleaned.attrs[key] = [column for column in frame.attrs[key] if column not in requested]
+    if "feature_schema_source" in frame.attrs:
+        cleaned.attrs["feature_schema_source"] = frame.attrs["feature_schema_source"]
+    return cleaned
+
+
 def feature_schema(frame: pd.DataFrame, target: str) -> tuple[list[str], list[str]]:
     """Return explicit feature types for the supplied benchmark schemas.
 

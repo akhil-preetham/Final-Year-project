@@ -1,0 +1,26 @@
+{
+  "id": "uci_heart_failure_519",
+  "name": "Heart Failure Clinical Records",
+  "source_url": "https://archive.ics.uci.edu/dataset/519/heart%2Bfailure%2Bclinical%2Brecords",
+  "download_url": "https://archive.ics.uci.edu/static/public/519/heart+failure+clinical+records.zip",
+  "doi": "10.24432/C5Z89R",
+  "license": "CC BY 4.0",
+  "downloaded_utc_date": "2026-11-07",
+  "source_archive_sha256": "f0739603e2f9573ffc7d509573cbf9bcb4cc889e4eea0f35a75bec68fc9163d7",
+  "source_csv_sha256": "9c73cea7468ff5d517801ec050fe9993da5912fce4b56f296f8df3b38dd75912",
+  "source_csv_bytes": 12239,
+  "source_csv_filename": "heart_failure_clinical_records_dataset.csv",
+  "raw_storage": "data/external/ (ignored by Git; not included in the data-free release)",
+  "task": {
+    "target": "death_event",
+    "definition": "Death recorded by the end of each patient's available follow-up",
+    "prediction_horizon": "No common horizon specified by source; do not interpret as fixed-horizon risk",
+    "excluded_predictors": ["time"],
+    "source_rows": 299,
+    "source_features": 12,
+    "target_counts": {"0": 203, "1": 96}
+  },
+  "project_notice": "data/attribution/UCI_HEART_FAILURE_519.md",
+  "not_cardiodiag_cad_validation": true,
+  "redistribution": "Raw data excluded from the current public-release package; source license requires attribution for any reuse."
+}

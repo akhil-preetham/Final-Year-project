@@ -23,6 +23,7 @@ def _extract_metrics(result: dict[str, Any], candidate: str) -> dict[str, float]
         "conformal_coverage": float(record["conformal"]["coverage"]),
         "abstention_rate": float(record["conformal"]["abstention_rate"]),
         "ece_uniform": float(record["calibration"]["ece_uniform"]),
+        "ece_weighted_uniform": float(record["calibration"]["ece_weighted_uniform"]),
     }
 
 

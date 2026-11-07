@@ -1,0 +1,78 @@
+{
+  "assessment_date": "2026-11-06",
+  "schema_version": "1.0",
+  "issues": [
+    {
+      "id": "SS-01",
+      "finding": "External probability calibration is poor or inconsistent on examined cohorts.",
+      "severity": "major_statistical",
+      "root_cause": "Covariate, case-mix, prevalence, endpoint and measurement shifts are confounded; source calibration sample is limited and target is one site.",
+      "technically_solvable": "partially",
+      "requires_additional_data": true,
+      "alternatives": ["source Platt", "source isotonic", "source beta", "source temperature", "source-domain-specific calibration", "prospective target calibration cohort"],
+      "implementation_status": "source-fitted Platt/isotonic/beta/temperature compared using equal-domain source weights",
+      "experiment_evidence": "results/second_stage_calibration_20261106_stratified/calibration_comparison.json",
+      "final_disposition": "PARTIAL; source temperature improved retrospective scores but requires a new untouched compatible site"
+    },
+    {
+      "id": "SS-02",
+      "finding": "Feature-only AngioCAD OOD AUROC is weak.",
+      "severity": "major_methodological",
+      "root_cause": "Single low-dimensional common feature map and one external site; dataset membership, individual anomaly, prediction error and concept shift are different targets.",
+      "technically_solvable": "partially",
+      "requires_additional_data": true,
+      "alternatives": ["KNN distance", "Isolation Forest", "Mahalanobis distance", "featurewise shift", "missingness shift", "domain classifier", "prediction-error association", "controlled synthetic shifts"],
+      "implementation_status": "real-target KNN/Isolation Forest audits plus synthetic five-shift comparison of KNN, Mahalanobis, Isolation Forest, PCA, domain classifier and missingness detector",
+      "experiment_evidence": "docs/OOD_METHOD_COMPARISON_REPORT.md; results/controlled_shift_lab_20261106_run2/controlled_shift_metrics.json; results/DOMAIN_GUARD_FINAL_AUDIT.json",
+      "final_disposition": "PARTIAL; synthetic diagnostics do not establish individual error detection or real-target performance of the added detectors; do not describe site allowlist as learned OOD detection"
+    },
+    {
+      "id": "SS-03",
+      "finding": "Integrated AngioCAD selective coverage is 5.6%.",
+      "severity": "major_utility",
+      "root_cause": "Conformal singleton requirement combined with support rejection; this analysis is separate from the runtime unknown-domain registry, which rejects all unregistered sites.",
+      "technically_solvable": "partially",
+      "requires_additional_data": true,
+      "alternatives": ["component-wise ablation", "source-only risk-coverage threshold", "conformal-only", "support-only", "additional source domains"],
+      "implementation_status": "component audit exists; fresh source-only ablations not yet run in this stage",
+      "experiment_evidence": "results/validity_audit_20261105/selective_policy_components/SELECTIVE_POLICY_COMPONENT_AUDIT.md",
+      "final_disposition": "PARTIAL; no useful prospective risk-coverage point established"
+    },
+    {
+      "id": "SS-04",
+      "finding": "No untouched second endpoint-compatible external cohort with documented common predictors is available.",
+      "severity": "critical_scientific",
+      "root_cause": "Candidate cohorts are restricted, endpoint-mismatched, overlapping, or lack units/patient linkage.",
+      "technically_solvable": "no, not locally without acquisition approval",
+      "requires_additional_data": true,
+      "alternatives": ["institutional cohort with data-use approval", "prospective partner study", "restricted MultiD4CAD access after DUA"],
+      "implementation_status": "candidate screening documented; no restricted access requested",
+      "experiment_evidence": "docs/DATASET_COMPATIBILITY.md; docs/EXTERNAL_DATA_ACCESS_PATHWAYS.md",
+      "final_disposition": "BLOCKED pending lawful cohort access and endpoint/units documentation"
+    },
+    {
+      "id": "SS-05",
+      "finding": "Exact original LoRAS/XAIH-DRC/LIME/PCA run cannot be reproduced.",
+      "severity": "major_reproducibility",
+      "root_cause": "Notebook variants conflict and canonical parameters, environment and result-table lineage are missing.",
+      "technically_solvable": "no, not from archived files alone",
+      "requires_additional_data": true,
+      "alternatives": ["obtain original authors' exact supplement/run records", "retain distinct historical reconstructions"],
+      "implementation_status": "documented and separated from corrected method",
+      "experiment_evidence": "docs/METHOD_REPRODUCTION_AUDIT.md",
+      "final_disposition": "BLOCKED for exact reproduction; approximation is clearly labelled"
+    },
+    {
+      "id": "SS-06",
+      "finding": "Active local research tree is uncommitted and points at original upstream history.",
+      "severity": "major_engineering",
+      "root_cause": "Remediation work was performed in an original-source checkout.",
+      "technically_solvable": true,
+      "requires_additional_data": false,
+      "alternatives": ["reviewed project-owned branch or clean repository snapshot"],
+      "implementation_status": "not changed; no commit or push authorized",
+      "experiment_evidence": "docs/REPOSITORY_FORENSIC_AUDIT.md",
+      "final_disposition": "FAIL for release handoff until project-owned snapshot is prepared"
+    }
+  ]
+}

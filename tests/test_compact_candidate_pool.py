@@ -23,7 +23,7 @@ def test_compact_pool_contains_requested_families() -> None:
 
 
 def test_compact_pool_pipeline_is_training_local() -> None:
-    X, _ = load_dataset(ROOT / "MendeleyCardiovascular_Disease_Dataset.csv", "target")
+    X, _ = load_dataset(ROOT / "heart5.csv", "HeartDisease")
     model, _ = _candidate_specs(seed=42, include_local=True)["elastic_net"]
     pipeline = _pipeline(X, model)
     assert list(pipeline.named_steps) == ["cleaner", "preprocessor", "model"]

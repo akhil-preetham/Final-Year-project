@@ -19,6 +19,12 @@ def main() -> None:
     parser.add_argument("--outer-repeats", type=int, default=1)
     parser.add_argument("--inner-splits", type=int, default=3)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--exclude-feature",
+        action="append",
+        default=[],
+        help="Predictor column to exclude (repeat the option for multiple columns)",
+    )
     args = parser.parse_args()
     result = run_nested_validation(
         args.dataset,
@@ -27,6 +33,7 @@ def main() -> None:
         outer_repeats=args.outer_repeats,
         inner_splits=args.inner_splits,
         seed=args.seed,
+        exclude_features=args.exclude_feature,
     )
     result["provenance"] = collect_provenance(
         dataset=args.dataset,
@@ -38,6 +45,7 @@ def main() -> None:
             "inner_splits": args.inner_splits,
             "seed": args.seed,
             "scoring": result["config"]["scoring"],
+            "excluded_features": result["excluded_features"],
         },
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -113,3 +113,36 @@ leave-one-center-out validation and recent clinical conformal selective-
 prediction work under distribution shift. The defensible near-term claim is
 therefore an auditable, dataset-specific evidence package unless a broader
 review identifies a narrower unclaimed methodological gap.
+
+## 7. Active direction selected: November 5, 2026
+
+The active project direction is now **Generalization-Aware and
+Uncertainty-Calibrated Cardiovascular Disease Prediction Under Dataset Shift**.
+This selection supersedes the earlier Candidate B recommendation as the
+immediate research focus; it does not change the historical evidence for that
+work.
+
+The first evaluation is the `CD-XD-002` four-cohort leave-one-source-out pilot.
+It shows variable cross-cohort discrimination, partial source-only calibration
+benefit, and inconsistent OOD alerting. Since these cohorts were previously
+included in the Heart5 composite, this pilot is retrospective.
+
+The subsequent `CD-XD-003` study trained on those four cohorts and evaluated
+once on the source-distinct Z-Alizadeh Sani hospital cohort. ROC-AUC was 0.720,
+source-only calibration produced a modest and inconclusive Brier improvement,
+and OOD AUROC was 0.604. This is a real source-distinct transfer stress test,
+but the target outcome uses `>=50%` stenosis while the source uses `>50%`, so it
+does not establish endpoint-identical external validity. The core workflow is
+implemented; reliable generalization and rejection remain unproven. Full
+results are in `TRANSFER_STUDY_RESULTS_20261105_ZAS.md`.
+
+The follow-up `CD-XD-004` study used the same four source cohorts and a locked
+three-feature pipeline to score a separate AngioCAD hospital cohort with an
+aligned `>50%` stenosis endpoint. ROC-AUC was 0.787 (95% bootstrap interval
+0.734–0.838), but target calibration remained poor and the source-vs-target OOD
+AUROC was 0.589. This supplies one endpoint-aligned external evaluation and
+reproducible negative evidence about the current reliability components; it
+does not support a dependable shift-rejection claim or broad generalization.
+The result report and reproducibility artifacts are in
+`TRANSFER_STUDY_RESULTS_20261105_ANGIOCAD.md` and
+`results/transfer_20261105_angiocad_external/`.

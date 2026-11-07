@@ -8,7 +8,10 @@
 - Published article: Khan, Raza, and Nadeem, *CardioDiag: a machine learning approach for cardiovascular disease diagnosis using XAI-guided hybrid dimensionality reduction and optimized-based ensemble classifiers*, PeerJ Computer Science 12:e4059 (2026), DOI `10.7717/peerj-cs.4059`.
 - Author repository: `https://github.com/jaffarkulachi/Cardio-Diag-Approach-Code`.
 - Associated Mendeley record: `https://data.mendeley.com/datasets/dzz48mvjht/1`, DOI `10.17632/dzz48mvjht.1`, CC BY 4.0.
-- Local notebooks under `Daza_Base_Paper_Reproduced/`, `Five States Results/`, `MENDELEY Results/`, and `Paper 1 Code LIME with Diagrams/`.
+- Local notebooks under `archive/historical_notebooks/Daza_Base_Paper_Reproduced/`,
+  `archive/historical_notebooks/Five States Results/`,
+  `archive/historical_notebooks/MENDELEY Results/`, and
+  `archive/historical_notebooks/Paper 1 Code LIME with Diagrams/`.
 - Local data: `heart5.csv` and `MendeleyCardiovascular_Disease_Dataset.csv`.
 
 The checkout is notebook-centric. It contains no Python package, requirements file, `pyproject.toml`, test suite, documented command-line entry point, or README beyond the repository title. The checked-out working tree currently has expanded archive directories and deleted tracked `.rar` entries; these are pre-existing working-tree changes and were not modified by this audit.
@@ -19,10 +22,10 @@ The checkout is notebook-centric. It contains no Python package, requirements fi
 |---|---|
 | `heart5.csv` | 918 rows, 12 columns: 11 predictors plus `HeartDisease`; no empty fields or exact duplicate rows in the checked-in file; target counts 410/508. |
 | `MendeleyCardiovascular_Disease_Dataset.csv` | 1,000 rows, 14 columns: 13 predictors plus `target`; no empty fields or exact duplicate rows in the checked-in file; target counts 420/580; `patientid` is unique for all 1,000 rows. |
-| `Daza_Base_Paper_Reproduced/...ipynb` | SMOTE baseline reproduction, 80/20 split after oversampling, GridSearchCV, stacking model, and saved outputs/warnings. |
-| `Five States Results/...ipynb` | Full-methodology notebooks with percentile processing, class-separated imputation, LoRAS, PCA, optimized stacking/voting, calibration, fairness, bootstrap, and reviewer analyses. |
-| `MENDELEY Results/...ipynb` | Mendeley-specific ablation, fairness, clinical-utility, and statistical-analysis notebooks. |
-| `Paper 1 Code LIME with Diagrams/...` | LIME reports, stability outputs, diagrams, and a reviewer notebook concerning XAIH-DRC. |
+| `archive/historical_notebooks/Daza_Base_Paper_Reproduced/...ipynb` | SMOTE baseline reproduction, 80/20 split after oversampling, GridSearchCV, stacking model, and saved outputs/warnings. |
+| `archive/historical_notebooks/Five States Results/...ipynb` | Full-methodology notebooks with percentile processing, class-separated imputation, LoRAS, PCA, optimized stacking/voting, calibration, fairness, bootstrap, and reviewer analyses. |
+| `archive/historical_notebooks/MENDELEY Results/...ipynb` | Mendeley-specific ablation, fairness, clinical-utility, and statistical-analysis notebooks. |
+| `archive/historical_notebooks/Paper 1 Code LIME with Diagrams/...` | LIME reports, stability outputs, diagrams, and a reviewer notebook concerning XAIH-DRC. |
 
 The local `heart5.csv` contains the already-deduplicated 918-row representation described in the paper. The paper attributes the 1,190-row source to five public heart-disease datasets (Cleveland, Hungarian, Switzerland, Long Beach VA, and Statlog), with 272 exact duplicate rows removed. This means a UCI heart-disease file from one of those component sources cannot automatically be treated as independent external validation.
 

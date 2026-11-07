@@ -1,0 +1,127 @@
+{
+  "status": "complete",
+  "external_validation": false,
+  "protocol": {
+    "internal_predictions": "3 outer x 3 inner folds, seed 42; no external data",
+    "calibration_bins": 10,
+    "selective_threshold": 0.5,
+    "figures_are_derived_from": "saved machine-readable artifacts only"
+  },
+  "input_artifacts": [
+    {
+      "path": "results\\master_directive_20261105_serial\\heart5_nested_validation.json",
+      "sha256": "1658ef924074a303ce8a8286984a53f1194a31c64e548ac612488fc3c160cf0f"
+    },
+    {
+      "path": "results\\master_directive_20261105_serial\\mendeley_nested_validation.json",
+      "sha256": "507743a7b1ff2734b1b46fe669ece6ed19d6c573e8ee877d8fcc07d577baf953"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\generated\\heart5_stability_evidence.json",
+      "sha256": "4a826e219c41a260d5099f8c95c364033a655618bc4709dbe0095d9c1667c142"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\generated\\mendeley_stability_evidence.json",
+      "sha256": "4c547ca38f82e689349e421dead64b7297efc959ebfa163dbe8468593ac2c18f"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\generated\\dataset_shift.json",
+      "sha256": "834984c9962a7b3a36447f7ce72c868b0f6ba91f7842fb3d5e8204f0c1c0223c"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\aura_ml\\ablations\\heart5\\summary.json",
+      "sha256": "2c1203cd24094e88cc8ab56a29b628acef569191e02648b9ae0533f8aff17380"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\aura_ml\\ablations\\mendeley\\summary.json",
+      "sha256": "cfc609462989050c2edf2d23e926238cdb8ae78c891146a246122423daa2c1ae"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\generated\\schema_corrected_heart5_robustness.json",
+      "sha256": "28b5b4b5132dce6df94d6503974b6c788b7747cf36b4c7be13b9f365a549e9b0"
+    },
+    {
+      "path": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\results\\generated\\schema_corrected_mendeley_robustness.json",
+      "sha256": "cca74df530d7282153066398e143220754c2317cb44094f39ddbe554e8544553"
+    }
+  ],
+  "figure_generator_sha256": "7eb63a7d1ec478837f1d031dcf0248a06437f2aede32955ddd86f7914dc47808",
+  "outputs": [
+    {
+      "path": "nested_roc_pr_curves.png",
+      "sha256": "8684f91408824b755212d478155ecf4605d544f813352ff561b7e5404fcb162b"
+    },
+    {
+      "path": "nested_roc_pr_curves.pdf",
+      "sha256": "e66021e1f9b551bd1af025895f13e21e21d7e91db9276da7b77a5aecd69aaa1b"
+    },
+    {
+      "path": "nested_calibration.png",
+      "sha256": "c61c5bd8e011d6f5a0748a79478c23e83c8972d3f5f1d4aae57cfbbaefbdd18f"
+    },
+    {
+      "path": "nested_calibration.pdf",
+      "sha256": "ad6bb9fd43eafc623d0e0fba967336577688991f7b3f3dac3b416ced265b0c1d"
+    },
+    {
+      "path": "nested_confusion_matrices.png",
+      "sha256": "51345358d7c4f088460dbbd2b5f838245a44195d9accda9282e139fcc3d4dedc"
+    },
+    {
+      "path": "nested_confusion_matrices.pdf",
+      "sha256": "cd9ae38a0561fda8fded197c123996f3db9b5caf77e8c13e9a10472d8f1b3f09"
+    },
+    {
+      "path": "nested_risk_coverage.png",
+      "sha256": "60ed708dcd5f9fb584f67699643459d8b85ddc40b8e78361d90ce03cd7eca658"
+    },
+    {
+      "path": "nested_risk_coverage.pdf",
+      "sha256": "ec621a81d751219467ca415063435d339b0961226bf33fc84ee0bc14f079d9a3"
+    },
+    {
+      "path": "feature_selection_stability.png",
+      "sha256": "61f27d8fdb5d187e8242f7eaeedcb1978ccd1e8b740b8b3cba971b6f923f2ecf"
+    },
+    {
+      "path": "feature_selection_stability.pdf",
+      "sha256": "4ec19b175211b70757ac9b549d6914d5999f78a7f85bc005e06996c5d634da7d"
+    },
+    {
+      "path": "distribution_shift_diagnostics.png",
+      "sha256": "90b0cda9f6743f2371437a60575687c1195e395c7d15ac338934b208f7f3eaed"
+    },
+    {
+      "path": "distribution_shift_diagnostics.pdf",
+      "sha256": "a0593a9cb0ba709f493da5d8966547bcd012b9c529e2199a16a711f672e32876"
+    },
+    {
+      "path": "aura_v1_ablation_roc_auc.png",
+      "sha256": "7ad389a863ca7366a6043527cf870594f447f857d79d4568177924e493a6e617"
+    },
+    {
+      "path": "aura_v1_ablation_roc_auc.pdf",
+      "sha256": "ef87382d6f3ea4a25e65ff455b2777c60ae7ba24a0bb0288e92de52bc5e0f08f"
+    },
+    {
+      "path": "robustness_stress_tests.png",
+      "sha256": "3d088f2c8b1d62c0d6077350e8452b799d882b5003bf8cd9995f8f89fce8f70b"
+    },
+    {
+      "path": "robustness_stress_tests.pdf",
+      "sha256": "4efb4183f7038ee3901edcc8ad48e18bdb4aab7c2a95619b1aa8c9a4e32c4f30"
+    },
+    {
+      "path": "research_workflow.png",
+      "sha256": "c12500bf45ce4aab2d9f1221e7405638d8eaa4e0ef81c7f58b839df19f10a4a5"
+    },
+    {
+      "path": "research_workflow.pdf",
+      "sha256": "b9e62e5798e8484f91b5e505baab55d9a8a1ae93495733917eb3edc8a4734ac8"
+    }
+  ],
+  "not_generated": {
+    "lime_explanation_stability": "No validated fold-local LIME explanation artifact is available; feature-selection stability is not a substitute.",
+    "cross_dataset_performance": "No predictive transfer run is authorized because endpoint and feature compatibility gates are blocked."
+  }
+}

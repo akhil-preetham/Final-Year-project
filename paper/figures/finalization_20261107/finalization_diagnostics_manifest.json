@@ -1,0 +1,65 @@
+{
+  "status": "complete",
+  "interpretation": "All target-labelled diagnostics are retrospective and descriptive; no target labels were used for fitting, calibration, thresholding, or method selection.",
+  "inputs": [
+    {
+      "path": "results\\finalization_20261107\\conformal_corrected\\heart5_uncertainty_10seeds.json",
+      "sha256": "1ece803bad7c9087538ca799eac00d9db068488343b4cf522b31b2216d8623ab"
+    },
+    {
+      "path": "results\\finalization_20261107\\conformal_corrected\\mendeley_uncertainty_10seeds.json",
+      "sha256": "1511525bb042ebd843f6a0c09d5ec045f09ba03b52a045c7b9e6b0cea7189e7c"
+    },
+    {
+      "path": "results\\selective_audit_20261106_run3\\risk_coverage_audit.json",
+      "sha256": "97a9eeaa864d298b2776c90bdad46e9db686e28ac2bac29cc57902d0da73ff7d"
+    },
+    {
+      "path": "results\\finalization_20261107\\corrected_quantile_transfer\\CD-XD-003\\run_manifest.json",
+      "sha256": "a2c1b61f6ce9cf47f162bd59b68eae46fccb00ab3237fdb7abfaccb028998eba"
+    },
+    {
+      "path": "results\\finalization_20261107\\corrected_quantile_transfer\\CD-XD-004\\run_manifest.json",
+      "sha256": "cf787372082065469ace93e5c3a748c4d728fd864baf3e5d32d174b12af03f78"
+    },
+    {
+      "path": "results\\finalization_20261107\\corrected_quantile_transfer\\CD-XD-006\\study_metrics.json",
+      "sha256": "6d4980a2258988c5bf551e3f1029309636a741c520897f47e0ebca434fac3469"
+    }
+  ],
+  "generator_sha256": "f5ed72007afb1ab863a55923a713e087b9fecfe2b335d6d7d7527ae74af50d2a",
+  "outputs": [
+    {
+      "path": "paper\\figures\\finalization_20261107\\corrected_reliability.png",
+      "sha256": "258cd97da6a4b68825f247a5424fcf4e9d96bfe5c561d5eea6dcd64e2022e04a"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\posthoc_target_risk_coverage.png",
+      "sha256": "3544e63f0a6b1fcc9ac2fa95ae26546423a5bb087f21b1e5e93f2b27cca03dbe"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\posthoc_target_risk_coverage_detail.png",
+      "sha256": "31abe5ba7557f9b4442effde9c744d4478d133045a3eee20aff9c3c84b501e2c"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\ood_separation_summary.png",
+      "sha256": "b32b52d1de6ac00200de3f6325e316dbe0ecc3c771575b1eaf0c413d21ddf4ef"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\corrected_reliability.pdf",
+      "sha256": "d1a3f6e92f30aaea81a6ad379230b64f7f6efe990d795802d3a9a5b133f11ee6"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\posthoc_target_risk_coverage.pdf",
+      "sha256": "2b4a19907caf462e3e7dac766e37e9a4e6f1bd431051709d016cf32f1937577f"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\posthoc_target_risk_coverage_detail.pdf",
+      "sha256": "73acef781264f60066dfe5e57f52e4b785defd37e419525483b9692ddf7d0f4a"
+    },
+    {
+      "path": "paper\\figures\\finalization_20261107\\ood_separation_summary.pdf",
+      "sha256": "f7a4b3df453f806452c98b8a0162c6420047c2de6fa3b06724325a3cc73c9961"
+    }
+  ]
+}

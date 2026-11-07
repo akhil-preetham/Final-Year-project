@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{Post-hoc source-calibrated AngioCAD feature ablation using frozen UCI source partitions. Target-label results are descriptive, unadjusted for seven comparisons, and are not fresh validation. FBS-containing rows assume AngioCAD FBS is measured in mg/dL. Age + sex excludes FBS, but the workbook does not state age units, so age-as-years remains provisional. Intervals are class-stratified bootstrap intervals conditional on the previously examined target cohort.}
+\label{tab:angiocad-feature-ablation}
+\scriptsize
+\begin{tabular}{lcccc}
+\toprule
+Features & Source-Platt ROC-AUC (95\% CI) & Brier & 10-bin ECE & Unit status \\
+\midrule
+Age & 0.639 (0.579--0.702) & 0.190 & 0.174 & Age-as-years assumed \\
+Sex & 0.690 (0.628--0.747) & 0.194 & 0.211 & Categorical \\
+Age + sex & 0.788 (0.734--0.842) & 0.176 & 0.196 & FBS excluded; age unit assumed \\
+FBS & 0.354 (0.306--0.401) & 0.205 & 0.195 & mg/dL assumption \\
+Age + FBS & 0.632 (0.570--0.694) & 0.199 & 0.192 & mg/dL and age-unit assumptions \\
+Sex + FBS & 0.771 (0.717--0.823) & 0.202 & 0.233 & mg/dL assumption \\
+Age + sex + FBS & 0.787 (0.733--0.840) & 0.185 & 0.216 & mg/dL and age-unit assumptions \\
+\bottomrule
+\end{tabular}
+\end{table*}

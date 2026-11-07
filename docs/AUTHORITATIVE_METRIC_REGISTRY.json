@@ -1,0 +1,1370 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-11-02",
+  "repository_head_at_generation": "e63b02c8a2aba6344a48025f657696fd99ac3a5f",
+  "scope": "Authoritative index of primary stored CARDIODIAG artifacts; archived notebook outputs are excluded.",
+  "primary_internal_protocol": {
+    "outer_folds": 3,
+    "inner_folds": 3,
+    "outer_repeats": 1,
+    "seed": 42,
+    "selection_metric": "ROC-AUC",
+    "selection_rule": "model selection occurs inside inner folds; outer folds are used only for final evaluation"
+  },
+  "status_definitions": {
+    "COMPLETED_AND_VERIFIED": "Artifact parses, provenance/hash checks pass, and the documented protocol was executed successfully.",
+    "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED": "Artifact is present and internally checked, but has not been independently rerun or is bounded/superseded evidence.",
+    "EXPLORATORY": "Completed analysis outside the primary CARDIODIAG endpoint.",
+    "HISTORICAL": "Archived or pre-correction evidence; never pooled with corrected results.",
+    "INCOMPLETE": "Attempted workflow did not finish or lacks a complete result artifact.",
+    "FAILED": "Execution failed and the failure is retained as part of the audit trail."
+  },
+  "external_validation": {
+    "status": "BLOCKED",
+    "manifest": "data/manifests/external_dataset.template.json",
+    "reason": "No genuinely independent compatible dataset is frozen."
+  },
+  "experiments": [
+    {
+      "experiment_id": "nested_internal_post_boundary_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected logistic/OVEC/OSEC and stable-selector candidates",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 3 inner folds, seed 42, ROC-AUC selection",
+      "fold_count": 3,
+      "inner_fold_count": 3,
+      "repeats": 1,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "corrected_logistic": {
+          "roc_auc": 0.9277038579080606,
+          "pr_auc": 0.9345080143541367,
+          "brier": 0.10723891659482658,
+          "ece_uniform": 0.10209493213305881
+        },
+        "corrected_ovec": {
+          "roc_auc": 0.9295326856584286,
+          "pr_auc": 0.9331118215887731,
+          "brier": 0.10023344207385004,
+          "ece_uniform": 0.08587562276086047
+        },
+        "corrected_osec": {
+          "roc_auc": 0.9258575713257144,
+          "pr_auc": 0.9281039269705751,
+          "brier": 0.11160151151440434,
+          "ece_uniform": 0.12077248529278202
+        },
+        "stable_logistic": {
+          "roc_auc": 0.927833636242854,
+          "pr_auc": 0.9348662123881967,
+          "brier": 0.10716175126431933,
+          "ece_uniform": 0.10935039961864257
+        },
+        "stable_osec": {
+          "roc_auc": 0.9252675005408832,
+          "pr_auc": 0.9294875982683145,
+          "brier": 0.10945270472722618,
+          "ece_uniform": 0.11321043707989631
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_nested_heart5.json",
+      "script": "src/cardiodiag/nested_validation.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "nested_internal_post_boundary_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected logistic/OVEC/OSEC and stable-selector candidates",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 3 inner folds, seed 42, ROC-AUC selection",
+      "fold_count": 3,
+      "inner_fold_count": 3,
+      "repeats": 1,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "corrected_logistic": {
+          "roc_auc": 0.9929887114292327,
+          "pr_auc": 0.9943505307303601,
+          "brier": 0.02703609827096892,
+          "ece_uniform": 0.15174894502669264
+        },
+        "corrected_ovec": {
+          "roc_auc": 0.995748726283954,
+          "pr_auc": 0.9965719253160256,
+          "brier": 0.02482777648213731,
+          "ece_uniform": 0.15815419374889192
+        },
+        "corrected_osec": {
+          "roc_auc": 0.9942580397363795,
+          "pr_auc": 0.9954382922151512,
+          "brier": 0.02332867572775817,
+          "ece_uniform": 0.2000272537958699
+        },
+        "stable_logistic": {
+          "roc_auc": 0.9930133845109007,
+          "pr_auc": 0.994403593921081,
+          "brier": 0.026969522260415407,
+          "ece_uniform": 0.14036623555349537
+        },
+        "stable_osec": {
+          "roc_auc": 0.9941716839505418,
+          "pr_auc": 0.9953461819297198,
+          "brier": 0.0234051027338362,
+          "ece_uniform": 0.2422082886586295
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_nested_mendeley.json",
+      "script": "src/cardiodiag/nested_validation.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "nested_schema_sensitivity_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected logistic/OVEC/OSEC and stable-selector candidates",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "2 outer folds x 2 inner folds, seed 42, schema-corrected sensitivity run",
+      "fold_count": 2,
+      "inner_fold_count": 2,
+      "repeats": 1,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "corrected_logistic": {
+          "roc_auc": 0.9265700019204917,
+          "pr_auc": 0.9322238846469534,
+          "brier": 0.10876360012665932,
+          "ece_uniform": 0.08709229491218262
+        },
+        "corrected_ovec": {
+          "roc_auc": 0.9275878624927981,
+          "pr_auc": 0.9286377242627184,
+          "brier": 0.10138588182539746,
+          "ece_uniform": 0.09006505845452792
+        },
+        "corrected_osec": {
+          "roc_auc": 0.924543883234108,
+          "pr_auc": 0.9289348071956256,
+          "brier": 0.11250644792249698,
+          "ece_uniform": 0.10255647150102194
+        },
+        "stable_logistic": {
+          "roc_auc": 0.9269348953332053,
+          "pr_auc": 0.9335408175870387,
+          "brier": 0.10803043709077478,
+          "ece_uniform": 0.08783785876295055
+        },
+        "stable_osec": {
+          "roc_auc": 0.9246879201075475,
+          "pr_auc": 0.9300175379239621,
+          "brier": 0.11403135847306667,
+          "ece_uniform": 0.1217466577297333
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_heart5_nested_2x2.json",
+      "script": "experiments/run_nested_validation.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "nested_schema_sensitivity_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected logistic/OVEC/OSEC and stable-selector candidates",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "2 outer folds x 2 inner folds, seed 42, schema-corrected sensitivity run",
+      "fold_count": 2,
+      "inner_fold_count": 2,
+      "repeats": 1,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "corrected_logistic": {
+          "roc_auc": 0.9891543513957306,
+          "pr_auc": 0.9909037067114168,
+          "brier": 0.03223553546826993,
+          "ece_uniform": 0.132552610857535
+        },
+        "corrected_ovec": {
+          "roc_auc": 0.9945894909688012,
+          "pr_auc": 0.9960700395579544,
+          "brier": 0.02953149557161093,
+          "ece_uniform": 0.107349917008452
+        },
+        "corrected_osec": {
+          "roc_auc": 0.9922331691297208,
+          "pr_auc": 0.9939137556273223,
+          "brier": 0.03162597378150086,
+          "ece_uniform": 0.21174650879247808
+        },
+        "stable_logistic": {
+          "roc_auc": 0.9897536945812808,
+          "pr_auc": 0.9916147384587674,
+          "brier": 0.031799777572442844,
+          "ece_uniform": 0.1459722304148453
+        },
+        "stable_osec": {
+          "roc_auc": 0.9928817733990148,
+          "pr_auc": 0.994490636508347,
+          "brier": 0.028239503438747326,
+          "ece_uniform": 0.23830670585946487
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_mendeley_nested_2x2.json",
+      "script": "experiments/run_nested_validation.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "feature_stability_post_boundary_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "StableXAIHDRC versus one-shot relevance selector",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "5 stratified folds x 3 repeats, six selector resamples, seed 42",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "stable_minus_one_shot_stability": {
+          "stable_minus_one_shot_mean": 0.09735759375257247,
+          "positive_stability_evidence": false
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_stability_heart5.json",
+      "script": "experiments/run_stability_evidence.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "feature_stability_post_boundary_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "StableXAIHDRC versus one-shot relevance selector",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "5 stratified folds x 3 repeats, six selector resamples, seed 42",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "stable_minus_one_shot_stability": {
+          "stable_minus_one_shot_mean": 0.06865977643550421,
+          "positive_stability_evidence": false
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_stability_mendeley.json",
+      "script": "experiments/run_stability_evidence.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "feature_stability_schema_sensitivity_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "schema-corrected StableXAIHDRC versus one-shot selector",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "5 stratified folds x 3 repeats, six selector resamples",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "stable_minus_one_shot_stability": {
+          "stable_minus_one_shot_mean": 0.18944343973797728,
+          "positive_stability_evidence": true
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_heart5_stability_3x6.json",
+      "script": "experiments/run_stability_evidence.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "feature_stability_schema_sensitivity_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "schema-corrected StableXAIHDRC versus one-shot selector",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "5 stratified folds x 3 repeats, six selector resamples",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "stable_minus_one_shot_stability": {
+          "stable_minus_one_shot_mean": 0.2694975841836407,
+          "positive_stability_evidence": true
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_mendeley_stability_3x6.json",
+      "script": "experiments/run_stability_evidence.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "stability_reliability_linkage_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "stable OSEC versus corrected OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "ten paired fit/calibration/evaluation seeds 42-51",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "paired_stable_minus_corrected": {
+          "roc_auc": -0.0008638483296383725,
+          "confidence_error_auc": -0.0015292536657732336,
+          "aurc": 0.0011280483930586698,
+          "full_coverage_risk": -0.0004347826086956483,
+          "conformal_coverage": 0.0013043478260869712,
+          "ece_uniform": -0.00011334941589490749
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_linkage_heart5.json",
+      "script": "experiments/run_stability_reliability_linkage.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "stability_reliability_linkage_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "stable OSEC versus corrected OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "ten paired fit/calibration/evaluation seeds 42-51",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "paired_stable_minus_corrected": {
+          "roc_auc": -0.0002364532019704435,
+          "confidence_error_auc": -7.372577746117548e-05,
+          "aurc": 0.0001620053890165736,
+          "full_coverage_risk": 0.0007999999999999997,
+          "conformal_coverage": -0.0008000000000000007,
+          "ece_uniform": -0.004453339681398058
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_linkage_mendeley.json",
+      "script": "experiments/run_stability_reliability_linkage.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "stability_reliability_schema_sensitivity_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "schema-corrected stable OSEC versus corrected OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "four paired fit/calibration/evaluation seeds",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "paired_stable_minus_corrected": {
+          "roc_auc": 0.0009173610580230918,
+          "confidence_error_auc": -0.0013171634781055097,
+          "aurc": -0.0009074455552921367,
+          "full_coverage_risk": -0.0032608695652173864,
+          "conformal_coverage": -2.7755575615628914e-17,
+          "ece_uniform": -0.013196259802991394
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_heart5_linkage_4seeds.json",
+      "script": "experiments/run_stability_reliability_linkage.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "stability_reliability_schema_sensitivity_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "schema-corrected stable OSEC versus corrected OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "four paired fit/calibration/evaluation seeds",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "paired_stable_minus_corrected": {
+          "roc_auc": -0.00039408866995080394,
+          "confidence_error_auc": 0.007101777301646406,
+          "aurc": 0.0001887891138640681,
+          "full_coverage_risk": 0.003,
+          "conformal_coverage": -0.0010000000000000009,
+          "ece_uniform": 0.001822315092311469
+        }
+      },
+      "source_artifact": "results/generated/schema_corrected_mendeley_linkage_4seeds.json",
+      "script": "experiments/run_stability_reliability_linkage.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "uncertainty_schema_sensitivity_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "empirical confidence, calibration, and split-conformal summaries",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "four repeated fit/calibration/evaluation seeds",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/schema_corrected_heart5_uncertainty_4seeds.json",
+      "script": "experiments/run_uncertainty_evidence.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "uncertainty_schema_sensitivity_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "empirical confidence, calibration, and split-conformal summaries",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "four repeated fit/calibration/evaluation seeds",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/schema_corrected_mendeley_uncertainty_4seeds.json",
+      "script": "experiments/run_uncertainty_evidence.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "evaluation_stress_test_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected OSEC versus stable OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "single clean split with evaluation-only missingness/noise perturbations",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/schema_corrected_heart5_robustness.json",
+      "script": "experiments/run_robustness.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "evaluation_stress_test_mendeley",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected OSEC versus stable OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "single clean split with evaluation-only missingness/noise perturbations",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/schema_corrected_mendeley_robustness.json",
+      "script": "experiments/run_robustness.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_primary_model_benchmark",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "11-model scalable benchmark",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42, ROC-AUC selection",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "dummy": {
+          "roc_auc": 0.5,
+          "pr_auc": 0.4996999999998775,
+          "brier": 0.24999991038265415,
+          "ece_uniform": 2.1433010202076552e-05
+        },
+        "logistic": {
+          "roc_auc": 0.7892958799852593,
+          "pr_auc": 0.773814716294793,
+          "brier": 0.18776074315440805,
+          "ece_uniform": 0.03601313671721522
+        },
+        "lda": {
+          "roc_auc": 0.788937055860201,
+          "pr_auc": 0.7728422464248562,
+          "brier": 0.1883121912303364,
+          "ece_uniform": 0.03839908436303398
+        },
+        "gaussian_nb": {
+          "roc_auc": 0.7423271579392644,
+          "pr_auc": 0.7089075806671876,
+          "brier": 0.2947977621149838,
+          "ece_uniform": 0.2266449458347297
+        },
+        "random_forest": {
+          "roc_auc": 0.7981643279416825,
+          "pr_auc": 0.7809391009518851,
+          "brier": 0.18197199218497007,
+          "ece_uniform": 0.018987215972439398
+        },
+        "extra_trees": {
+          "roc_auc": 0.7940464209246988,
+          "pr_auc": 0.7724955007213178,
+          "brier": 0.18872174497947514,
+          "ece_uniform": 0.06634778342521096
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.7995722197781775,
+          "pr_auc": 0.7838935712960361,
+          "brier": 0.18117807497200736,
+          "ece_uniform": 0.012438278021676833
+        },
+        "gradient_boosting": {
+          "roc_auc": 0.7994206669351042,
+          "pr_auc": 0.7833902396017308,
+          "brier": 0.1812810635026446,
+          "ece_uniform": 0.016477616012278342
+        },
+        "adaboost": {
+          "roc_auc": 0.7875991710591009,
+          "pr_auc": 0.7660533254440204,
+          "brier": 0.19007303154269742,
+          "ece_uniform": 0.05181533108584654
+        },
+        "mlp": {
+          "roc_auc": 0.7958723240252416,
+          "pr_auc": 0.7807962902183118,
+          "brier": 0.18322153915797967,
+          "ece_uniform": 0.0176501971719186
+        },
+        "xgboost": {
+          "roc_auc": 0.8003781732234728,
+          "pr_auc": 0.7856052194110843,
+          "brier": 0.18091581207072738,
+          "ece_uniform": 0.010890459893730811
+        }
+      },
+      "source_artifact": "results/generated/kaggle70k_model_benchmark.json",
+      "script": "experiments/run_model_benchmark.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_tuned_priority_models",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "logistic, RF, HGB, XGBoost, LightGBM, CatBoost, fixed ensemble",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42, fixed OOF ensemble weights",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "logistic": {
+          "roc_auc": 0.7892963061200332,
+          "pr_auc": 0.7738162540458854,
+          "brier": 0.18775956644541977,
+          "ece_uniform": 0.03600024298134468
+        },
+        "random_forest": {
+          "roc_auc": 0.7973964171949434,
+          "pr_auc": 0.7803237153485356,
+          "brier": 0.18214923919610038,
+          "ece_uniform": 0.014318100954873602
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.7999164283733992,
+          "pr_auc": 0.785207353092002,
+          "brier": 0.18106230039229917,
+          "ece_uniform": 0.014262858378737602
+        },
+        "xgboost": {
+          "roc_auc": 0.8002912414019071,
+          "pr_auc": 0.7860373021828849,
+          "brier": 0.18098200607092033,
+          "ece_uniform": 0.010746315873658032
+        },
+        "lightgbm": {
+          "roc_auc": 0.799605786496247,
+          "pr_auc": 0.7837877464648152,
+          "brier": 0.1811294310094513,
+          "ece_uniform": 0.009482663714287031
+        },
+        "catboost": {
+          "roc_auc": 0.8004811044578974,
+          "pr_auc": 0.7856039991196723,
+          "brier": 0.18082451087777648,
+          "ece_uniform": 0.011507130089400228
+        },
+        "fixed_oof_ensemble": {
+          "roc_auc": 0.7989681978326328,
+          "pr_auc": 0.782970309768729,
+          "brier": 0.18176049062343036,
+          "ece_uniform": 0.01631846989709504
+        }
+      },
+      "source_artifact": "results/generated/kaggle70k_tuned_priority_oof_ensemble.json",
+      "script": "experiments/run_tuned_ensemble.py",
+      "status": "COMPLETED_AND_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_compact_candidate_pool",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "compact linear, local, bagging, boosting, probabilistic, ensemble pool",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42; SVM/KNN skipped for scale",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "logistic": {
+          "roc_auc": 0.7892963061200332,
+          "pr_auc": 0.7738162540458854,
+          "brier": 0.18775956644541977,
+          "ece_uniform": 0.03600024298134468
+        },
+        "elastic_net": {
+          "roc_auc": 0.7892975305573856,
+          "pr_auc": 0.7738214986608934,
+          "brier": 0.1877596227891629,
+          "ece_uniform": 0.03589163045797213
+        },
+        "random_forest": {
+          "roc_auc": 0.7973657980408021,
+          "pr_auc": 0.7804277641807955,
+          "brier": 0.18217341115298877,
+          "ece_uniform": 0.013493834590109458
+        },
+        "extra_trees": {
+          "roc_auc": 0.7964353337769937,
+          "pr_auc": 0.7769849980713824,
+          "brier": 0.18531955174596063,
+          "ece_uniform": 0.04648064869460302
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.7998032308044083,
+          "pr_auc": 0.784868946955811,
+          "brier": 0.18109663053954264,
+          "ece_uniform": 0.010516352971157363
+        },
+        "gaussian_nb": {
+          "roc_auc": 0.7423271579392644,
+          "pr_auc": 0.7089075806671876,
+          "brier": 0.2947977621149838,
+          "ece_uniform": 0.2266449458347297
+        },
+        "lda": {
+          "roc_auc": 0.788937055860201,
+          "pr_auc": 0.7728422464248562,
+          "brier": 0.1883121912303364,
+          "ece_uniform": 0.03839908436303398
+        },
+        "xgboost": {
+          "roc_auc": 0.8001541552197718,
+          "pr_auc": 0.7851071762122532,
+          "brier": 0.18103987701885735,
+          "ece_uniform": 0.011647390019759446
+        },
+        "lightgbm": {
+          "roc_auc": 0.7994649180133305,
+          "pr_auc": 0.7840601727237021,
+          "brier": 0.18120164597675426,
+          "ece_uniform": 0.009791068139759098
+        },
+        "catboost": {
+          "roc_auc": 0.8000465222997803,
+          "pr_auc": 0.7854295919313401,
+          "brier": 0.18101807149533977,
+          "ece_uniform": 0.012438169426029303
+        },
+        "soft_voting": {
+          "roc_auc": 0.799432262489492,
+          "pr_auc": 0.7835914569479424,
+          "brier": 0.18143242624942713,
+          "ece_uniform": 0.014883544606501214
+        },
+        "stacking": {
+          "roc_auc": 0.8003426575073922,
+          "pr_auc": 0.7855522958558744,
+          "brier": 0.1810694407450021,
+          "ece_uniform": 0.02511861355323941
+        }
+      },
+      "source_artifact": "results/generated/kaggle70k_compact_candidate_pool.json",
+      "script": "experiments/run_compact_candidate_pool.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "heart5_compact_candidate_pool",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "compact candidate pool including RBF SVM and KNN",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "logistic": {
+          "roc_auc": 0.9277038579080606,
+          "pr_auc": 0.9345080143541367,
+          "brier": 0.10723891659482658,
+          "ece_uniform": 0.10209493213305881
+        },
+        "elastic_net": {
+          "roc_auc": 0.9286118952650916,
+          "pr_auc": 0.9360107116799035,
+          "brier": 0.10688049938343085,
+          "ece_uniform": 0.0938692881641936
+        },
+        "random_forest": {
+          "roc_auc": 0.9297359695553139,
+          "pr_auc": 0.930549619594141,
+          "brier": 0.10290009828611818,
+          "ece_uniform": 0.09280904643656618
+        },
+        "extra_trees": {
+          "roc_auc": 0.9266080843987972,
+          "pr_auc": 0.9296778493542265,
+          "brier": 0.1056462015564048,
+          "ece_uniform": 0.0784256574149228
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.9261902020215457,
+          "pr_auc": 0.9262412163187733,
+          "brier": 0.10455339781157165,
+          "ece_uniform": 0.08378173723207877
+        },
+        "gaussian_nb": {
+          "roc_auc": 0.9182002672309088,
+          "pr_auc": 0.9216449348539753,
+          "brier": 0.13505619886333156,
+          "ece_uniform": 0.2641670276107017
+        },
+        "lda": {
+          "roc_auc": 0.9251812624918108,
+          "pr_auc": 0.9321639931703225,
+          "brier": 0.10831800710620178,
+          "ece_uniform": 0.13885774346022858
+        },
+        "rbf_svm": {
+          "roc_auc": 0.9270854452436182,
+          "pr_auc": 0.9303677687086737,
+          "brier": 0.10222018938935089,
+          "ece_uniform": 0.10185582972906015
+        },
+        "knn": {
+          "roc_auc": 0.9210568763749056,
+          "pr_auc": 0.9099797778742786,
+          "brier": 0.10456943170011977,
+          "ece_uniform": 0.09063799905104053
+        },
+        "xgboost": {
+          "roc_auc": 0.9255151055978805,
+          "pr_auc": 0.923822019339168,
+          "brier": 0.10320041445049122,
+          "ece_uniform": 0.12370808772998676
+        },
+        "lightgbm": {
+          "roc_auc": 0.9212477011531185,
+          "pr_auc": 0.9202800260141187,
+          "brier": 0.11270317805329856,
+          "ece_uniform": 0.13128298648822445
+        },
+        "catboost": {
+          "roc_auc": 0.9266387689015815,
+          "pr_auc": 0.9256090236596107,
+          "brier": 0.10165871297952755,
+          "ece_uniform": 0.09284098479424356
+        },
+        "soft_voting": {
+          "roc_auc": 0.9290330324563089,
+          "pr_auc": 0.9313115237106844,
+          "brier": 0.09945752032065741,
+          "ece_uniform": 0.0387471957058156
+        },
+        "stacking": {
+          "roc_auc": 0.9309287819639787,
+          "pr_auc": 0.932654282982483,
+          "brier": 0.1025016651472463,
+          "ece_uniform": 0.12578294451747177
+        }
+      },
+      "source_artifact": "results/generated/heart5_compact_candidate_pool.json",
+      "script": "experiments/run_compact_candidate_pool.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "mendeley_compact_candidate_pool",
+      "dataset": "MendeleyCardiovascular_Disease_Dataset.csv",
+      "dataset_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "compact candidate pool including RBF SVM and KNN",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": null,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "logistic": {
+          "roc_auc": 0.9929887114292327,
+          "pr_auc": 0.9943505307303601,
+          "brier": 0.02703609827096892,
+          "ece_uniform": 0.15174894502669264
+        },
+        "elastic_net": {
+          "roc_auc": 0.9929635296242315,
+          "pr_auc": 0.9942410000559777,
+          "brier": 0.027480138361367912,
+          "ece_uniform": 0.153830497509566
+        },
+        "random_forest": {
+          "roc_auc": 0.9974135869827873,
+          "pr_auc": 0.9980491003903106,
+          "brier": 0.0239115136094178,
+          "ece_uniform": 0.14228001336124899
+        },
+        "extra_trees": {
+          "roc_auc": 0.996446758287739,
+          "pr_auc": 0.997335749475754,
+          "brier": 0.024289804476638647,
+          "ece_uniform": 0.09935986580370199
+        },
+        "hist_gradient_boosting": {
+          "roc_auc": 0.9964281898860715,
+          "pr_auc": 0.9971538671643426,
+          "brier": 0.0169725104587982,
+          "ece_uniform": 0.2363110093923506
+        },
+        "gaussian_nb": {
+          "roc_auc": 0.9837453356429373,
+          "pr_auc": 0.9853566493120951,
+          "brier": 0.04861738210557879,
+          "ece_uniform": 0.3363180345582082
+        },
+        "lda": {
+          "roc_auc": 0.9895158480036425,
+          "pr_auc": 0.9905760730994323,
+          "brier": 0.04260009091846876,
+          "ece_uniform": 0.3179180164812016
+        },
+        "rbf_svm": {
+          "roc_auc": 0.9946545895747327,
+          "pr_auc": 0.9959640456457902,
+          "brier": 0.024616915126676478,
+          "ece_uniform": 0.19076456802327457
+        },
+        "knn": {
+          "roc_auc": 0.98686527225601,
+          "pr_auc": 0.9878481884797337,
+          "brier": 0.04447343391867866,
+          "ece_uniform": 0.13437421669023386
+        },
+        "xgboost": {
+          "roc_auc": 0.9970062267736003,
+          "pr_auc": 0.9977341040068012,
+          "brier": 0.018536804433755594,
+          "ece_uniform": 0.18964796711093115
+        },
+        "lightgbm": {
+          "roc_auc": 0.9967376208535869,
+          "pr_auc": 0.9974218446188177,
+          "brier": 0.016878896426240724,
+          "ece_uniform": 0.23929668407456317
+        },
+        "catboost": {
+          "roc_auc": 0.9980409064432353,
+          "pr_auc": 0.9985513006215124,
+          "brier": 0.01483683218796871,
+          "ece_uniform": 0.21214485925203833
+        },
+        "soft_voting": {
+          "roc_auc": 0.997155172413793,
+          "pr_auc": 0.9977732174531964,
+          "brier": 0.01633771934453032,
+          "ece_uniform": 0.08425425485990592
+        },
+        "stacking": {
+          "roc_auc": 0.9964374740869052,
+          "pr_auc": 0.9971823788692502,
+          "brier": 0.017176176200774787,
+          "ece_uniform": 0.21843742632941973
+        }
+      },
+      "source_artifact": "results/generated/mendeley_compact_candidate_pool.json",
+      "script": "experiments/run_compact_candidate_pool.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_custom_logistic_pair",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "corrected logistic versus stable logistic",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "3 outer folds x 2 inner folds, seed 42; reduced custom pair",
+      "fold_count": 3,
+      "inner_fold_count": 2,
+      "repeats": 1,
+      "random_seed": 42,
+      "random_seeds": null,
+      "selection_metric": "roc_auc",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "corrected_logistic": {
+          "roc_auc": 0.7892963061200332,
+          "pr_auc": 0.7738162540458854,
+          "brier": 0.18775956644541977,
+          "ece_uniform": 0.03600024298134468
+        },
+        "stable_logistic": {
+          "roc_auc": 0.7886189135312579,
+          "pr_auc": 0.7735421407142238,
+          "brier": 0.18801776320266872,
+          "ece_uniform": 0.035176572375760926
+        }
+      },
+      "source_artifact": "results/generated/post_tuning_custom_nested_kaggle70k_logistic_pair.json",
+      "script": "src/cardiodiag/nested_validation.py",
+      "status": "COMPLETED_BUT_NOT_INDEPENDENTLY_VERIFIED",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_stability_stress_test",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "stable selector versus one-shot selector",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "bounded stability analysis on separate 70k schema",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "stable_minus_one_shot_stability": {
+          "stable_minus_one_shot_mean": 0.0003640743478141954,
+          "positive_stability_evidence": false
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_kaggle70k_stability.json",
+      "script": "experiments/run_stability_evidence.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "kaggle70k_stability_reliability_stress_test",
+      "dataset": "cardio_train.csv",
+      "dataset_sha256": "21a705d23381b0dfd6a6416da701b490744f1fc3b47e9ff3db3968c420ffa10c",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "stable OSEC versus corrected OSEC",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "bounded internal linkage analysis on separate 70k schema",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {
+        "paired_stable_minus_corrected": {
+          "roc_auc": -0.0007400746906366384,
+          "confidence_error_auc": 0.00013795940703328346,
+          "aurc": 0.0002948093055174544,
+          "full_coverage_risk": 0.0007428571428571562,
+          "conformal_coverage": -0.00018285714285711795,
+          "ece_uniform": 0.0002511397136643891
+        }
+      },
+      "source_artifact": "results/generated/post_boundary_corrected_kaggle70k_linkage.json",
+      "script": "experiments/run_stability_reliability_linkage.py",
+      "status": "EXPLORATORY",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "historical_protocol_comparison_heart5",
+      "dataset": "heart5.csv",
+      "dataset_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+      "dataset_hash_status": "matches_local_manifest",
+      "method": "historical OVEC/OSEC and corrected comparison",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "historical notebook approximation versus corrected single split",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/heart5_protocol_comparison.json",
+      "script": "experiments/run_protocol_comparison.py",
+      "status": "HISTORICAL",
+      "notes": "Internal/development evidence only; not independent external validation."
+    },
+    {
+      "experiment_id": "internal_stage_default_attempt",
+      "dataset": "unknown",
+      "dataset_sha256": null,
+      "dataset_hash_status": "not_applicable",
+      "method": "full configured internal stage",
+      "preprocessing": "training-fold-only cleaning/imputation/encoding/scaling where applicable",
+      "validation_protocol": "default two-dataset internal stage; bounded execution attempt",
+      "fold_count": null,
+      "inner_fold_count": null,
+      "repeats": null,
+      "random_seed": null,
+      "random_seeds": null,
+      "selection_metric": "not applicable",
+      "metric_aggregation": "fold mean plus pooled outer metrics when stored",
+      "primary_metric": "ROC-AUC where available",
+      "secondary_metrics": [
+        "PR-AUC",
+        "Brier",
+        "ECE",
+        "selective/reliability metrics where applicable"
+      ],
+      "reported_metrics": {},
+      "source_artifact": "results/generated/internal_stage_manifest.json",
+      "script": "experiments/run_internal_stage.py",
+      "status": "INCOMPLETE",
+      "notes": "Artifact has no single dataset summary; status is retained for audit traceability."
+    }
+  ]
+}

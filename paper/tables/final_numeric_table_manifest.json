@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-11-05T19:48:24.782369+00:00",
+  "generation_claim": "Numeric tables are generated or refreshed from the listed frozen result artifacts.",
+  "generator_sha256": "6bb6bc5052823c5439d36eb6876dd482cacc2d3afd703754d4b47d99847f1bca",
+  "source_hashes": {
+    "angiocad_ablation": "d5087867fdeb48effbf1d024b0eca9d4420a2196a0fba93ed754242e05359cbe",
+    "domain_guard_angiocad": "6d4980a2258988c5bf551e3f1029309636a741c520897f47e0ebca434fac3469",
+    "domain_guard_duke": "f0af181be3080c4352a088cdb96511701aeedbe0bb8c651f7fcaa91df62a795d",
+    "heart5_linkage": "10b14276c649a8ccfbd9416ed5dfd3535b63ec7e491aeabc83274fc11cdfb5a6",
+    "heart5_stability": "e72703edbaf0272c9fd40b320b9367c8f1d49a3fd9faeb95874b18ca6520b05a",
+    "mendeley_linkage": "f3e6b69aaf45510ca213703c05a780b4647fee3f36a144f16efa31b7f3273e8c",
+    "mendeley_stability": "a04b80ebd1f247512b324a196d1d717b1477945e26d440a7d6829c442618f74d",
+    "nested_json_heart5": "1658ef924074a303ce8a8286984a53f1194a31c64e548ac612488fc3c160cf0f",
+    "nested_json_mendeley": "507743a7b1ff2734b1b46fe669ece6ed19d6c573e8ee877d8fcc07d577baf953",
+    "nested_summary": "d3d648bfb0a953893b4873836adbf9c2097709f38341a9f9ba27e50d6ae990ce",
+    "selective_components": "b72a6f31fe07ba158d4226b24f545ac56308edcb5ad75e48c74f6af73d6d8185",
+    "validity_sensitivity": "a6fa630241de30d0db91f0ebc3e3e49255c73d21be41ed65368374faeea17c04"
+  },
+  "table_hashes": {
+    "angiocad_feature_ablation.tex": "72c65473b5cd0dd46e88bf0b8966136640b56379e2a262659c5980913bc7a8c4",
+    "domain_guard_transfer.tex": "0a91eeb60fdf2047dc59dd5a31dda9f7e413ef476cbac23ca60e4a9ee820b893",
+    "nested_summary.tex": "9444bfceee52a6531471c39c39452c774335d986a8ca22e144355bbfc2152502",
+    "selective_policy_components.tex": "aa0df869d4eb72a5270af45e679b1921da3521f2d587ac3a4589d0a9113b0cca",
+    "stability_evidence.tex": "03c48d507c68c89336349d46c96b4bde3237b2ee6d968656fb85dc006bd4094f",
+    "stability_reliability_linkage.tex": "9050fc1ec6e6fe6746d75da9c8b1a2d3a2090706b5c3417885b624fbd16d3e3b",
+    "uncertainty_evidence.tex": "b513efd941a24860429ce5237b1293a9bd52d42c5b6bb838b370066140d4dc65",
+    "validity_sensitivity_angiocad.tex": "4378946e009b1a589262c57eb2a3871f914f12227a55bc55465651c0cfe41961",
+    "validity_sensitivity_mendeley.tex": "e49be865ace129a7145473f6c4bf0582d766b944439fda5c66dee90b02d27425"
+  }
+}
