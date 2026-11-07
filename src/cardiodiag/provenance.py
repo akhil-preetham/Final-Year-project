@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib.metadata
+import os
 import platform
 import subprocess
 from pathlib import Path
@@ -37,6 +38,26 @@ def collect_provenance(
         except importlib.metadata.PackageNotFoundError:
             package_versions[label] = None
 
+    source_digest = hashlib.sha256()
+    source_file_count = 0
+    source_roots = [repository_root / "src", repository_root / "experiments"]
+    source_files = sorted(
+        path
+        for root in source_roots
+        if root.exists()
+        for path in root.rglob("*.py")
+    )
+    for path in source_files:
+        relative = path.relative_to(repository_root).as_posix()
+        file_digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        source_digest.update(relative.encode("utf-8"))
+        source_digest.update(b"\0")
+        source_digest.update(file_digest.encode("ascii"))
+        source_digest.update(b"\n")
+        source_file_count += 1
+
+    lockfile = repository_root / "uv.lock"
+
     try:
         git_head = subprocess.run(
             ["git", "rev-parse", "HEAD"],
@@ -65,7 +86,19 @@ def collect_provenance(
         "target": target,
         "configuration": configuration,
         "python_version": platform.python_version(),
+        "platform": platform.platform(),
+        "hardware": {
+            "system": platform.system(),
+            "machine": platform.machine(),
+            "processor": platform.processor() or None,
+            "logical_cpu_count": os.cpu_count(),
+        },
         "package_versions": package_versions,
+        "uv_lock_sha256": (
+            hashlib.sha256(lockfile.read_bytes()).hexdigest() if lockfile.exists() else None
+        ),
+        "source_bundle_sha256": source_digest.hexdigest(),
+        "source_file_count": source_file_count,
         "git_head": git_head,
         "working_tree_dirty": working_tree_dirty,
     }

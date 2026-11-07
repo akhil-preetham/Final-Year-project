@@ -18,6 +18,45 @@ from sklearn.metrics import (
 )
 
 
+def uniform_bin_calibration_errors(
+    y_true: np.ndarray,
+    probabilities: np.ndarray,
+    bins: int = 10,
+) -> tuple[float, float]:
+    """Return macro-bin and sample-weighted ECE for equal-width bins.
+
+    The first value is the legacy unweighted mean across occupied bins. The
+    second weights each bin's absolute calibration gap by its sample share.
+    """
+    y_true = np.asarray(y_true)
+    probabilities = np.asarray(probabilities, dtype=float)
+    if y_true.ndim != 1 or probabilities.ndim != 1 or y_true.shape != probabilities.shape:
+        raise ValueError("y_true and probabilities must be equal-length one-dimensional arrays")
+    if y_true.size == 0:
+        raise ValueError("calibration metrics require at least one observation")
+    if not np.all(np.isin(y_true, [0, 1])):
+        raise ValueError("y_true must contain binary labels 0 and 1")
+    y_true = y_true.astype(int)
+    if bins < 1:
+        raise ValueError("bins must be a positive integer")
+    if not np.all(np.isfinite(probabilities)) or np.any(
+        (probabilities < 0) | (probabilities > 1)
+    ):
+        raise ValueError("probabilities must be finite and lie in [0, 1]")
+
+    observed, predicted = calibration_curve(
+        y_true, probabilities, n_bins=bins, strategy="uniform"
+    )
+    bin_edges = np.linspace(0.0, 1.0, bins + 1)
+    bin_ids = np.searchsorted(bin_edges[1:-1], probabilities)
+    counts = np.bincount(bin_ids, minlength=bins)
+    occupied_counts = counts[counts > 0]
+    gaps = np.abs(observed - predicted)
+    macro_ece = float(gaps.mean())
+    weighted_ece = float(np.dot(occupied_counts / y_true.size, gaps))
+    return macro_ece, weighted_ece
+
+
 def evaluate_predictions(
     y_true: np.ndarray,
     probabilities: np.ndarray,
@@ -26,19 +65,30 @@ def evaluate_predictions(
 ) -> dict[str, float | int | list[float]]:
     """Return discrimination, classification, calibration, and sample metrics."""
 
-    y_true = np.asarray(y_true, dtype=int)
+    y_true = np.asarray(y_true)
     probabilities = np.asarray(probabilities, dtype=float)
-    if y_true.shape[0] != probabilities.shape[0]:
-        raise ValueError("y_true and probabilities must have the same length")
-    if np.any((probabilities < 0) | (probabilities > 1)):
-        raise ValueError("probabilities must lie in [0, 1]")
+    if y_true.ndim != 1 or probabilities.ndim != 1 or y_true.shape != probabilities.shape:
+        raise ValueError("y_true and probabilities must be equal-length one-dimensional arrays")
+    if y_true.size == 0:
+        raise ValueError("predictions must contain at least one observation")
+    if not np.all(np.isin(y_true, [0, 1])):
+        raise ValueError("y_true must contain binary labels 0 and 1")
+    y_true = y_true.astype(int)
+    if not 0 <= threshold <= 1:
+        raise ValueError("threshold must lie in [0, 1]")
+    if calibration_bins < 1:
+        raise ValueError("calibration_bins must be a positive integer")
+    if not np.all(np.isfinite(probabilities)) or np.any(
+        (probabilities < 0) | (probabilities > 1)
+    ):
+        raise ValueError("probabilities must be finite and lie in [0, 1]")
     predicted = (probabilities >= threshold).astype(int)
     tn = int(np.sum((y_true == 0) & (predicted == 0)))
     fp = int(np.sum((y_true == 0) & (predicted == 1)))
     fn = int(np.sum((y_true == 1) & (predicted == 0)))
     tp = int(np.sum((y_true == 1) & (predicted == 1)))
-    fraction_positive, mean_predicted = calibration_curve(
-        y_true, probabilities, n_bins=calibration_bins, strategy="uniform"
+    ece_macro, ece_weighted = uniform_bin_calibration_errors(
+        y_true, probabilities, bins=calibration_bins
     )
     return {
         "n": int(y_true.size),
@@ -53,11 +103,8 @@ def evaluate_predictions(
         "roc_auc": float(roc_auc_score(y_true, probabilities)),
         "pr_auc": float(average_precision_score(y_true, probabilities)),
         "brier": float(brier_score_loss(y_true, probabilities)),
-        "ece_uniform": float(
-            np.mean(np.abs(fraction_positive - mean_predicted))
-        )
-        if fraction_positive.size
-        else 0.0,
+        "ece_uniform": ece_macro,
+        "ece_weighted_uniform": ece_weighted,
         "tn": tn,
         "fp": fp,
         "fn": fn,
@@ -74,7 +121,7 @@ def bootstrap_metric_ci(
 ) -> tuple[float, float, float]:
     """Compute a percentile bootstrap interval for paired predictions."""
 
-    y_true = np.asarray(y_true, dtype=int)
+    y_true = np.asarray(y_true)
     probabilities = np.asarray(probabilities, dtype=float)
     rng = np.random.default_rng(random_state)
     values: list[float] = []

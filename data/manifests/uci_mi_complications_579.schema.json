@@ -1,0 +1,753 @@
+{
+  "source": "UCI Machine Learning Repository, dataset 579",
+  "doi": "10.24432/C53P5M",
+  "source_url": "https://archive.ics.uci.edu/dataset/579/myocardial%2Binfarction%2Bcomplications",
+  "license": "CC BY 4.0",
+  "schema_note": "Column numbers are 1-based in the official UCI MI.data file. Variable names, roles, and types are transcribed from UCI API metadata for source-column identification.",
+  "variables": [
+    {
+      "column_1based": 1,
+      "name": "ID",
+      "role": "ID",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 2,
+      "name": "AGE",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 3,
+      "name": "SEX",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 4,
+      "name": "INF_ANAM",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 5,
+      "name": "STENOK_AN",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 6,
+      "name": "FK_STENOK",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 7,
+      "name": "IBS_POST",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 8,
+      "name": "IBS_NASL",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 9,
+      "name": "GB",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 10,
+      "name": "SIM_GIPERT",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 11,
+      "name": "DLIT_AG",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 12,
+      "name": "ZSN_A",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 13,
+      "name": "nr_11",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 14,
+      "name": "nr_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 15,
+      "name": "nr_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 16,
+      "name": "nr_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 17,
+      "name": "nr_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 18,
+      "name": "nr_07",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 19,
+      "name": "nr_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 20,
+      "name": "np_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 21,
+      "name": "np_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 22,
+      "name": "np_05",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 23,
+      "name": "np_07",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 24,
+      "name": "np_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 25,
+      "name": "np_09",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 26,
+      "name": "np_10",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 27,
+      "name": "endocr_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 28,
+      "name": "endocr_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 29,
+      "name": "endocr_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 30,
+      "name": "zab_leg_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 31,
+      "name": "zab_leg_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 32,
+      "name": "zab_leg_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 33,
+      "name": "zab_leg_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 34,
+      "name": "zab_leg_06",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 35,
+      "name": "S_AD_KBRIG",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 36,
+      "name": "D_AD_KBRIG",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 37,
+      "name": "S_AD_ORIT",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 38,
+      "name": "D_AD_ORIT",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 39,
+      "name": "O_L_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 40,
+      "name": "K_SH_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 41,
+      "name": "MP_TP_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 42,
+      "name": "SVT_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 43,
+      "name": "GT_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 44,
+      "name": "FIB_G_POST",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 45,
+      "name": "ant_im",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 46,
+      "name": "lat_im",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 47,
+      "name": "inf_im",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 48,
+      "name": "post_im",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 49,
+      "name": "IM_PG_P",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 50,
+      "name": "ritm_ecg_p_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 51,
+      "name": "ritm_ecg_p_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 52,
+      "name": "ritm_ecg_p_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 53,
+      "name": "ritm_ecg_p_06",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 54,
+      "name": "ritm_ecg_p_07",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 55,
+      "name": "ritm_ecg_p_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 56,
+      "name": "n_r_ecg_p_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 57,
+      "name": "n_r_ecg_p_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 58,
+      "name": "n_r_ecg_p_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 59,
+      "name": "n_r_ecg_p_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 60,
+      "name": "n_r_ecg_p_05",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 61,
+      "name": "n_r_ecg_p_06",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 62,
+      "name": "n_r_ecg_p_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 63,
+      "name": "n_r_ecg_p_09",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 64,
+      "name": "n_r_ecg_p_10",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 65,
+      "name": "n_p_ecg_p_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 66,
+      "name": "n_p_ecg_p_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 67,
+      "name": "n_p_ecg_p_04",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 68,
+      "name": "n_p_ecg_p_05",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 69,
+      "name": "n_p_ecg_p_06",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 70,
+      "name": "n_p_ecg_p_07",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 71,
+      "name": "n_p_ecg_p_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 72,
+      "name": "n_p_ecg_p_09",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 73,
+      "name": "n_p_ecg_p_10",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 74,
+      "name": "n_p_ecg_p_11",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 75,
+      "name": "n_p_ecg_p_12",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 76,
+      "name": "fibr_ter_01",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 77,
+      "name": "fibr_ter_02",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 78,
+      "name": "fibr_ter_03",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 79,
+      "name": "fibr_ter_05",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 80,
+      "name": "fibr_ter_06",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 81,
+      "name": "fibr_ter_07",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 82,
+      "name": "fibr_ter_08",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 83,
+      "name": "GIPO_K",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 84,
+      "name": "K_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 85,
+      "name": "GIPER_NA",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 86,
+      "name": "NA_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 87,
+      "name": "ALT_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 88,
+      "name": "AST_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 89,
+      "name": "KFK_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 90,
+      "name": "L_BLOOD",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 91,
+      "name": "ROE",
+      "role": "Feature",
+      "type": "Continuous"
+    },
+    {
+      "column_1based": 92,
+      "name": "TIME_B_S",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 93,
+      "name": "R_AB_1_n",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 94,
+      "name": "R_AB_2_n",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 95,
+      "name": "R_AB_3_n",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 96,
+      "name": "NA_KB",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 97,
+      "name": "NOT_NA_KB",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 98,
+      "name": "LID_KB",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 99,
+      "name": "NITR_S",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 100,
+      "name": "NA_R_1_n",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 101,
+      "name": "NA_R_2_n",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 102,
+      "name": "NA_R_3_n",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 103,
+      "name": "NOT_NA_1_n",
+      "role": "Feature",
+      "type": "Categorical"
+    },
+    {
+      "column_1based": 104,
+      "name": "NOT_NA_2_n",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 105,
+      "name": "NOT_NA_3_n",
+      "role": "Feature",
+      "type": "Integer"
+    },
+    {
+      "column_1based": 106,
+      "name": "LID_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 107,
+      "name": "B_BLOK_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 108,
+      "name": "ANT_CA_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 109,
+      "name": "GEPAR_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 110,
+      "name": "ASP_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 111,
+      "name": "TIKL_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 112,
+      "name": "TRENT_S_n",
+      "role": "Feature",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 113,
+      "name": "FIBR_PREDS",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 114,
+      "name": "PREDS_TAH",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 115,
+      "name": "JELUD_TAH",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 116,
+      "name": "FIBR_JELUD",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 117,
+      "name": "A_V_BLOK",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 118,
+      "name": "OTEK_LANC",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 119,
+      "name": "RAZRIV",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 120,
+      "name": "DRESSLER",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 121,
+      "name": "ZSN",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 122,
+      "name": "REC_IM",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 123,
+      "name": "P_IM_STEN",
+      "role": "Target",
+      "type": "Binary"
+    },
+    {
+      "column_1based": 124,
+      "name": "LET_IS",
+      "role": "Target",
+      "type": "Categorical"
+    }
+  ]
+}

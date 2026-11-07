@@ -1,0 +1,81 @@
+{
+  "study_id": "CD-XD-004",
+  "dataset_name": "AngioCAD",
+  "dataset_record_id": 15826856,
+  "dataset_doi": "10.5281/zenodo.15826856",
+  "article_doi": "10.1016/j.cmpb.2026.109368",
+  "source_url": "https://zenodo.org/records/15826856",
+  "api_metadata_path": "data/external/angiocad_zenodo_15826856/zenodo_record_metadata.json",
+  "api_metadata_sha256": "78b420d9392ec15835343b31b44e3880b844cb85f196d6e65ae81a007cd47842",
+  "access_date": "2026-11-05",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "collection_site": "Shahid Chamran Heart Center, Isfahan, Iran",
+  "files": {
+    "clinical_features": {
+      "path": "data/external/angiocad_zenodo_15826856/AngioCAD_Features.xlsx",
+      "sha256": "978f2415ab52f11724e1ef00bb63597b8497487afd84b97f7112fc7975a33295",
+      "bytes": 129493,
+      "zenodo_md5": "1617d242df42367787f445392729f35e"
+    },
+    "artery_labels": {
+      "path": "data/external/angiocad_zenodo_15826856/AngioCAD_Labels.xlsx",
+      "sha256": "5bba3f4ba8bed0df0d2f412d5e2ca6deacca0eff20d531a599fe1b8f4d897425",
+      "bytes": 43267,
+      "zenodo_md5": "fc97ffc2978f6cee93a1059e8b1c282f"
+    }
+  },
+  "role": "One-way, source-distinct, endpoint-aligned external-cohort evaluation",
+  "expected_article_patients": 413,
+  "raw_workbooks": {
+    "feature_rows_including_header": 380,
+    "label_rows_including_header": 416,
+    "feature_nonblank_unique_ids": 377,
+    "label_nonblank_unique_ids": 413,
+    "matched_unique_ids": 377,
+    "label_ids_without_feature_row": 36,
+    "blank_rows_in_features": 2,
+    "blank_rows_in_labels": 2,
+    "duplicate_nonblank_ids_in_features": 0,
+    "duplicate_nonblank_ids_in_labels": 0,
+    "matched_feature_missing_counts": {
+      "Age": 6,
+      "Sex": 0,
+      "FBS": 11
+    }
+  },
+  "analysis_cohort": {
+    "rows": 377,
+    "negative": 79,
+    "positive": 298,
+    "positive_definition": "Any of 15 artery segments is in 51-75, 76-90, 91-99, or 100 percent stenosis categories.",
+    "negative_definition": "Every artery segment is NL, 1-25, or 26-50 percent stenosis.",
+    "endpoint_compatibility": "AngioCAD positive bins start at 51%, matching the source positive cut point of >50%. The target's negative 26-50 bin includes the 50% boundary but does not retain exact percentages within that bin, so exact-50 cases cannot be isolated for a boundary sensitivity analysis.",
+    "target_column": "Derived from artery label workbook, columns LM through PLB; feature and label workbooks joined on patient ID.",
+    "feature_missing_counts": {
+      "age": 6,
+      "sex": 0,
+      "fbs": 11
+    }
+  },
+  "harmonized_features": [
+    {
+      "source_field": "age",
+      "external_field": "Age",
+      "mapping": "Years, retained as numeric; missing values imputed using source-fit median."
+    },
+    {
+      "source_field": "sex",
+      "external_field": "Sex",
+      "mapping": "Male/female normalized to male/female strings; source 1=male and 0=female."
+    },
+    {
+      "source_field": "fbs",
+      "external_field": "FBS",
+      "mapping": "Binary fasting blood sugar >120 mg/dL; same strict threshold applied to numeric external measurement, assuming AngioCAD numeric FBS is mg/dL.",
+      "unit_evidence": "The workbook does not state units. Observed values range from 55 to 514, consistent with mg/dL; this remains an explicit harmonization assumption."
+    }
+  ],
+  "excluded_fields": "All other AngioCAD fields are excluded, including diagnosis, medication, labs beyond FBS, and artery labels. The target is not supplied as a predictor.",
+  "overlap_assessment": "AngioCAD is from a separate Iranian hospital; source components are Cleveland, Hungary, Switzerland, and VA Long Beach. The workbooks have site-specific IDs but no cross-dataset person identifiers, so direct patient-level overlap exclusion is unavailable.",
+  "attribution": "Hosseini, M. S., Naghsh-Nilchi, A. R., Safayani, M., et al. (2026). AngioCAD: A public X-ray angiography dataset and an adaptive fusion framework for stenosis detection. Computer Methods and Programs in Biomedicine, 282, 109368. https://doi.org/10.1016/j.cmpb.2026.109368. Dataset: https://doi.org/10.5281/zenodo.15826856."
+}

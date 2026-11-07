@@ -11,20 +11,24 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_collect_provenance_records_corrected_protocol_and_configuration() -> None:
     configuration = {"seed": 42, "outer_splits": 3}
     result = collect_provenance(
-        ROOT / "MendeleyCardiovascular_Disease_Dataset.csv",
-        "target",
+        ROOT / "heart5.csv",
+        "HeartDisease",
         "nested_validation",
         configuration,
     )
 
     assert result["selector_protocol"] == "post_boundary_correction_v1"
     assert result["experiment_type"] == "nested_validation"
-    assert result["target"] == "target"
+    assert result["target"] == "HeartDisease"
     assert result["dataset_sha256"] == hashlib.sha256(
-        (ROOT / "MendeleyCardiovascular_Disease_Dataset.csv").read_bytes()
+        (ROOT / "heart5.csv").read_bytes()
     ).hexdigest()
     assert result["configuration"] == configuration
     assert result["python_version"] == ".".join(map(str, sys.version_info[:3]))
+    assert len(result["source_bundle_sha256"]) == 64
+    assert result["source_file_count"] > 0
+    assert result["hardware"]["logical_cpu_count"] is not None
+    assert result["platform"]
     assert {
         "numpy",
         "pandas",

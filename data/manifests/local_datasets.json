@@ -10,7 +10,7 @@
     },
     "role": "historical replication/development benchmark",
     "independence": "not independent of the public component datasets used by the Five States composite",
-    "license_note": "No license file was supplied with the local CSV; verify upstream component terms before redistribution.",
+    "license_note": "All 918 local rows map to UCI component records (914 unique and 4 ambiguous); the UCI source record is CC BY 4.0, but this derived composite has no separate license notice or complete transformation history, so verify derivative-file terms before redistribution.",
     "numeric_features": [
       "Age",
       "RestingBP",

@@ -14,7 +14,7 @@ def test_priority_tuning_includes_installed_boosters() -> None:
 
 
 def test_tuned_pipeline_keeps_preprocessing_inside_estimator() -> None:
-    X, _ = load_dataset(ROOT / "MendeleyCardiovascular_Disease_Dataset.csv", "target")
+    X, _ = load_dataset(ROOT / "heart5.csv", "HeartDisease")
     model, _ = _models(seed=42)["hist_gradient_boosting"]
     pipeline = _pipeline(X, model)
     assert list(pipeline.named_steps) == ["cleaner", "preprocessor", "model"]

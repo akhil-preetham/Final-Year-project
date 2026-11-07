@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "project": "CARDIODIAG",
+  "assessment_date": "2026-11-05",
+  "claim_under_review": "real-world / clinical readiness",
+  "current_decision": "NO_GO",
+  "decision_rule": "All phases must be passed, have at least one existing evidence file, have no missing evidence and no blockers, and the declared decision must match the derived decision before real_world_ready can be true.",
+  "phases": [
+    {
+      "id": "G0",
+      "name": "Diagnose and bound the claim",
+      "status": "passed",
+      "target": "Record what current engineering and evidence establish, separate research evidence from external and clinical validity, and prevent unsupported claims.",
+      "exit_criteria": [
+        "Current metrics and protocol status are documented",
+        "Current limitations and claim boundary are explicit"
+      ],
+      "evidence_paths": [
+        "docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md",
+        "docs/QA_REPORT.md"
+      ],
+      "blockers": [],
+      "accountable_role": "Project QA reviewer (local audit only; no clinical sign-off)"
+    },
+    {
+      "id": "G1",
+      "name": "Intended use and requirements",
+      "status": "partial",
+      "target": "Record the current research-only scope and, before clinical use, obtain accountable approval for one population, setting, user, prediction time, outcome, action, exclusions, comparator, and jurisdiction.",
+      "exit_criteria": [
+        "Current research-only scope and prohibited clinical use documented",
+        "Signed clinical intended-use statement before any clinical-readiness claim",
+        "Requirements and harm analysis approved by clinical owner"
+      ],
+      "evidence_paths": [
+        "docs/INTENDED_USE_SCOPE.md",
+        "paper/manuscript.tex",
+        "docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md"
+      ],
+      "blockers": [
+        "Future clinical use is unspecified and has no clinical owner or approved decision threshold",
+        "Current experiments use different feature sets and endpoints"
+      ],
+      "accountable_role": "Project lead and cardiology lead; named owners unassigned"
+    },
+    {
+      "id": "G2",
+      "name": "Data access, provenance, and rights",
+      "status": "partial",
+      "target": "Verify provenance, data-use authority, licenses, overlap, and redistribution restrictions for every development and evaluation dataset.",
+      "exit_criteria": [
+        "All sources have documented permission and license/DUA",
+        "No unresolved patient-level overlap",
+        "No restricted data redistributed"
+      ],
+      "evidence_paths": [
+        "docs/DATASET_COMPATIBILITY.md",
+        "docs/DATA_PROVENANCE.md",
+        "data/manifests/uci_z_alizadeh_sani_external.json",
+        "data/external/uci_statlog_heart/overlap_audit.json",
+        "data/access_requests/multid4cad/DUA.pdf",
+        "data/access_requests/multid4cad/source.json",
+        "data/manifests/mendeley_heart_disease_2026_external.json",
+        "results/external_candidate_screen_20261105/mendeley_heart_disease_2026_overlap.json",
+        "results/data_provenance_audits/heart5_uci_lineage.json",
+        "results/data_provenance_audits/heart5_uci_row_map.csv",
+        "results/data_provenance_audits/distribution_data_audit.json",
+        "data/manifests/mendeley_cardiovascular_2021.json",
+        "data/external/mendeley_cardiovascular_2021/Cardiovascular_Disease_Dataset_Description.pdf",
+        "results/data_provenance_audits/mendeley_2021_source.json"
+      ],
+      "blockers": [
+        "Heart5 transformation/imputation provenance and Kaggle 70K licensing/redistribution remain unresolved; do not redistribute 70K until rights are confirmed",
+        "The 2021 Mendeley codebook lacks a diagnostic reference standard, so that benchmark is not pooled with the angiographic endpoint",
+        "The accessible Z-Alizadeh Sani cohort is endpoint-mismatched and has no patient identifiers for linkage"
+      ],
+      "accountable_role": "Data steward and project lead; named owners unassigned"
+    },
+    {
+      "id": "G3",
+      "name": "Endpoint and feature alignment",
+      "status": "partial",
+      "target": "Freeze one clinically reviewed target definition and a complete feature map with units, timing, codebook, missingness, and inclusion rules.",
+      "exit_criteria": [
+        "One unambiguous reference standard",
+        "Every deployed input is available before the prediction time",
+        "Zero patient overlap across partitions"
+      ],
+      "evidence_paths": [
+        "docs/DATASET_COMPATIBILITY.md",
+        "docs/TRANSFER_STUDY_PROTOCOL_20261105_ANGIOCAD.md",
+        "docs/TRANSFER_STUDY_PROTOCOL_20261105_DUKE.md",
+        "docs/TRANSFER_STUDY_PROTOCOL_20261105_ZAS.md",
+        "docs/TRANSFER_STUDY_RESULTS_20261105_ZAS.md"
+      ],
+      "blockers": [
+        "Duke uses a stricter threshold",
+        "Z-Alizadeh Sani uses >=50% versus source >50%",
+        "AngioCAD replay was post-hoc",
+        "No single product feature map is selected"
+      ],
+      "accountable_role": "Clinical informatician and cardiology lead; named owners unassigned"
+    },
+    {
+      "id": "G4",
+      "name": "Model, calibration, and policy lock",
+      "status": "partial",
+      "target": "Freeze one versioned model, feature map, calibration method, threshold, abstention rules, and protocol before the external test labels are available.",
+      "exit_criteria": [
+        "Protocol and model hashes recorded before external evaluation",
+        "No target-label-driven model selection or threshold tuning",
+        "Inference failures abstain safely"
+      ],
+      "evidence_paths": [
+        "src/cardiodiag/domain_guard.py",
+        "results/transfer_20261105_angiocad_domain_guard/run_manifest.json",
+        "results/transfer_20261105_duke_acath_final/run_manifest.json"
+      ],
+      "blockers": [
+        "There are separate study pipelines rather than one clinically specified product model",
+        "AngioCAD CD-XD-006 is post-hoc"
+      ],
+      "accountable_role": "ML lead and statistician; named owners unassigned"
+    },
+    {
+      "id": "G5",
+      "name": "Internal validation",
+      "status": "partial",
+      "target": "Run patient/group-aware nested evaluation with prespecified repeats, baseline comparisons, uncertainty intervals, calibration, and subgroup accounting.",
+      "exit_criteria": [
+        "At least five prespecified random seeds where random splitting applies",
+        "Primary metrics and intervals match the frozen analysis plan",
+        "All intended groups and failure cases reported"
+      ],
+      "evidence_paths": [
+        "results/master_directive_20261105_serial/internal_stage_manifest.json",
+        "docs/QA_REPORT.md",
+        "docs/INTERNAL_VALIDATION_REPEAT_PROTOCOL_20261105.md",
+        "results/internal_seed_sensitivity_20261105/seed_repeat_summary.json",
+        "results/internal_seed_sensitivity_20261105/seed_43/internal_stage_manifest.json",
+        "results/internal_seed_sensitivity_20261105/seed_44/internal_stage_manifest.json",
+        "results/internal_seed_sensitivity_20261105/seed_45/internal_stage_manifest.json",
+        "results/internal_seed_sensitivity_20261105/seed_46/internal_stage_manifest.json",
+        "results/internal_seed_sensitivity_20261105/seed_47/internal_stage_manifest.json"
+      ],
+      "blockers": [
+        "The repeated runs use row-level random splits because complete patient/group identifiers are unavailable",
+        "Patient-level uncertainty intervals and intended-subgroup accounting are incomplete",
+        "The five-seed analysis is exploratory because seed-42 results were already examined"
+      ],
+      "accountable_role": "Statistician and ML lead; named owners unassigned"
+    },
+    {
+      "id": "G6",
+      "name": "Untouched external evaluation",
+      "status": "blocked",
+      "target": "Evaluate a frozen model once on at least two independent health systems/cohorts, with one untouched primary test, compatible labels, and power/precision-based sample size.",
+      "exit_criteria": [
+        "No development/test patient overlap",
+        "Endpoint and feature compatibility approved",
+        "95% CI half-width <=0.05 for ROC-AUC and <=0.20 for calibration slope, unless stricter limits are preregistered",
+        "Use-specific primary safety metric meets its clinician-approved lower-bound target",
+        "External cohort results reproduce from saved predictions"
+      ],
+      "evidence_paths": [
+        "docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md",
+        "docs/EXTERNAL_DATA_ACCESS_PATHWAYS.md",
+        "docs/TRANSFER_STUDY_RESULTS_20261105_ANGIOCAD.md",
+        "docs/TRANSFER_STUDY_RESULTS_20261105.md",
+        "docs/TRANSFER_STUDY_RESULTS_20261105_ZAS.md",
+        "results/transfer_20261105_zas_validation_rerun/run_manifest.json",
+        "results/transfer_20261105_zas_completion_check/run_manifest.json",
+        "results/external_candidate_screen_20261105/mendeley_heart_disease_2026_overlap.json"
+      ],
+      "blockers": [
+        "No untouched endpoint-compatible public cohort was secured; Z-Alizadeh Sani uses >=50% versus source >50%",
+        "AngioCAD was previously examined, and person-level overlap cannot be ruled out for the public cohorts",
+        "The 2026 Mendeley 918-row public release exactly duplicates Heart5 and is not an independent target cohort"
+      ],
+      "accountable_role": "Independent site PI and statistician; named owners unassigned"
+    },
+    {
+      "id": "G7",
+      "name": "Calibration, uncertainty, and operating envelope",
+      "status": "partial",
+      "target": "Meet clinically agreed calibration, selective-risk, automatic-coverage, and shift-detection limits at every intended site and subgroup.",
+      "exit_criteria": [
+        "C_min and R_max set before external results",
+        "Confidence bounds meet agreed limits",
+        "Unknown sites and invalid inputs never emit actionable scores",
+        "Shift detector validated on held-out sites"
+      ],
+      "evidence_paths": [
+        "results/DOMAIN_GUARD_FINAL_AUDIT.json",
+        "results/transfer_20261105_angiocad_domain_guard/domain_guard_demo.json",
+        "results/transfer_20261105_duke_acath_final/domain_guard_demo.json"
+      ],
+      "blockers": [
+        "AngioCAD automatic coverage is 5.6%",
+        "Feature-only OOD separation is weak",
+        "No clinician-approved operating thresholds"
+      ],
+      "accountable_role": "Cardiology lead and statistician; named owners unassigned"
+    },
+    {
+      "id": "G8",
+      "name": "Subgroup safety, usability, and human factors",
+      "status": "not_started",
+      "target": "Demonstrate adequate subgroup precision, clear failure communication, and usability in the intended clinical workflow.",
+      "exit_criteria": [
+        "Subgroups prespecified with adequate sample size",
+        "Clinician and representative-user usability review completed",
+        "Unsupported groups clearly restricted"
+      ],
+      "evidence_paths": [
+        "docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md"
+      ],
+      "blockers": [
+        "No intended user or site",
+        "No powered subgroup or usability study"
+      ],
+      "accountable_role": "Human-factors lead and patient/public representative; named owners unassigned"
+    },
+    {
+      "id": "G9",
+      "name": "Prospective clinical evaluation",
+      "status": "not_started",
+      "target": "Complete an approved prospective silent-mode evaluation at intended sites before the model influences care.",
+      "exit_criteria": [
+        "Ethics and institutional approvals",
+        "Registered protocol and adjudicated outcomes",
+        "Prospective performance and workflow harms meet prespecified limits"
+      ],
+      "evidence_paths": [
+        "docs/MASTER_DIRECTIVE_COMPLETION_MATRIX.md"
+      ],
+      "blockers": [
+        "No clinical partner, approved protocol, or prospective dataset"
+      ],
+      "accountable_role": "Site PI and ethics committee; named owners unassigned"
+    },
+    {
+      "id": "G10",
+      "name": "Software safety, privacy, security, and quality system",
+      "status": "not_started",
+      "target": "Establish risk-based software lifecycle controls, privacy/security review, traceable requirements, release/change control, incident handling, and rollback.",
+      "exit_criteria": [
+        "No unacceptable open hazards",
+        "No unresolved critical security findings",
+        "Critical safety requirements trace to tests",
+        "Release and rollback independently verified"
+      ],
+      "evidence_paths": [
+        "docs/QA_REPORT.md",
+        "src/cardiodiag/domain_guard.py"
+      ],
+      "blockers": [
+        "Current QA covers research software integrity only",
+        "No product security or quality-system evidence"
+      ],
+      "accountable_role": "Software quality, privacy, and security leads; named owners unassigned"
+    },
+    {
+      "id": "G11",
+      "name": "Regulatory determination and authorization",
+      "status": "not_started",
+      "target": "Obtain a qualified jurisdiction-specific device determination and all required investigation, manufacturing, and marketing permissions.",
+      "exit_criteria": [
+        "Manufacturer and intended jurisdiction identified",
+        "Required regulatory authorization obtained before clinical use",
+        "Claims and labeling reviewed"
+      ],
+      "evidence_paths": [
+        "docs/REAL_WORLD_READINESS_WORKFLOW.md"
+      ],
+      "blockers": [
+        "Jurisdiction, manufacturer, and intended-use function are not selected",
+        "No regulatory review or authorization"
+      ],
+      "accountable_role": "Manufacturer and regulatory affairs specialist; named owners unassigned"
+    },
+    {
+      "id": "G12",
+      "name": "Controlled release and post-market monitoring",
+      "status": "not_started",
+      "target": "Operate staged release with site-specific drift/performance monitoring, escalation, incident review, rollback, and periodic re-evaluation.",
+      "exit_criteria": [
+        "Monitoring thresholds and owners defined",
+        "Rollback and incident drills pass",
+        "No release until G1-G11 pass"
+      ],
+      "evidence_paths": [
+        "docs/REAL_WORLD_READINESS_WORKFLOW.md"
+      ],
+      "blockers": [
+        "No authorized product or deployment site"
+      ],
+      "accountable_role": "Product operations and post-market safety lead; named owners unassigned"
+    }
+  ]
+}

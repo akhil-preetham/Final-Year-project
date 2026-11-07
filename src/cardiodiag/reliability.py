@@ -9,24 +9,39 @@ from scipy.optimize import minimize
 from sklearn.calibration import calibration_curve
 from sklearn.metrics import roc_auc_score
 
+from cardiodiag.evaluation import uniform_bin_calibration_errors
+
 
 def calibration_summary(
     y_true: np.ndarray,
     probabilities: np.ndarray,
     bins: int = 10,
 ) -> dict[str, float | int | list[float]]:
-    """Return Brier, ECE, and logistic calibration intercept/slope."""
+    """Return Brier, two equal-width ECEs, and calibration diagnostics.
+
+    ``ece_uniform`` preserves the project's legacy macro-bin calculation;
+    ``ece_weighted_uniform`` is the conventional sample-weighted ECE.
+    """
 
     y_true = np.asarray(y_true, dtype=float)
-    probabilities = np.clip(np.asarray(probabilities, dtype=float), 1e-6, 1 - 1e-6)
-    if y_true.shape != probabilities.shape:
-        raise ValueError("y_true and probabilities must have the same shape")
+    probabilities = np.asarray(probabilities, dtype=float)
+    if y_true.ndim != 1 or probabilities.ndim != 1 or y_true.shape != probabilities.shape:
+        raise ValueError("y_true and probabilities must be equal-length one-dimensional arrays")
+    if y_true.size == 0:
+        raise ValueError("calibration requires at least one observation")
+    if not np.all(np.isin(y_true, [0, 1])):
+        raise ValueError("y_true must contain binary labels 0 and 1")
+    if not np.all(np.isfinite(probabilities)) or np.any(
+        (probabilities < 0) | (probabilities > 1)
+    ):
+        raise ValueError("probabilities must be finite and lie in [0, 1]")
     if np.unique(y_true).size < 2:
         raise ValueError("Calibration requires both outcome classes")
+    ece_macro, ece_weighted = uniform_bin_calibration_errors(y_true, probabilities, bins)
+    probabilities = np.clip(probabilities, 1e-6, 1 - 1e-6)
     observed, predicted = calibration_curve(
         y_true, probabilities, n_bins=bins, strategy="uniform"
     )
-    ece = float(np.mean(np.abs(observed - predicted))) if observed.size else 0.0
     logit = np.log(probabilities / (1.0 - probabilities))
 
     def objective(parameters: np.ndarray) -> float:
@@ -38,7 +53,8 @@ def calibration_summary(
     return {
         "n": int(y_true.size),
         "brier": float(np.mean((y_true - probabilities) ** 2)),
-        "ece_uniform": ece,
+        "ece_uniform": ece_macro,
+        "ece_weighted_uniform": ece_weighted,
         "calibration_intercept": float(fit.x[0]),
         "calibration_slope": float(fit.x[1]),
         "reliability_observed": observed.astype(float).tolist(),

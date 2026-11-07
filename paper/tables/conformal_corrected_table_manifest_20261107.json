@@ -1,0 +1,18 @@
+{
+  "protocol": "Corrected finite-sample split-conformal quantile; ten paired seeds 42-51; internal source-side benchmarks.",
+  "sources": {
+    "heart5": {
+      "path": "results\\finalization_20261107\\conformal_corrected\\heart5_linkage_10seeds.json",
+      "sha256": "9016e03121103684a0179d8a65335ff400e03c4a92d34b3c54e8612bbbe258b9"
+    },
+    "mendeley": {
+      "path": "results\\finalization_20261107\\conformal_corrected\\mendeley_linkage_10seeds.json",
+      "sha256": "fab5adba61fcedfcd906c9e719931ad08c7d636b922177eaae04342cb4fd82ad"
+    }
+  },
+  "generator_sha256": "62a9b15febb3d96f1e2df02cb0f754f7c8106c37bf3d9aa989f87a5fe549bd93",
+  "outputs": {
+    "paper\\tables\\uncertainty_evidence_conformal_corrected.tex": "af54a1b70265da1c949d18dab7b574acb46e9eec8743de2268fc9c5cbfb79dfa",
+    "paper\\tables\\stability_reliability_linkage_conformal_corrected.tex": "6fc29d5980aaaa4bae1368eee658dd2ffe3de5eed67e9ee077e6a6a3335879be"
+  }
+}

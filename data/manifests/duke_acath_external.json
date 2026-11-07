@@ -1,0 +1,32 @@
+{
+  "study_id": "CD-XD-005",
+  "dataset_name": "Duke Cardiac Catheterization (ACATH)",
+  "source_url": "https://hbiostat.org/data/repo/acath",
+  "download_url": "https://hbiostat.org/data/repo/acath.xls.zip",
+  "access_date": "2026-11-05",
+  "provider": "Vanderbilt Department of Biostatistics; Duke University Cardiovascular Disease Databank",
+  "permission": "The provider states permission is granted to anyone wishing to use the datasets; attribution requested to the original paper where identified and to Vanderbilt Department of Biostatistics.",
+  "attribution": "Data obtained from https://hbiostat.org/data courtesy of the Vanderbilt University Department of Biostatistics. Cohort description: Duke Cardiac Catheterization Coronary Artery Disease Diagnostic Dataset, https://hbiostat.org/data/repo/acath.",
+  "archive_path": "data/external/duke_acath/acath.xls.zip",
+  "archive_sha256": "1cdf9ca31c87810091ed9c5be0c1bdff94ec68eb5ce51eb3792572687a1f18da",
+  "workbook_path": "data/external/duke_acath/raw/acath.xls",
+  "workbook_sha256": "2dd7c8368d84e0351385023d9357a4a24d681a02d001e841c272914a42b3b9a8",
+  "rows": 3504,
+  "columns": ["sex", "age", "cad.dur", "choleste", "sigdz", "tvdlm"],
+  "target_column": "sigdz",
+  "target_definition": "Significant coronary disease, defined by the source as >=75% diameter narrowing in at least one major coronary artery.",
+  "target_counts": {"0": 1170, "1": 2334},
+  "predictor_policy": {
+    "fields": ["age", "sex", "choleste"],
+    "mapping": {
+      "age": "Years; same unit as UCI Heart Disease source.",
+      "sex": "Duke 0=male/1=female; mapped to UCI 1=male/0=female.",
+      "choleste": "Serum cholesterol mg/dL, mapped to UCI chol; missing values retained for source-fit median imputation."
+    },
+    "excluded_fields": ["cad.dur", "sigdz", "tvdlm"]
+  },
+  "missing_counts": {"sex": 0, "age": 0, "cad.dur": 0, "choleste": 1246, "sigdz": 0, "tvdlm": 3},
+  "role": "Freshly sourced external transport stress test; endpoint threshold differs from the UCI source (>50% vs >=75%), so this is not endpoint-identical validation.",
+  "overlap_assessment": "Separate Duke University cohort; no person-level linkage is available. UCI historical overlap is not expected by site, but cannot be ruled out through record linkage.",
+  "notes": "The cohort-level target counts were inspected for ingestion/schema quality before writing the final experiment outputs. No model performance metrics from this cohort were used for method selection or tuning. Treat the evaluation as exploratory rather than preregistered."
+}

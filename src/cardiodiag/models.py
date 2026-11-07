@@ -33,7 +33,7 @@ def build_ovec(random_state: int = 42) -> VotingClassifier:
             ("svc", SVC(probability=True, class_weight="balanced", random_state=random_state)),
         ],
         voting="soft",
-        n_jobs=-1,
+        n_jobs=1,
     )
 
 
@@ -59,7 +59,7 @@ def build_osec(random_state: int = 42) -> StackingClassifier:
         final_estimator=LogisticRegression(max_iter=2000, class_weight="balanced"),
         cv=5,
         stack_method="predict_proba",
-        n_jobs=-1,
+        n_jobs=1,
     )
 
 

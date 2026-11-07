@@ -1,0 +1,16 @@
+{
+  "attribution": "Saha, A.; Arifen, R.; Azad, A. (2026), Mendeley Data, version 1.",
+  "audit_report_path": "results/external_candidate_screen_20261105/mendeley_heart_disease_2026_overlap.json",
+  "audit_report_sha256": "7f33916a9e41579c5044ef1f769741524259f61a86779f6ad4789c102509b636",
+  "baseline_path": "heart5.csv",
+  "baseline_sha256": "e4068802a044e8a1e3ae9fa81deae7025711bf4f13e3057f96e4f1cf3b0180c2",
+  "doi": "10.17632/nt4y898vyh.1",
+  "exact_labeled_row_pairs": 918,
+  "file_path": "data/external/mendeley_heart_disease_2026/heart.csv",
+  "file_sha256": "948420b084d8a3a0ca42b8419fce9aee175879e43f8aedf712377899a67aa49b",
+  "license": "CC BY 4.0",
+  "role": "Duplicate-data provenance screen; excluded from external validation.",
+  "rows": 918,
+  "same_labeled_row_multiset": true,
+  "source_url": "https://data.mendeley.com/datasets/nt4y898vyh/1"
+}

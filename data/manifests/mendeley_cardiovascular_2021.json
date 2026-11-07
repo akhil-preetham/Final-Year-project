@@ -1,0 +1,23 @@
+{
+  "dataset_id": "dzz48mvjht",
+  "version": 1,
+  "source_url": "https://data.mendeley.com/datasets/dzz48mvjht/1",
+  "doi": "10.17632/dzz48mvjht.1",
+  "license": "CC BY 4.0",
+  "csv_path": "MendeleyCardiovascular_Disease_Dataset.csv",
+  "csv_sha256": "9376367dde41e79e432d6402ea5d9e44223fc318ff54ed09966d721923947d1e",
+  "codebook_path": "data/external/mendeley_cardiovascular_2021/Cardiovascular_Disease_Dataset_Description.pdf",
+  "codebook_sha256": "ba341780562d4f81b5bd4298d01b067d6af00dbf0192869221c828d6a0b0467a",
+  "rows": 1000,
+  "columns": 14,
+  "target": "target",
+  "target_counts": {
+    "0": 420,
+    "1": 580
+  },
+  "target_codebook": "0 means absence of heart disease; 1 means presence of heart disease.",
+  "reference_standard": "The source record and one-page codebook do not specify the diagnostic reference standard or stenosis threshold.",
+  "prediction_time_limit": "The dataset includes noofmajorvessels; Doppala et al. map it to number of major vessels seen by fluoroscopy. Its measurement timing relative to the binary target is undocumented, so it is a high-risk potentially post-diagnostic predictor and is excluded from any early-detection interpretation.",
+  "role": "Historical development/replication benchmark; it was used by the base study.",
+  "eligibility_note": "Do not pool this label with the UCI/AngioCAD >50% angiographic endpoint or count it as external validation without a source-level reference-standard definition."
+}

@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Post-hoc comparison of frozen selective-policy components. AngioCAD was previously examined; Duke uses a different endpoint. The registry blocks both unregistered cohorts. Target labels did not select thresholds or policies.}
+\label{tab:selective-policy-components}
+\scriptsize
+\begin{tabular}{lrrrr}
+\toprule
+Policy & AngioCAD coverage & AngioCAD errors & Duke coverage & Duke errors \\
+\midrule
+Fixed probability 0.5, no abstention & 100.0\% & 96/377 & 100.0\% & 1,358/3,504 \\
+Conformal singleton only & 8.8\% & 0/33 (0.0\%) & 13.9\% & 61/487 (12.5\%) \\
+kNN detector only & 93.4\% & 93/352 (26.4\%) & 95.6\% & 1,305/3,349 (39.0\%) \\
+Isolation Forest only & 99.7\% & 96/376 (25.5\%) & 97.3\% & 1,330/3,409 (39.0\%) \\
+Registered conformal + kNN & 5.6\% & 0/21 (0.0\%); one class & 11.4\% & 41/401 (10.2\%) \\
+Unknown-site registry gate & 0.0\% & No score emitted & 0.0\% & No score emitted \\
+\bottomrule
+\end{tabular}
+\end{table*}

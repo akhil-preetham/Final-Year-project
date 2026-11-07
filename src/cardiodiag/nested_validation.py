@@ -4,13 +4,18 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from time import perf_counter
 from typing import Any
 
 import numpy as np
 from sklearn.metrics import average_precision_score, roc_auc_score
-from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold
+from sklearn.model_selection import (
+    GridSearchCV,
+    RepeatedStratifiedKFold,
+    StratifiedKFold,
+)
 
-from .data import drop_identifier_columns, load_dataset, summarize_dataset
+from .data import drop_feature_columns, drop_identifier_columns, load_dataset, summarize_dataset
 from .evaluation import bootstrap_metric_ci, evaluate_predictions
 from .experiments import build_corrected_pipeline
 
@@ -24,6 +29,8 @@ class NestedConfig:
     inner_splits: int = 3
     seed: int = 42
     scoring: str = "roc_auc"
+    excluded_features: tuple[str, ...] = ()
+    shuffle_inner: bool = False
 
 
 def candidate_grid(variant: str, stable_selector: bool) -> dict[str, list[Any]]:
@@ -61,11 +68,15 @@ def run_nested_validation(
     outer_repeats: int = 1,
     inner_splits: int = 3,
     seed: int = 42,
+    exclude_features: list[str] | tuple[str, ...] | None = None,
+    shuffle_inner: bool = False,
 ) -> dict[str, Any]:
     """Run an outer evaluation with all model selection inside inner folds."""
 
     X, y = load_dataset(dataset_path, target)
     X, dropped_identifiers = drop_identifier_columns(X)
+    excluded_features = tuple(dict.fromkeys(exclude_features or ()))
+    X = drop_feature_columns(X, excluded_features)
     config = NestedConfig(
         dataset=str(dataset_path),
         target=target,
@@ -73,6 +84,8 @@ def run_nested_validation(
         outer_repeats=outer_repeats,
         inner_splits=inner_splits,
         seed=seed,
+        excluded_features=excluded_features,
+        shuffle_inner=shuffle_inner,
     )
     candidates = candidates or default_candidates()
     outer_cv = RepeatedStratifiedKFold(
@@ -82,10 +95,12 @@ def run_nested_validation(
     )
     candidate_results: dict[str, Any] = {}
     for variant, stable_selector, name in candidates:
+        candidate_started = perf_counter()
         fold_results: list[dict[str, Any]] = []
         pooled_y: list[int] = []
         pooled_p: list[float] = []
         for fold_id, (train_index, test_index) in enumerate(outer_cv.split(X, y)):
+            fold_started = perf_counter()
             X_train = X.iloc[train_index]
             X_test = X.iloc[test_index]
             y_train = y.iloc[train_index]
@@ -100,7 +115,15 @@ def run_nested_validation(
                 estimator=pipeline,
                 param_grid=candidate_grid(variant, stable_selector),
                 scoring="roc_auc",
-                cv=inner_splits,
+                cv=(
+                    StratifiedKFold(
+                        n_splits=inner_splits,
+                        shuffle=True,
+                        random_state=seed + fold_id,
+                    )
+                    if shuffle_inner
+                    else inner_splits
+                ),
                 refit=True,
                 n_jobs=1,
                 return_train_score=True,
@@ -111,11 +134,16 @@ def run_nested_validation(
             fold_results.append(
                 {
                     "fold": fold_id,
+                    "outer_train_indices": train_index.astype(int).tolist(),
+                    "outer_test_indices": test_index.astype(int).tolist(),
                     "train_n": int(len(train_index)),
                     "test_n": int(len(test_index)),
                     "best_params": search.best_params_,
                     "inner_best_score": float(search.best_score_),
                     "metrics": metrics,
+                    "outer_test_y_true": y_test.astype(int).tolist(),
+                    "outer_test_probability": probabilities.astype(float).tolist(),
+                    "fit_tune_and_score_runtime_seconds": float(perf_counter() - fold_started),
                 }
             )
             pooled_y.extend(y_test.astype(int).tolist())
@@ -136,11 +164,13 @@ def run_nested_validation(
             },
             "fold_mean": _mean_metrics(fold_results),
             "fold_std": _std_metrics(fold_results),
+            "runtime_seconds": float(perf_counter() - candidate_started),
         }
     return {
         "config": asdict(config),
         "dataset_summary": summarize_dataset(dataset_path, target).to_dict(),
         "dropped_identifier_columns": dropped_identifiers,
+        "excluded_features": list(excluded_features),
         "candidates": candidate_results,
         "selection_rule": (
             "report all candidates; do not select a final model from the pooled outer "
@@ -150,10 +180,26 @@ def run_nested_validation(
 
 
 def _mean_metrics(folds: list[dict[str, Any]]) -> dict[str, float]:
-    keys = ["accuracy", "balanced_accuracy", "roc_auc", "pr_auc", "brier", "ece_uniform"]
+    keys = [
+        "accuracy",
+        "balanced_accuracy",
+        "roc_auc",
+        "pr_auc",
+        "brier",
+        "ece_uniform",
+        "ece_weighted_uniform",
+    ]
     return {key: float(np.mean([fold["metrics"][key] for fold in folds])) for key in keys}
 
 
 def _std_metrics(folds: list[dict[str, Any]]) -> dict[str, float]:
-    keys = ["accuracy", "balanced_accuracy", "roc_auc", "pr_auc", "brier", "ece_uniform"]
+    keys = [
+        "accuracy",
+        "balanced_accuracy",
+        "roc_auc",
+        "pr_auc",
+        "brier",
+        "ece_uniform",
+        "ece_weighted_uniform",
+    ]
     return {key: float(np.std([fold["metrics"][key] for fold in folds], ddof=1)) for key in keys}

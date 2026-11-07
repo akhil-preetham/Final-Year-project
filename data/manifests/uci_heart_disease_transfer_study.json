@@ -1,0 +1,32 @@
+{
+  "study_id": "CD-XD-002",
+  "dataset_name": "UCI Heart Disease",
+  "dataset_id": 45,
+  "source_url": "https://archive.ics.uci.edu/dataset/45/heart%2Bdisease",
+  "doi": "10.24432/C52P4X",
+  "version_or_release": "UCI static archive downloaded 2026-11-05; original repository record donated 1988-06-30",
+  "access_date": "2026-11-05",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "archive_path": "data/external/uci_heart_disease_45/heart_disease.zip",
+  "archive_sha256": "b17cd273da9ce1caa4710fce80227ea454d4dbf9fcbc8e6a9121672751563adc",
+  "role": "Exploratory retrospective leave-one-source-out evaluation; not independent external validation",
+  "cohorts": [
+    {"name": "Cleveland", "archive_member": "processed.cleveland.data", "rows": 303, "negative": 164, "positive": 139},
+    {"name": "Hungary", "archive_member": "processed.hungarian.data", "rows": 294, "negative": 188, "positive": 106},
+    {"name": "Switzerland", "archive_member": "processed.switzerland.data", "rows": 123, "negative": 8, "positive": 115},
+    {"name": "VA Long Beach", "archive_member": "processed.va.data", "rows": 200, "negative": 51, "positive": 149}
+  ],
+  "target_column": "num",
+  "target_definition": "num=0 is absence; num=1,2,3,4 are presence. The UCI description defines presence as greater than 50% diameter narrowing in a major coronary vessel.",
+  "features_used": [
+    "age", "sex", "cp", "trestbps", "chol", "fbs", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal"
+  ],
+  "overlap_assessment": "The Five States/heart5 project source is documented as a composite of Cleveland, Hungarian, Switzerland, Long Beach VA, and Statlog sources. These UCI cohorts therefore overlap data already used in the project; row-level patient linkage cannot be re-established from the composite.",
+  "preprocessing_policy": {
+    "unknown_values": "? treated as missing",
+    "primary_impossible_zero_handling": {"chol": "0 treated as missing", "trestbps": "0 treated as missing"},
+    "sensitivity_policy": "retain zero values",
+    "imputation": "numeric median and categorical most-frequent, fitted on source training rows only"
+  },
+  "attribution": "Janosi, A., Steinbrunn, W., Pfisterer, M., and Detrano, R. (1989). Heart Disease. UCI Machine Learning Repository. DOI: 10.24432/C52P4X."
+}

@@ -7,8 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_stability_output_records_post_correction_provenance() -> None:
     result = run_dataset(
-        dataset=ROOT / "MendeleyCardiovascular_Disease_Dataset.csv",
-        target="target",
+        dataset=ROOT / "heart5.csv",
+        target="HeartDisease",
         n_splits=2,
         n_repeats=2,
         n_resamples=2,

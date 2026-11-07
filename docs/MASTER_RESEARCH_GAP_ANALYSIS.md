@@ -1,0 +1,23 @@
+# CARDIODIAG master research gap analysis
+
+**Updated:** 2026-11-06. This analysis consolidates evidence already present in the repository. `PASS` refers only to the stated engineering evidence.
+
+| Gap | Current evidence | Why it matters | Current disposition | Evidence required to close |
+|---|---|---|---|---|
+| Exact original reproduction | Paper and notebooks vary in splits, LoRAS parameters, XAIH-DRC/PCA choices, ensemble members and calibration | No single exact reference implementation or metric target exists | Partial; deviations documented | Frozen original artifact/version and complete configuration, or retain “approximate reconstruction” wording |
+| Cohort independence | Heart5 overlaps UCI; Statlog matches Cleveland 270/270; Mendeley 2026 maps to Heart5 918/918; ZAS/Duke endpoints differ | Dataset names are not proof of independent patients or equivalent labels | Not established | Independent linkage evidence and cohort/source documentation |
+| Confirmatory external validation | AngioCAD 377 matched rows, outcomes previously examined; 36 IDs lack features; site/person independence is not proven | Results are exploratory and cannot establish generalization | NO-GO | Untouched compatible cohort, frozen protocol, patient/cohort independence evidence |
+| Shift detection | AngioCAD feature-only isolation-forest AUROC 0.589; post hoc | Weakly separates source and target distributions; does not identify wrong individual predictions | Negative finding | New untouched sites and pre-specified detector assessment |
+| Selective utility | AngioCAD integrated coverage 5.6%, 21 accepted rows with one outcome class; Duke 11.4% and endpoint mismatch | Low coverage and sparse accepted cases do not demonstrate useful reliable operation | NO-GO | Frozen policy, independent sites, adequate accepted class counts, risk/coverage and calibration evidence |
+| Calibration transfer | Site tests show transfer limitations; target reuse means exploratory evidence | Source reliability does not automatically transfer under shift | Not demonstrated | Untouched compatible cohorts; source-only calibration and held-out target evaluation |
+| Uncertainty/conformal transfer | Empirical target set behavior recorded; exchangeability assumptions do not guarantee arbitrary-site coverage | Prediction-set coverage can fail under distribution change | Descriptive only | Prospective/frozen external evaluation and subgroup precision where adequately powered |
+| Feature explanation | LIME and global feature analyses exist; stable selector is an approximation, not XAIH-DRC | Attractive explanations are not proof of causal or clinically correct reasoning | Method evidence, limited | Evaluate local/global stability, perturbation sensitivity and fidelity under frozen evaluation |
+| Statistical generality | Internal 3x3 nested evidence and conditional bootstrap outputs | Small number of cohorts/folds cannot estimate site variation reliably | Internal results descriptive | More independent cohorts and appropriate paired/multilevel inference |
+| Demonstration application | Prior scripts only; new desktop UI uses an actual research bundle and fail-closed policy | Need inspectable evidence and input validation without clinical claims | Implemented; GUI smoke check and application tests required | UI run, helper tests, missing-artifact/error checks, no network/data persistence |
+| Reproducible project state | 106 baseline tests and manifests; most research tree untracked in Git | A local state without tracked history is hard to reproduce/share safely | Technically reproducible locally; repository-state gap | Team decision on intended source control, backup, ownership and reviewed commit history |
+| Public code release | No verified code redistribution authority; archives contain restricted/unresolved material | Publication of files can exceed rights | BLOCKED | Ownership/license confirmation and a clean, data-free file-level scan |
+| Journal submission | Draft exists, but author order/contributions, ethics determination, funding, conflicts, venue pending | Declarations are factual and cannot be inferred | NOT READY | Written confirmation from authors/institution and journal requirements |
+
+## Scientific bottom line
+
+The most defensible contribution is a reproducible reassessment of a CARDIODIAG-style pipeline and an honest reliability/transport stress test that documents failure modes. The code demonstrates calibrated scoring and conservative abstention mechanics, but the evidence does **not** show reliable independent generalization or useful unseen-site operation. A new algorithm or clinical-performance claim is not established.

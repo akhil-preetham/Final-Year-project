@@ -23,7 +23,7 @@ def test_benchmark_candidates_include_required_available_families() -> None:
 
 
 def test_benchmark_pipeline_preserves_training_only_steps() -> None:
-    X, _ = load_dataset(ROOT / "MendeleyCardiovascular_Disease_Dataset.csv", "target")
+    X, _ = load_dataset(ROOT / "heart5.csv", "HeartDisease")
     model, _ = _candidate_specs(seed=42)["logistic"]
     pipeline = _pipeline(X, model)
 

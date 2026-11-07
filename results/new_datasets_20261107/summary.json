@@ -1,0 +1,29 @@
+{
+  "generated_at_utc": "2026-11-07T18:14:21.170409+00:00",
+  "protocol": {
+    "outer_cv": "5-fold stratified shuffled; one repeat",
+    "inner_cv": "3-fold stratified shuffled within each outer training set",
+    "seed": 42,
+    "selection_metric": "ROC-AUC",
+    "reporting": "All three model families; outer-fold mean and SD; no pooled winner selection.",
+    "privacy": "No row-level predictions, true labels, or split indices are written."
+  },
+  "datasets": {
+    "uci_heart_failure_519": {
+      "target": "death_event",
+      "target_counts": {
+        "0": 203,
+        "1": 96
+      },
+      "metrics_file": "uci_heart_failure_519_nested_metrics.json"
+    },
+    "uci_mi_complications_579": {
+      "target": "any_lethal_outcome",
+      "target_counts": {
+        "0": 1429,
+        "1": 271
+      },
+      "metrics_file": "uci_mi_complications_579_nested_metrics.json"
+    }
+  }
+}

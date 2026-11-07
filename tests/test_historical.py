@@ -1,15 +1,10 @@
 from pathlib import Path
 
 import pandas as pd
-import pytest
 
 from cardiodiag.historical import historical_encode_heart5, run_historical_native
 
 ROOT = Path(__file__).resolve().parents[1]
-pytestmark = pytest.mark.skipif(
-    not (ROOT / "heart5.csv").exists(),
-    reason="heart5.csv is not bundled because redistribution terms are unresolved",
-)
 
 
 def test_historical_encoding_matches_notebook_schema() -> None:

@@ -1,0 +1,51 @@
+{
+  "study_id": "CD-XD-003",
+  "dataset_name": "Z-Alizadeh Sani",
+  "dataset_id": 412,
+  "source_url": "https://archive.ics.uci.edu/dataset/412/z%2Balizadeh%2Bsani",
+  "doi": "10.24432/C5Q31T",
+  "version_or_release": "UCI static archive downloaded 2026-11-05",
+  "access_date": "2026-11-05",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "archive_path": "data/external/uci_z_alizadeh_sani_412/z_alizadeh_sani.zip",
+  "archive_sha256": "48210a6623fa6112423d9bc357f72fe3fca12ae77866e63e08632e15d95b724e",
+  "workbook_member": "Z-Alizadeh sani dataset.xlsx",
+  "workbook_sha256": "90fefd4ecdb6263b3f2a260bb2b5d3b9fa92ba35d626dd56ad8c6db5fbbad163",
+  "role": "One-way external-cohort transport stress test; endpoint boundary differs slightly from source cohorts",
+  "collection_site": "Shahid Rajaei Cardiovascular, Medical, and Research Center, Tehran, Iran, as described in the original dataset paper",
+  "cohort": {
+    "rows": 303,
+    "negative": 87,
+    "positive": 216,
+    "raw_target_counts": {"Normal": 87, "Cad": 216},
+    "raw_workbook_shape": [303, 56],
+    "raw_predictor_columns": 55,
+    "missing_cells": 0
+  },
+  "target_column": "Cath",
+  "target_definition": "Normal=0, Cad=1; the UCI dataset description defines CAD as diameter narrowing greater than or equal to 50%.",
+  "harmonized_features": [
+    {
+      "source_field": "age",
+      "external_field": "Age",
+      "mapping": "years, retained as numeric",
+      "evidence": "UCI Heart Disease documents age in years; the Z-Alizadeh Sani dataset feature descriptions report Age in years."
+    },
+    {
+      "source_field": "sex",
+      "external_field": "Sex",
+      "mapping": "source 1=male, 0=female; external Male=1 and Fmale=0",
+      "evidence": "The UCI Heart Disease documentation and published Z-Alizadeh Sani feature descriptions define male/female coding. The downloaded workbook contains exactly the two strings Male (176) and Fmale (127); Fmale is explicitly recoded as female as a spelling error."
+    },
+    {
+      "source_field": "fbs",
+      "external_field": "FBS",
+      "mapping": "binary indicator FBS > 120 mg/dL; strict greater-than threshold applied to the external numeric measurement",
+      "evidence": "UCI Heart Disease defines fbs as fasting blood sugar >120 mg/dL; published Z-Alizadeh Sani feature descriptions give FBS in mg/dL."
+    }
+  ],
+  "excluded_fields": "All remaining source and external predictors, including chest pain, blood pressure, lipids, ECG and angiography-derived measurements, are excluded because exact variable equivalence has not been established. Cath is used only as the outcome.",
+  "endpoint_compatibility": "Not exact: UCI Heart Disease uses num=0 for absence (<50% narrowing) and num=1..4 for presence (>50% narrowing); Z-Alizadeh Sani uses CAD for >=50%. Individual stenosis percentages are unavailable for harmonizing the threshold. Results are a source-distinct transport stress test, not an endpoint-identical external validation.",
+  "overlap_assessment": "The acquisition site is distinct from the Cleveland, Hungary, Switzerland, and VA Long Beach source cohorts. The local CARDIODIAG history audit found no prior use of this named dataset. Public files do not provide patient identifiers suitable for person-level deduplication, so accidental record overlap cannot be ruled out.",
+  "attribution": "Alizadehsani, R., Roshanzamir, M., & Sani, Z. (2013). Z-Alizadeh Sani [Dataset]. UCI Machine Learning Repository. DOI: 10.24432/C5Q31T."
+}
