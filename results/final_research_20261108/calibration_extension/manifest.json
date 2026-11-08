@@ -1,0 +1,96 @@
+{
+  "study": "CARDIODIAG held-out calibration map comparison",
+  "status": "complete",
+  "source_run_id": "20261107T202404Z",
+  "datasets": [
+    "uci_cleveland",
+    "uci_hungary",
+    "uci_switzerland",
+    "uci_va_long_beach",
+    "uci_heart_failure_519",
+    "uci_mi_complications_579",
+    "uci_spectf_heart"
+  ],
+  "models": [
+    "logistic",
+    "knn",
+    "svm",
+    "random_forest",
+    "ovec",
+    "osec"
+  ],
+  "methods": [
+    "uncalibrated",
+    "platt",
+    "isotonic",
+    "beta",
+    "temperature"
+  ],
+  "protocol": {
+    "fit_partition": "dedicated conformal_calibration predictions from the source-side saved split",
+    "evaluation_partition": "matched outer_test; SPECTF official_test",
+    "test_labels_used_for_calibrator_fit_or_method_selection": false,
+    "hungary_va": "exact predictor duplicates removed before partitions; missing calibration predictions recreated with the frozen nested split and model search; reconstructed test probabilities must match saved duplicate-safe outputs within 1e-10",
+    "metrics": "ROC-AUC, average precision, Brier, log loss, macro and weighted equal-width ECE, calibration intercept/slope",
+    "fold_comparisons": "descriptive paired deltas; folds are not independent populations",
+    "important_limitation": "the same calibration rows used to fit probability maps must not also be used to claim unchanged split-conformal coverage after recalibration; conformal results remain those of the original uncalibrated protocol",
+    "isotonic_limitation": "may overfit small calibration partitions; included as a sensitivity comparator"
+  },
+  "counts": {
+    "fold_method_rows": 570,
+    "summary_rows": 210,
+    "paired_metric_deltas": 672,
+    "prediction_rows_local": 93120,
+    "reconstructed_duplicate_safe_rows": 4146
+  },
+  "inputs": {
+    "results/final_research_20261108/predictions_source_order/training_validation_predictions.csv": "881ab45e6413b134c89dab006a5bc5d3890b5937b0ae44e44cd3b5212616d498",
+    "results/final_research_20261108/duplicate_safe_local/within_predictions.csv": "7b6b07ef0163b987194b940e77100ba761220dd80ee0091a519b4db605f43816",
+    "experiments/run_multi_dataset_evaluation.py": "bdad346e96eda73ac5bceddd5dba1f19f780762657a8fd6ce887d420bf4a140f",
+    "experiments/run_duplicate_safe_sensitivity.py": "cd82e7703143cefd469d8f3145a2df6a38f23437df80cea14c5f2d4764fe91c8"
+  },
+  "script": "experiments/run_calibration_extension.py",
+  "script_sha256": "ea183beb2f215af01f18c7abe38cd3658a8ddab56268f7c18ebd4dcf33ac67b4",
+  "software": {
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.7.2"
+  },
+  "outputs": {
+    "fold_metrics": "fold_metrics.csv",
+    "summary_metrics": "summary_metrics.csv",
+    "paired_fold_differences": "paired_fold_differences.csv",
+    "calibration_parameters": "fitted_calibration_parameters.csv",
+    "local_predictions": "results/final_research_20261108/predictions/calibration_extension/calibration_predictions.csv",
+    "figures": [
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_cleveland.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_hungary.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_switzerland.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_va_long_beach.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_heart_failure_519.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_mi_complications_579.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_spectf_heart.png",
+      "results/final_research_20261108/calibration_extension/figures/calibration_brier_delta_by_task.pdf",
+      "results/final_research_20261108/calibration_extension/figures/calibration_brier_delta_by_task.png"
+    ],
+    "figure_sha256": {
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_cleveland.png": "fcfdfd15eccb806b33a1363876f45a9f028a35fde61038c9ed170f47d157e886",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_hungary.png": "ad5dc6f0f613d0f3dce45458071ea46905d9d91f0507e8eefc1f90807e9507f1",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_switzerland.png": "0c4fb6e919cfb2c9bbc08711bde8a33ffb0b78802f613f179a1bb03a86356648",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_va_long_beach.png": "6baed203289f5f7160cefe2e80ff45c09063a0db4d042a09c9874c1b96169ac2",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_heart_failure_519.png": "d05c9a74e5f531854c44af69c4d9003ed9fb2ea81c1277b52fe845895c1b4eb2",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_mi_complications_579.png": "e004186db88bbb5d76e05c073f5fa9bbeb1e8e6d5ce8d15ac3ffae908fc2e866",
+      "results/final_research_20261108/calibration_extension/figures/calibration_reliability_uci_spectf_heart.png": "c05ed120263f9223fa8d0f7a11c91769d4cf0a20cf4f0b83b27d16ddf01bbd03",
+      "results/final_research_20261108/calibration_extension/figures/calibration_brier_delta_by_task.pdf": "3d832883f93b77915b716845a20262d50d8a7867aca34c031ec0c1bb2283e60e",
+      "results/final_research_20261108/calibration_extension/figures/calibration_brier_delta_by_task.png": "180bced99b5780008f05fa6b2d46f066923e58c2be1338e91c1ecd5d0deda78d"
+    }
+  },
+  "runtime_seconds": 75.94914609999978,
+  "fold_metrics.csv_sha256": "12a7da211a570633dbdfce4fe9284c5fa1ab2c27a9293edbd9fe04a5853a4691",
+  "summary_metrics.csv_sha256": "73b3812224c2d5b9af8efc81efa5e6569554b4b9175911349be8aec0578f6436",
+  "paired_fold_differences.csv_sha256": "6e1c82be84ede4b8c1f2fabd6218d4920e31586d719d2eb4c4db0e8f41aa8bfe",
+  "fitted_calibration_parameters.csv_sha256": "1eb5d07d37000c04c31979087e4a963b6569f752fca479e85fa98df202ef2767",
+  "local_predictions_sha256": "ff287f6b01f228e1a1c43d4edb001fdb7f8298c1ec087add59e65f4f70bde193"
+}

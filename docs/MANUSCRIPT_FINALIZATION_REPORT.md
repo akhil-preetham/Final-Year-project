@@ -13,3 +13,11 @@ The revised source bundle is `paper/multi_dataset_study_20261108_dedup_safe/`; i
 
 Author order, affiliations, institutional ethics determination, funding, conflicts, contribution statements, data-use declarations, and venue remain to be confirmed by the project team; the manuscript is therefore a compiled working draft, not submission-ready.
 <!-- DEDUP_SAFE_MANUSCRIPT END -->
+
+## Versioned calibration and ablation manuscript
+
+The current revised bundle is `paper/multi_dataset_study_20261108_dedup_safe_ablation_calibration/`; its eight-page PDF is `output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe_Ablations_Calibration.pdf`. It adds held-out Platt/isotonic/beta/temperature comparisons, the fixed-default versus inner-tuned OSEC meta-estimator ablation, and a calibration-change heatmap. The previous six-page and seven-page bundles and PDFs remain preserved.
+
+Tectonic 0.17.0 compiled the source successfully on 2026-11-08. The build has 11 resolved citation entries, no unresolved references, missing inputs, or missing figures, and no `??` or `undefined` text markers. All eight pages were visually reviewed; pages 4–8 were also rendered at 180 dpi. No clipping was observed. Nonfatal warnings include Fontconfig configuration, underfull boxes, and the pre-existing 11.8-point overfull box in the selector-ablation table. Full hashes and page review details are in the bundle `BUILD_MANIFEST.json`.
+
+The source text includes the newly checked metric values and states that recalibrated conformal coverage is not claimed because the same calibration partition cannot serve as an independent conformal set. Author order, affiliations, institutional ethics determination, funding/conflict/contribution declarations, data-use wording, and venue remain pending team confirmation.

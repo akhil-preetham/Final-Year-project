@@ -1,0 +1,193 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{url}
+\input{run_metadata.tex}
+
+\title{A Multi-Dataset Audit of CARDIODIAG: Nested Evaluation, Cohort Transfer, and Uncertainty on Public Cardiovascular Benchmarks}
+\author{\IEEEauthorblockN{Akhil Preetham E, Ch Hari Krishna, and G Vennela}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada, India\\
+\textit{Author order, individual affiliations, contributions, and declarations require confirmation}}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Public cardiovascular benchmarks can produce optimistic estimates when model selection, preprocessing, or cohort reuse is not controlled. We evaluated the existing CARDIODIAG pipeline on seven binary tasks with six models: Logistic Regression, K-Nearest Neighbors, Support Vector Machine, Random Forest, and the project’s unchanged OVEC and OSEC ensembles. Four UCI angiographic coronary artery disease (CAD) cohorts (920 source rows; 918 after exact-row deduplication sensitivity) were evaluated separately, with three additional tasks for heart-failure death, myocardial-infarction lethal complications, and SPECT imaging diagnosis. We used nested stratified 3-fold cross-validation with training-only preprocessing and calibration partitions; the official SPECTF split was retained. All 72 directed transfers among the four compatible CAD feature schemas completed with source-only selection. Using the deduplicated reruns for Hungary and VA Long Beach, the best observed CAD fold-mean ROC-AUC ranged from 0.694 to 0.911; SPECTF remained 0.805 on its official held-out test set. OVEC and OSEC did not consistently outperform individual baselines. A matched selector/class-weight ablation across the seven tasks found no consistent gain from one-shot or stability-aware feature selection. After deduplicating both source and target cohorts before all transfer partitions, cross-cohort ROC-AUC ranged from 0.236 to 0.903 across model-transfer pairs. Empirical coverage for nominal 90\% conformal sets ranged from 0.791 to 1.000, and source-versus-target feature-score AUROC varied from 0.357 to 0.951 after the duplicate-safe transfer rerun. These retrospective public-data experiments do not constitute independent clinical validation: the four UCI cohorts were represented in an earlier project composite, and participant-level overlap cannot be ruled out. Results support a reproducible benchmark audit, not clinical utility or deployment readiness.
+\end{abstract}
+
+\begin{IEEEkeywords}
+cardiovascular prediction, coronary artery disease, nested cross-validation, dataset shift, calibration, conformal prediction, reproducibility
+\end{IEEEkeywords}
+
+\section{Introduction}
+High internal discrimination is not sufficient evidence that a clinical prediction model is reliable at another site. Reuse of small public datasets, data-dependent preprocessing outside validation folds, and endpoint ambiguity can inflate estimates or weaken their clinical meaning. Reporting guidance and risk-of-bias frameworks therefore emphasize transparent data definitions, prediction timing, validation design, and model evaluation \cite{collins2024tripodai,moons2025probastai}. Nested resampling is needed when the same development data support hyperparameter selection and performance estimation \cite{varma2006bias,cawley2010overfitting}.
+
+CARDIODIAG began as a feature-reduction and ensemble approach for heart-disease classification \cite{khan2026cardiodiag}. Previous project audits identified historical result artifacts, data-lineage concerns, and evaluation-boundary issues. This study preserves the established optimized voting classifier (OVEC) and stacking classifier (OSEC), then compares them with individual baselines using a leakage-controlled pipeline. The aims are to: (1) compare models across compatible and task-distinct public datasets without pooling outcomes; (2) assess discrimination, calibration, overfitting diagnostics, conformal coverage, selective risk, and feature-support alerts; and (3) measure source-only transfer among four schema-compatible CAD cohorts.
+
+\section{Datasets and Study Design}
+\subsection{Dataset selection and endpoints}
+The UCI Heart Disease collection contains four historical cohorts, with 13 shared clinical predictors and the `num` angiographic disease field. We mapped `num=0` to negative and `num=1\ldots4` to positive, following the repository’s established binary rule \cite{ucihd}. The four source cohorts contain 920 rows; the duplicate-safe sensitivity removes one repeated predictor row in Hungary and one in VA Long Beach (918 records remain). They are not independent replication datasets for this project: the same cohorts were represented in the previously examined Heart5 composite. The pairwise screen found no exact cross-cohort predictor-row matches. A subsequent within-cohort audit found one exact duplicate row in Hungary (rows 101/102) and one in VA Long Beach (139/187); no persistent participant identifiers were available to rule out transformed or near-duplicate records.
+
+We also evaluated UCI Heart Failure Clinical Records (299 records), UCI Myocardial Infarction Complications (1,700 records), and UCI SPECTF Heart (267 records) \cite{ucihf519,ucimi579,ucispectf}. These were kept as separate tasks. For the heart-failure task, follow-up time was excluded as a predictor and death event was the target; follow-up horizons vary. For MI complications, the target was any lethal outcome and only admission-available variables were retained after excluding identifiers, later variables, and outcome proxies. SPECTF uses 44 SPECT-derived features and an overall normal/abnormal diagnosis; it is not a clinical CAD endpoint. The official 80-record training / 187-record test split was preserved, including 172 positive-coded and 15 negative-coded test records.
+
+All source records remain separate. UCI dataset pages list CC BY 4.0; source URLs, archive checksums, class counts, missingness, and decisions for screened candidates are included in the accompanying dataset manifest and compatibility table. UCI Statlog Heart was excluded as a new cohort because the project’s exact matching audit found all 270 harmonized records match Cleveland \cite{ucistatlog}. Previously examined cohorts were not presented as new confirmation.
+
+\begin{table*}[t]
+\centering
+\caption{Dataset characteristics. CAD cohorts share the UCI angiographic endpoint; heart failure, MI, and SPECTF are different tasks. Class counts are negative/positive.}
+\label{tab:datasets}
+\scriptsize
+\input{tables/dataset_characteristics.tex}
+\end{table*}
+
+\subsection{Evaluation protocol}
+For the six tabular cohorts evaluated with resampling, we used stratified three-fold outer validation and stratified three-fold inner model selection (seed 20261108). Within each outer training partition, 20\% was reserved for conformal and feature-support threshold calibration. Hyperparameter search used only the remaining development subset. Each outer test fold was held out until scoring. SPECTF used the official test partition; its training set was separated into development and calibration subsets only.
+
+All imputation, scaling, categorical encoding, and outlier replacement were fitted within each pipeline’s training data. The existing `TrainingOnlyCleaner` replaces values outside training-fitted 1st/99th percentiles with training medians; numeric values are median-imputed and scaled; categorical values are most-frequent imputed and one-hot encoded. No SMOTE was applied. The primary six-model comparison uses no feature selector. A supplemental Logistic Regression ablation compares no selection, one-shot relevance selection, and StableXAIHDRC under balanced and unweighted class settings on the same outer partitions. Selector fitting remains inside the inner training folds; no global feature selection or preprocessing was performed before splitting.
+
+The individual model grids were logistic-regression $C\in\{0.1,1,10\}$; KNN $k\in\{3,5,7\}$ and uniform/distance weighting; SVM $C\in\{0.1,1,10\}$ and linear/RBF kernels; and random-forest square-root/all-feature subsampling and leaf size 1/3. OVEC and OSEC retained their existing definitions. OVEC uses the project’s soft-voting constituents (KNN, random forest, balanced logistic regression, and balanced SVC). OSEC retains its stacking architecture; its final estimator was tuned over $C\in\{0.1,1,10\}$.
+
+\subsection{Metrics and uncertainty}
+At a fixed probability threshold of 0.5, we report accuracy, precision, sensitivity, specificity, F1, ROC-AUC, and average precision (PR-AUC). Brier score and ten-bin equal-width expected calibration error (ECE), both macro-bin and sample-weighted, summarize calibration. Fold means and standard deviations describe nested evaluation. For pooled held-out predictions, 1,000 class-stratified percentile bootstrap replicates condition on observed class counts; these intervals do not account for patient clustering, cohort selection, or between-site variation. No hypothesis tests or superiority claims were prespecified.
+
+Split-conformal sets use nonconformity $1-p(y)$ and nominal error level $\alpha=0.10$. Feature support is the mean distance to five nearest development observations after the fitted feature transformation; the alert cutoff is the 95th percentile of the source calibration scores. Cross-dataset domain AUROC distinguishes source calibration scores from target scores and is a feature-shift diagnostic, not an outcome-prediction metric. Confidence-ranked risk--coverage curves and the joint singleton-conformal / in-support accepted subset are descriptive. Conformal coverage guarantees require exchangeability and are not assumed to hold after transport \cite{angelopoulos2023conformal}.
+
+\section{Results}
+\subsection{Within-task model comparison}
+All 42 dataset--model evaluations completed. Table~\ref{tab:auc} shows outer-fold ROC-AUC means and standard deviations; SPECTF is one official held-out test estimate and has no fold SD. The highest observed model by fold-mean ROC-AUC varied across tasks: random forest on Cleveland (0.911), logistic regression on deduplicated Hungary (0.897), logistic regression on Switzerland (0.772), random forest on deduplicated VA Long Beach (0.694), OVEC on heart failure (0.752), random forest on MI complications (0.869), and OVEC on SPECTF (0.805). These maxima are descriptive comparisons, not unbiased estimates of a separately selected final model.
+
+\begin{table*}[t]
+\centering
+\caption{ROC-AUC across all six candidates. Values are fold mean $\pm$ fold SD for nested evaluation. SPECTF reports the single official held-out test estimate.}
+\label{tab:auc}
+\scriptsize
+\input{tables/model_auc_matrix.tex}
+\end{table*}
+
+The complete thresholded and ranking results for each model appear in Tables~\ref{tab:cad_full} and~\ref{tab:other_full}; all metrics are also available as CSV. On the deduplicated Hungary and VA sensitivity, OVEC did not exceed OSEC in Hungary and exceeded it in VA Long Beach; the original frozen split had different fold allocations and is retained in the sensitivity table for comparison. Neither ensemble consistently exceeded all four individual baselines. Model selection results therefore do not support a general ensemble-superiority claim.
+
+\begin{table*}[t]
+\centering
+\caption{Complete classification metrics for the four UCI CAD cohorts. Each value is outer-fold mean $\pm$ SD; PR-AUC should be read alongside cohort prevalence because precision depends on case mix.}
+\label{tab:cad_full}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\resizebox{\textwidth}{!}{\input{tables/cad_model_metrics.tex}}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Complete classification metrics for the task-distinct heart-failure, MI-complication, and SPECTF datasets. SPECTF has one official test split and no fold SD.}
+\label{tab:other_full}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\resizebox{\textwidth}{!}{\input{tables/other_task_model_metrics.tex}}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.88\textwidth]{\CARDIODIAGFigureDir/model_performance_comparison.pdf}
+\caption{Outer-fold mean ROC-AUC and PR-AUC. The SPECTF point is from its official test set and has no fold-based interval.}
+\label{fig:performance}
+\end{figure*}
+
+\subsection{Overfitting, calibration, and selective diagnostics}
+Resubstitution scores were often higher than outer-fold performance, particularly for KNN and random forest. For example, MI-complication training ROC-AUC was 1.000 for KNN and 1.000 (approximately) for random forest, while outer-fold means were 0.736 and 0.869. This is evidence of a training--evaluation gap in these fits, not proof that every high-score model is overfit. The full report includes model-specific training, selected inner-validation, outer-test values, and per-fold gaps.
+
+Empirical coverage for nominal 90\% split-conformal sets varied from 0.791 to 1.000 across dataset--model groups; Hungary and VA Long Beach use duplicate-safe reruns, and coverage remained below nominal for some held-out samples. Average set sizes and singleton rates varied as well. Confidence-ranked selective coverage did not identify a universally reliable error-free region. The combined singleton-plus-support rule accepted between 0\% and 88.5\% of observations across task--model groups. One SPECTF model accepted none, while low-coverage zero-error subsets in other groups remain unstable and cannot certify safety.
+
+The nearest-neighbor alert rate varied from 0.5\% to 37.4\% within held-out task predictions. Across duplicate-safe cross-cohort transfers, source-versus-target feature-score AUROC ranged from 0.357 to 0.951, showing that feature-support separation depended strongly on source, target, and model. This distance score may detect some shifts in these samples, but does not provide a consistent rejection rule. Figure~\ref{fig:calibration} shows calibration behavior; the complete risk--coverage curves are included in the accompanying experimental report.
+
+\begin{table*}[t]
+\centering
+\caption{Ranges across models for pooled Brier/ECE, mean empirical conformal coverage and set size, and combined singleton/support accepted coverage. These ranges summarize heterogeneous models; they are not model-selection recommendations.}
+\label{tab:uncertainty}
+\scriptsize
+\input{tables/uncertainty_ranges.tex}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{\CARDIODIAGFigureDir/calibration_curves.pdf}
+\caption{Calibration curves from pooled held-out predictions. Bin counts and ECE variants are available in the result tables.}
+\label{fig:calibration}
+\end{figure}
+
+\subsection{Source-only cross-cohort transfers}
+All 72 directed model transfers across the four UCI CAD cohorts completed. Source-only tuning and calibration were used; target labels were used only for evaluation. Across the deduplicated model--direction pairs, target ROC-AUC ranged from 0.236 to 0.903. The average ROC-AUC across models varied by direction from 0.539 (Switzerland to VA Long Beach) to 0.885 (Cleveland to Hungary). The direction-level averages summarize model variability and should not obscure the full per-model matrix. These are retrospective stress tests because the component cohorts were part of the previously examined Heart5 lineage, and no patient identifier permits an independence guarantee.
+
+\begin{table*}[t]
+\centering
+\caption{Duplicate-safe source-only transfer summary over the six models per direction. Mean and range summarize model scores on the same target cohort; they are descriptive. Domain OOD AUROC compares source calibration and target feature scores.}
+\label{tab:transfer}
+\scriptsize
+\input{tables/cross_cohort_summary.tex}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{\CARDIODIAGFigureDir/cross_dataset_mean_auc_heatmap.pdf}
+\caption{Mean target ROC-AUC over six source-only models after exact-row deduplication for each CAD cohort direction. Source and target are historically examined UCI cohorts; diagonal cells are omitted.}
+\label{fig:transfer}
+\end{figure}
+
+
+\subsection{Exact-duplicate sensitivity}
+The frozen partition audit identified two within-cohort groups with identical predictor values and labels. In Hungary, rows 101 and 102 were split between calibration and outer test in fold 2 and between development and outer test in fold 3, creating a direct test-boundary leak in one of three folds. In VA Long Beach, rows 139 and 187 remained together within each fold role; they did not cross development and outer test, but duplicated observations violate a unique-record assumption. We removed one row from each group before forming new partitions, retained all four cohorts in transfer analyses after deduplicating source and target, and preserved the frozen run. The new folds were re-created from the same protocol and seed, so the frozen-versus-rerun differences also reflect changed fold membership. The sensitivity is descriptive and cannot isolate the duplicate's causal contribution.
+
+\begin{table*}[t]
+\centering
+\caption{Hungary and VA Long Beach fold-mean ROC-AUC before and after exact-row deduplication. The partitions were re-created, so changes combine row removal and fold reshuffling.}
+\label{tab:duplicate-sensitivity}
+\scriptsize
+\input{tables/duplicate_sensitivity.tex}
+\end{table*}
+
+\subsection{Failed analyses}
+Six learning-curve configurations failed, all for Switzerland. At the smallest requested training size, one or more stratified training subsets contained only one class; ROC-AUC learning curves were therefore not calculated for any model on that cohort. The remaining 36 task--model learning curves completed. All nested model evaluations and all cross-cohort transfers completed. A duplicate-safe rerun removed exact predictor duplicates before partitioning and re-evaluated all 12 Hungary/VA model configurations plus all 72 directed transfers. Switzerland contains only eight negative records, so even the completed three-fold performance and OSEC stacking estimates have high uncertainty; the fixed five-fold internal stacking procedure generated minority-count warnings. The failures and warnings are preserved in the logs and failure CSV.
+
+\subsection{Supplemental selector and class-weight ablation}
+We compared six Logistic Regression configurations on the same held-out partitions: no selection, one-shot relevance selection, or StableXAIHDRC, each with balanced or unweighted downstream class weights. A three-fold inner search selected $C$ from $\{0.1,1,10\}$ using development data only. Hungary and VA folds were regenerated after exact-row deduplication; SPECTF retained the official test partition. Table~\ref{tab:selector-ablation} reports the no-selection, balanced baseline and paired mean fold-AUC changes. The changes vary by task. Across tasks, the unweighted baseline changed AUC by a mean of $-0.002$ (range $-0.020$ to $+0.009$); one-shot balanced selection changed it by $-0.001$ (range $-0.015$ to $+0.017$), and stable balanced selection by $-0.006$ (range $-0.021$ to $+0.012$). Unweighted selector variants also had mixed, small changes. Figure~\ref{fig:selector-ablation} displays the four selector contrasts against their matching no-selection class-weight baseline. These are descriptive fold comparisons, not independent-population tests or evidence of a general selector benefit. The ablation is restricted to Logistic Regression and does not reconstruct the unavailable original A--L factorial.
+
+\begin{table}[t]
+\centering
+\caption{No-selection balanced Logistic Regression fold-mean ROC-AUC and matched mean-fold changes for unweighted, one-shot, and stable-selection conditions. Asterisks mark duplicate-safe folds. SPECTF is one official test estimate.}
+\label{tab:selector-ablation}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\input{tables/selector_ablation.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{\CARDIODIAGFigureDir/selector_ablation_auc_deltas.pdf}
+\caption{Matched mean fold ROC-AUC changes for selector variants relative to no selection with the same downstream class-weight condition. Hungary and VA use duplicate-safe partitions.}
+\label{fig:selector-ablation}
+\end{figure}
+
+\section{Discussion}
+This study broadens the CARDIODIAG audit while preserving the model definitions and keeping outcomes separate. In the compatible CAD cohorts, internal scores were strongest on Cleveland and deduplicated Hungary and weaker on deduplicated VA Long Beach; Switzerland had only eight negative cases and yielded unstable fold estimates. The Hungary frozen estimate is qualified by exact duplicate leakage across development and test; the deduplicated rerun is the more defensible within-cohort sensitivity result. The cross-cohort results varied sharply by direction and model. Even where the transfer AUC remained high, historical dataset reuse and unavailable participant linkage prevent treating these experiments as independent external validation.
+
+OVEC and OSEC did not dominate the individual baselines consistently. Calibration and selective diagnostics were also mixed: nominal conformal coverage fell below 90\% in some model--task combinations, feature-support alerts varied widely, and low-coverage accepted subsets are not evidence of safe abstention. High apparent PR-AUC on imbalanced tasks must be interpreted against prevalence and the target definition; it does not by itself establish clinical value.
+
+The additional public datasets illustrate why dataset count alone does not establish evidence strength. Heart-failure death and MI lethal complications are distinct outcomes with different prediction times. SPECTF is an imaging classification task and retains a severe class imbalance in its official test set. These tasks are useful for checking implementation behavior but cannot validate angiographic CAD prediction.
+
+\subsection{Limitations}
+The datasets are small, historical, and in some cases severely imbalanced or incomplete. The frozen Hungary evaluation placed one exact duplicate across development and outer test in fold 3, and across calibration and test in fold 2. The frozen VA split did not place the duplicate pair across development and outer test, but the rows were repeated within partitions. We therefore report a fresh duplicate-safe rerun for both cohorts; its folds differ from the frozen folds, so score deltas conflate duplicate removal and fold reshuffling and are not paired causal effects. Exact-row matching cannot detect near duplicates or transformations, while persistent participant identifiers are unavailable. The source tables do not establish a prospective index prediction time. Patient clustering, site sampling, and between-site variation are not represented by the class-stratified bootstrap intervals. The new feature-selection ablation is limited to Logistic Regression; historical preprocessing and the original complete A--L design cannot be reconstructed. Switzerland learning curves were not estimable under the requested training fractions, and OSEC's fixed internal stacking folds are poorly matched to such a small minority class. Conformal exchangeability is not established under dataset shift. No prospective, real-world, fairness, clinical-utility, or deployment study was performed.
+
+\section{Conclusion}
+The experiments provide a traceable comparison of individual classifiers and the existing CARDIODIAG ensembles across seven separately defined public tasks. No ensemble was consistently superior, cross-cohort performance varied substantially, and conformal/OOD/selective diagnostics did not produce a uniform reliability guarantee. These results support reproducible software and retrospective benchmark analysis. They do not establish independent clinical validation or readiness for use. A confirmatory study requires an authorized, untouched cohort with a prespecified CAD reference standard, prediction time, patient-level overlap controls, and a frozen operating protocol.
+
+\section*{Declarations}
+\textbf{Ethics and data governance:} Only public UCI repository datasets were used in this run. No institutional approval or exemption is claimed; the project team should obtain the appropriate institutional determination before submission.\\
+\textbf{Funding and competing interests:} Confirmation pending.\\
+\textbf{Author contributions:} Contributions and author order require confirmation from all listed authors.\\
+\textbf{Data and code availability:} Raw records and row-level predictions are not included in the public release. Aggregate metrics, source checksums, preprocessing scripts, and figures are included in the project deliverables. Dataset attribution is required under the listed UCI licenses.\\
+\textbf{Manuscript status:} Working draft requiring author, affiliation, declaration, and venue review.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

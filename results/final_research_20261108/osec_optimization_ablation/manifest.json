@@ -1,0 +1,60 @@
+{
+  "study": "OSEC fixed-default versus inner-tuned meta-estimator C ablation",
+  "status": "complete",
+  "source_run_id": "20261107T202404Z",
+  "datasets": [
+    "uci_cleveland",
+    "uci_hungary",
+    "uci_switzerland",
+    "uci_va_long_beach",
+    "uci_heart_failure_519",
+    "uci_mi_complications_579",
+    "uci_spectf_heart"
+  ],
+  "model": "unchanged OSEC stacking architecture; only final logistic C differs",
+  "conditions": {
+    "fixed_default_c_1": "final_estimator__C=1.0 without inner C search",
+    "nested_tuned_c": "existing inner three-fold ROC-AUC search over C={0.1,1,10}"
+  },
+  "protocol": {
+    "outer_partitions": "same saved seeded folds; SPECTF official 80/187 split",
+    "calibration_partition": "reserved and excluded from fixed-model fitting",
+    "hungary_va": "deduplicated before creating the matched folds",
+    "test_labels_used_for_selection": false,
+    "reference_tuned_probabilities": "loaded from saved source run or duplicate-safe rerun",
+    "fold_comparisons": "descriptive paired fold deltas; folds are not independent populations"
+  },
+  "counts": {
+    "dataset_model_condition_fold_rows": 38,
+    "dataset_condition_summaries": 14,
+    "paired_deltas": 42,
+    "local_prediction_rows": 6208
+  },
+  "inputs": {
+    "results/final_research_20261108/predictions_source_order/training_validation_predictions.csv": "881ab45e6413b134c89dab006a5bc5d3890b5937b0ae44e44cd3b5212616d498",
+    "results/final_research_20261108/duplicate_safe_local/within_predictions.csv": "7b6b07ef0163b987194b940e77100ba761220dd80ee0091a519b4db605f43816",
+    "results/multi_dataset_evaluation_20261108/metrics/fold_metrics.csv": "085e46fe4fe7844ef225b110279a7847313bc88cf60d30487b35d80abb4454b9",
+    "results/final_research_20261108/metrics/duplicate_safe_within_fold_metrics.csv": "ecefc830b914c31f84e43166b2a7300e1e84670db686e2dcc8eef1b76388b9df"
+  },
+  "script": "experiments/run_osec_optimization_ablation.py",
+  "script_sha256": "063ea59252bd8a621634fb3e24d79717bf36bcfba00ed1f770a4cd13b0f00ba1",
+  "software": {
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "runtime_seconds": 12.57396449999942,
+  "outputs": {
+    "fold_metrics": "fold_metrics.csv",
+    "summary_metrics": "summary_metrics.csv",
+    "paired_fold_differences": "paired_fold_differences.csv",
+    "predictions_local": "results/final_research_20261108/predictions/osec_optimization_ablation/out_of_fold_predictions.csv",
+    "figure": "results/final_research_20261108/osec_optimization_ablation/figures/osec_fixed_vs_tuned.png"
+  },
+  "fold_metrics.csv_sha256": "7b3acf84f494a089fd481cf05872641d1f7ef379e3ba273021c514b0e3472b73",
+  "summary_metrics.csv_sha256": "3edceac3eef51964731deb26484589f109ed70cba85eabb933853142d0573f82",
+  "paired_fold_differences.csv_sha256": "19bef0d28270b5c6447b6218899603c3bbd2677e034a31f4f0d1ed40561b5fc2",
+  "predictions_sha256_local": "451c098b95d25cb4141463986b69de03f22a5b5581e9477ed2e48c2ccdf5cbaa",
+  "figure_sha256": "dd3cea9b347afd63377cbe160e0a75ae14926eef943a47a30293595faedf7d2a"
+}

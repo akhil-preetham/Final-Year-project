@@ -24,9 +24,9 @@
   "branch": "research/cardiodiag-complete-project-finalization",
   "base_commit": "25a9913 Complete multi-dataset CARDIODIAG evaluation and manuscript",
   "test_suite": {
-    "command": "python -m pytest -q",
-    "collected": 143,
-    "passed": 143,
+    "command": "uv run --locked python -m pytest -q",
+    "collected": 150,
+    "passed": 150,
     "failed": 0,
     "skipped": 0,
     "warnings": 3,
@@ -63,10 +63,10 @@
   },
   "manuscript": {
     "status": "compiled_and_visually_reviewed",
-    "revised_source": "paper/multi_dataset_study_20261108_dedup_safe/main.tex",
-    "revised_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf",
-    "revised_pdf_sha256": "5b3af530a1dad81602ec708baaf41ae235c264ac4960caacc55bdc2415cf18c3",
-    "pages": 7,
+    "revised_source": "paper/multi_dataset_study_20261108_dedup_safe_ablation_calibration/main.tex",
+    "revised_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe_Ablations_Calibration.pdf",
+    "revised_pdf_sha256": "c426d599787ce14750eeb67486c500ec1174e7b1961b2c5740cc12a5a55108d5",
+    "pages": 8,
     "citation_keys": 11,
     "bibliography_items": 11,
     "unresolved_citations": 0,
@@ -80,11 +80,10 @@
       4,
       5,
       6,
-      7
+      7,
+      8
     ],
-    "original_pdf_preserved": true,
-    "original_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf",
-    "original_pdf_sha256": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b",
+    "previous_versions_preserved": true,
     "submission_ready": false
   },
   "remaining_qualifications": [
@@ -97,7 +96,82 @@
   "artifact_hashes": {
     "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf": "5b3af530a1dad81602ec708baaf41ae235c264ac4960caacc55bdc2415cf18c3",
     "paper/multi_dataset_study_20261108_dedup_safe/BUILD_MANIFEST.json": "26c2b858d0dc605f09ad5f2ff9b161a8d8a651d0b2ccf532c0ebe5b251525f20",
-    "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b"
+    "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b",
+    "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe_Ablations_Calibration.pdf": "c426d599787ce14750eeb67486c500ec1174e7b1961b2c5740cc12a5a55108d5",
+    "paper/multi_dataset_study_20261108_dedup_safe_ablation_calibration/BUILD_MANIFEST.json": "c1b406750d9a18a40a34bbcb87e5d83ce81e46862ceeed367f9295349e265e15",
+    "results/final_research_20261108/calibration_extension/manifest.json": "cb101add4bdb8dbf2d3a6abbd9c9b17ff11d9b707e8c7ee1bd5d6f9e3454c71f",
+    "results/final_research_20261108/osec_optimization_ablation/manifest.json": "0030588cdb74744d4fec2d66cf8e5d463cf5740c94d44c995f735346f9395401"
   },
-  "submission_ready": false
+  "submission_ready": false,
+  "supplemental_research": {
+    "generated_at_local": "2026-11-08T12:44:48.601249+05:30",
+    "branch": "research/cardiodiag-complete-project-finalization",
+    "checks": {
+      "supplemental_calibration": {
+        "status": "passed",
+        "fold_method_rows": 570,
+        "task_model_method_summaries": 210,
+        "metrics_recalculated_from_predictions": 4560,
+        "metric_checks_passed": 4560,
+        "calibration_intercept_slope": "all finite; strict recomputation not used because several small or separated fold fits are optimizer-sensitive",
+        "local_prediction_rows": 93120,
+        "local_predictions_ignored": true,
+        "duplicate_safe_test_probability_max_abs_difference": 1.1102230246251563e-16,
+        "manifest_hashes_valid": true,
+        "test_labels_used_for_calibrator_fit_or_selection": false
+      },
+      "osec_optimization_ablation": {
+        "status": "passed",
+        "condition_fold_rows": 38,
+        "paired_test_records": 6208,
+        "metrics_recalculated_from_predictions": 608,
+        "metric_checks_passed": 608,
+        "all_seven_tasks_present": true,
+        "switzerland_internal_stacking_warning_retained": true,
+        "manifest_hashes_valid": true,
+        "local_predictions_ignored": true
+      },
+      "selector_class_weight_ablation": {
+        "status": "passed",
+        "candidate_fold_rows": 114,
+        "metrics_recalculated_from_predictions": 2508,
+        "metric_checks_passed": 2508,
+        "local_predictions_ignored": true
+      },
+      "revised_manuscript": {
+        "status": "passed",
+        "pages": 8,
+        "citation_entries": 11,
+        "bibliography_items": 11,
+        "source_files_hash_checked": 21,
+        "visual_reviewed_pages": 8,
+        "pdf_hash_valid": true
+      }
+    },
+    "overall_pass": true
+  },
+  "demo_rerun": {
+    "basic_prediction_demo": {
+      "status": "passed",
+      "command": "uv run --locked python demo/run_demo.py",
+      "observed_prediction": 1,
+      "probability_class_1": 0.7478,
+      "conformal_set": [
+        0,
+        1
+      ]
+    },
+    "domain_aware_guard_demo": {
+      "status": "passed",
+      "command": "uv run --locked python demo/run_domain_guard_demo.py --output <temporary-directory>/domain_guard_demo.json",
+      "synthetic_examples_only": true,
+      "verified_cases": [
+        "registered-domain classification",
+        "uncertainty abstention",
+        "outside-support abstention",
+        "unknown-domain abstention"
+      ],
+      "outputs_written_to_repository": false
+    }
+  }
 }

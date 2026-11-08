@@ -1,0 +1,124 @@
+{
+  "study": "CARDIODIAG matched selector and class-weight ablation extension",
+  "status": "complete",
+  "generated_local_date": "2026-11-08",
+  "source_run_id": "20261107T202404Z",
+  "data_source_hashes": {
+    "uci_cleveland": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_cleveland.csv": "3d7cdc8fac1b49dbc4c6cae589ad0fe542a82d7bce70b4fa2d52da76ccb3063a"
+    },
+    "uci_hungary": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_hungary.csv": "5fd24fb96c17acbd27e50f6515ba86c54305da5cd5ae2141e7effbe36bcfb726"
+    },
+    "uci_switzerland": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_switzerland.csv": "df14e4894ed62681ce6abe451b07447b4b7c2282e77af4f4d46fc153cd98d2f8"
+    },
+    "uci_va_long_beach": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_va_long_beach.csv": "374b6cba4526696ac4dfaaa9a2709dffebe1b6309623a65454f2d62eaf9f47fc"
+    },
+    "uci_heart_failure_519": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_heart_failure_519_binary_event.csv": "b5a9f02eed02639743c056d98a0019aadd91b0eb7d48518fdf2ee220ac5fe175"
+    },
+    "uci_mi_complications_579": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_mi_complications_579_admission_binary.csv": "eccf2384eac0594fd1028e352568877ecd89f0795d5452a0ab790872f38dc348"
+    },
+    "uci_spectf_heart": {
+      "data/processed/multi_dataset_evaluation_20261108/uci_spectf_train.csv": "5bb6ba125f14adde5812c5b3ac0da60ae5bea1160f8396284702220878889a2f",
+      "data/processed/multi_dataset_evaluation_20261108/uci_spectf_test.csv": "8de18096a3a4f41b411d0294145742c819fb6f5afebedfd86417c58fffefb21d"
+    }
+  },
+  "fold_assignments": "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/fold_assignments.csv",
+  "fold_assignments_sha256": "933d19b116b3a8220083258e3d16c61267ed94abb8d6a6d04ecf209d4b6fce38",
+  "script": "experiments/run_final_ablation_extension.py",
+  "script_sha256": "7c2e937d4ccd347b77036e759524df3cf8fad4e538a6e4dbf8fc060d82470d3e",
+  "source_code_hashes": {
+    "src/cardiodiag/experiments.py": "decb63aa827a77d362319e514e2b68b8ab586446c67d812ea7099a63f6329217",
+    "src/cardiodiag/feature_selection.py": "a4666a088e4d16ea3bdc9f2438b66d1d03d7b84bd95d89d584b2a7fbddd2416b",
+    "src/cardiodiag/preprocessing.py": "4fcfe26c45213b42b57723c8face8ab18530c4fc65e08f0d5463c902aa191854",
+    "src/cardiodiag/models.py": "38682803f1d71f3bc80f8af5b3c40ecdb4a80efa7899f56bf20ab879ad258aad",
+    "experiments/run_multi_dataset_evaluation.py": "bdad346e96eda73ac5bceddd5dba1f19f780762657a8fd6ce887d420bf4a140f"
+  },
+  "software": {
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+    "scikit_learn": "1.7.2",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3"
+  },
+  "datasets": [
+    "uci_cleveland",
+    "uci_hungary",
+    "uci_switzerland",
+    "uci_va_long_beach",
+    "uci_heart_failure_519",
+    "uci_mi_complications_579",
+    "uci_spectf_heart"
+  ],
+  "candidate_grid": [
+    {
+      "selector": "none",
+      "class_weight": "balanced"
+    },
+    {
+      "selector": "none",
+      "class_weight": "unweighted"
+    },
+    {
+      "selector": "one_shot",
+      "class_weight": "balanced"
+    },
+    {
+      "selector": "one_shot",
+      "class_weight": "unweighted"
+    },
+    {
+      "selector": "stable",
+      "class_weight": "balanced"
+    },
+    {
+      "selector": "stable",
+      "class_weight": "unweighted"
+    }
+  ],
+  "protocol": {
+    "outer_partitions": "reuses frozen 3-fold development/calibration/test assignments; SPECTF reuses official test split",
+    "hungary_and_va": "exact predictor duplicates removed before regenerating shared seeded folds",
+    "inner_validation": "3-fold stratified shuffled CV within development rows only",
+    "selection_metric": "ROC-AUC",
+    "logistic_C_grid": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "one_shot_selector": "one pass of the existing training-only relevance score; threshold 0.02, fallback at most 8 features",
+    "stable_selector": "existing StableXAIHDRC with default 6 resamples and training-only relevance; no test data used",
+    "class_weight_ablation": "downstream LogisticRegression class_weight balanced versus None; the selector's internal relevance model remains balanced by definition",
+    "target_labels_used_for_selection": false,
+    "fold_comparisons": "descriptive paired fold deltas; folds are not treated as independent populations",
+    "calibration_rows": "kept outside model fitting as in the saved partition; this ablation reports classification metrics only"
+  },
+  "counts": {
+    "datasets": 7,
+    "candidates": 6,
+    "fold_rows": 114,
+    "summary_rows": 42,
+    "paired_comparisons": 35,
+    "prediction_rows_local_only": 18624
+  },
+  "outputs": {
+    "fold_metrics": "results/final_research_20261108/ablation_extension/fold_metrics.csv",
+    "summary_metrics": "results/final_research_20261108/ablation_extension/summary_metrics.csv",
+    "paired_fold_differences": "results/final_research_20261108/ablation_extension/paired_fold_differences.csv",
+    "figures": "results/final_research_20261108/ablation_extension/figures",
+    "row_level_predictions": "results/final_research_20261108/predictions/ablation_extension/out_of_fold_predictions.csv",
+    "row_level_predictions_are_git_ignored": true
+  },
+  "limitations": [
+    "The historical target-aware or leakage-prone preprocessing is not recreated as a comparator because its exact fold-level protocol is unavailable and it would not be a valid evaluation baseline.",
+    "The experiment isolates LogisticRegression class weighting and feature selection; class-weight effects are not generalized to every classifier.",
+    "The result is a sensitivity study on legacy, previously examined datasets, not independent external validation."
+  ],
+  "fold_metrics_sha256": "6ccab38ec19036e50c0899fccce43c20caa294e855fa8a0cac296045b27f07ca",
+  "summary_metrics_sha256": "c52dd9fd605279c108ee67bfbd345cbef6fefea10e808153b9a66baa0f3e9882",
+  "paired_fold_differences_sha256": "e181ffb5501ce6784c521a63ca440ab6393ad601e880c3a500b773511c5f23ea",
+  "predictions_sha256_local": "9ac875d09dbb8d88bc3efb2b46bff6a4e4740c39a95a11ffa2b7139657de025a"
+}

@@ -52,7 +52,7 @@ Train resubstitution AUC frequently exceeds held-out AUC; the largest gaps occur
 
 ### Feature selection and ablations
 
-Existing matched comparisons show small dataset-dependent changes. Stable selection did not improve the reduced nested Kaggle AUC pair and its stability advantage interval includes zero. The original A–L design and exact XAIH-DRC settings are unavailable, so causal component attribution remains incomplete.
+The supplemental matched study compared no selection, one-shot relevance selection and StableXAIHDRC, each with balanced or unweighted downstream Logistic Regression. It used six configurations across all seven tasks, shared outer partitions, a training-only three-fold inner search for C, and duplicate-safe Hungary/VA folds. Across tasks, no-weight versus balanced baseline AUC differences ranged from −0.020 to +0.009; one-shot balanced versus no-selection balanced ranged from −0.015 to +0.017; StableXAIHDRC balanced ranged from −0.021 to +0.012. Mean changes were −0.002, −0.001, and −0.006 respectively. Effects varied by task and did not establish a general benefit. A separate OSEC ablation compared fixed default meta-estimator C=1 with inner tuning over {0.1, 1, 10}; macro task-level fixed-minus-tuned changes were −0.004 AUC, +0.006 Brier, and +0.016 log loss. Tuning effects varied by task, and Switzerland’s five-fold internal stacking warnings remain. The 114 selector/class-weight fold records were checked against local predictions across 15 metrics; the OSEC fixed-C predictions and metrics are saved in the supplemental ablation artifacts. The earlier 70K feature-stability comparison and matched Heart5/Mendeley results remain separate historical analyses. The original A–L design and exact LoRAS/LIME/XAIH-DRC settings remain unavailable, so full component attribution is still partial.
 
 ### Calibration and conformal uncertainty
 
@@ -63,6 +63,8 @@ Existing matched comparisons show small dataset-dependent changes. Stable select
 | 0.950 | 0.898 | 0.973 | 1.000 | 1.700 | 114 |
 
 Coverage is empirical and conditional on an exchangeability assumption that may fail across cohorts. Brier and ECE are retained; ECE depends on binning. Class-conditional coverage and set size vary by task and fold.
+
+A held-out source-calibration comparison fit Platt, isotonic, beta, and temperature probability maps on the dedicated calibration partitions and scored matched outer-test or official-test predictions across 42 task/model groups. Platt reduced pooled Brier in 28/42 groups and reduced mean weighted ECE by 0.044, but increased mean log loss by 0.015. Temperature scaling reduced mean log loss by 0.092 while changing Brier by only +0.0003 on average. Isotonic calibration increased mean log loss by 0.428 and lowered Brier in 15/42 groups, indicating instability at these calibration sample sizes. The evidence supports no universally preferred map. Because the same data are used for probability calibration and the existing conformal threshold, calibrated probabilities are not used to claim conformal coverage in this comparison. Full fold metrics, fitted parameters, figures, hashes and protocol are in `results/final_research_20261108/calibration_extension/`.
 
 ### OOD, selective prediction and transfer
 

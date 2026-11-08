@@ -3,7 +3,7 @@
 <!-- CURRENT_COMPLETION_STATUS_20261108 START -->
 ## Completion update (2026-11-08)
 
-The frozen multi-dataset run remains preserved. A subsequent exact-row audit found Hungary rows 101/102 crossing development and outer-test in one frozen fold, plus one duplicate group in VA Long Beach. A duplicate-safe rerun completed 12 within-task model configurations and all 72 directed CAD transfers after removing exact duplicates before partitioning. The revised seven-page manuscript and its compiled PDF are under paper/multi_dataset_study_20261108_dedup_safe/ and output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf. The corrected Hungary and VA results supersede those two frozen within-task estimates; their rerun fold differences also include fold reshuffling. This is retrospective benchmark work and does not establish independent external validation or clinical use.
+The frozen multi-dataset run remains preserved. A subsequent exact-row audit found Hungary rows 101/102 crossing development and outer-test in one frozen fold, plus one duplicate group in VA Long Beach. A duplicate-safe rerun completed 12 within-task model configurations and all 72 directed CAD transfers after removing exact duplicates before partitioning. Source-only Platt, isotonic, beta, and temperature comparisons now cover seven tasks and six models; a matched fixed-versus-tuned meta-estimator ablation also evaluates OSEC across all seven tasks. The latest eight-page manuscript is under `paper/multi_dataset_study_20261108_dedup_safe_ablation_calibration/` with PDF `output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe_Ablations_Calibration.pdf`. The previous six-page and seven-page versions remain preserved. The corrected Hungary and VA results supersede those two frozen within-task estimates; their rerun fold differences also include fold reshuffling. This is retrospective benchmark work and does not establish independent external validation or clinical use.
 <!-- CURRENT_COMPLETION_STATUS_20261108 END -->
 
 This repository preserves the original CARDIODIAG notebooks and datasets while
@@ -31,7 +31,13 @@ The focused completion reports and final acceptance matrix are linked from
 `docs/CARDIODIAG_COMPLETE_TECHNICAL_RESEARCH_REPORT.md`. Machine-readable
 completion outputs are under `results/final_research_20261108/`. The existing
 six-page manuscript is preserved under `paper/multi_dataset_study_20261108/`;
-its original build manifest and PDF hash verify. A revised seven-page duplicate-safe manuscript was freshly compiled with Tectonic 0.17.0 and visually checked under paper/multi_dataset_study_20261108_dedup_safe/; its PDF is output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf. Current verification and remaining
+its original build manifest and PDF hash verify. The seven-page duplicate-safe
+version is also preserved. The current eight-page manuscript adds the calibration
+and OSEC optimization comparisons, was compiled with Tectonic 0.17.0, and was
+visually checked under
+`paper/multi_dataset_study_20261108_dedup_safe_ablation_calibration/`; its PDF
+is `output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe_Ablations_Calibration.pdf`.
+Current verification and remaining
 submission blockers are in `docs/FINAL_PROJECT_ACCEPTANCE_MATRIX.md`.
 
 **Engineering demonstration: GO. Generalization research claim: NO-GO. Journal submission: NO-GO pending evidence and author metadata.**
