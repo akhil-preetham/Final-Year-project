@@ -1,0 +1,103 @@
+{
+  "source_run_status": "completed_with_failures",
+  "within_task_model_groups": 42,
+  "within_task_fold_groups": 114,
+  "expected_model_groups": 42,
+  "expected_fold_groups": 114,
+  "training_validation_rows": 114,
+  "expected_training_validation_rows": 114,
+  "conformal_rows": 342,
+  "expected_conformal_rows": 342,
+  "cross_ood_rows": 72,
+  "expected_cross_ood_rows": 72,
+  "within_task_probability_reproduced": 114,
+  "within_task_auc_matches": 114,
+  "cross_ood_auc_reproduced": 72,
+  "all_aggregate_sources_present": true,
+  "row_level_predictions_local_ignored": true,
+  "raw_data_not_in_git": true,
+  "metrics_versus_predictions_checks": 1362,
+  "metrics_versus_predictions_passed": 1362,
+  "metrics_recalculated_from_predictions_complete": true,
+  "overall_pass": true,
+  "verification_timestamp_local": "2026-11-08 Asia/Kolkata",
+  "branch": "research/cardiodiag-complete-project-finalization",
+  "base_commit": "25a9913 Complete multi-dataset CARDIODIAG evaluation and manuscript",
+  "test_suite": {
+    "command": "python -m pytest -q",
+    "collected": 143,
+    "passed": 143,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 3,
+    "warning_summary": "OpenPyXL reported unsupported conditional-formatting extensions while reading workbook fixtures in tests/test_angiocad_transfer.py."
+  },
+  "static_checks": {
+    "ruff_check_all_passed": true,
+    "python_compileall_passed": true,
+    "uv_lock_check_passed": true,
+    "git_diff_check_passed": true
+  },
+  "offline_demo": {
+    "status": "passed",
+    "synthetic_examples_only": true,
+    "cases": [
+      "registered-domain classification",
+      "uncertainty abstention",
+      "outside-support abstention",
+      "unknown-domain abstention"
+    ],
+    "evidence": "results/final_research_20261108/manifests/offline_demo_verification.json",
+    "manifest": "results/final_research_20261108/manifests/offline_demo_verification_manifest.json"
+  },
+  "duplicate_safe_sensitivity": {
+    "status": "completed",
+    "within_task_models": 12,
+    "within_task_folds": 36,
+    "cross_dataset_model_transfers": 72,
+    "duplicate_groups_removed": 2,
+    "all_exact_predictor_duplicates_absent_after_deduplication": true,
+    "target_outcomes_used_for_ood_or_model_selection": false,
+    "runtime_seconds": 545.2915249000034,
+    "manifest": "results/final_research_20261108/duplicate_safe_manifest.json"
+  },
+  "manuscript": {
+    "status": "compiled_and_visually_reviewed",
+    "revised_source": "paper/multi_dataset_study_20261108_dedup_safe/main.tex",
+    "revised_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf",
+    "revised_pdf_sha256": "5b3af530a1dad81602ec708baaf41ae235c264ac4960caacc55bdc2415cf18c3",
+    "pages": 7,
+    "citation_keys": 11,
+    "bibliography_items": 11,
+    "unresolved_citations": 0,
+    "unresolved_references": 0,
+    "missing_inputs": 0,
+    "missing_figures": 0,
+    "rendered_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "original_pdf_preserved": true,
+    "original_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf",
+    "original_pdf_sha256": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b",
+    "submission_ready": false
+  },
+  "remaining_qualifications": [
+    "No independent contemporary external cohort was available.",
+    "Dataset licensing, access, endpoint, feature-timing, and participant-independence questions remain for some candidate sources.",
+    "Author order, affiliations, institutional ethics determination, funding/conflict/contribution declarations, data-use wording, and venue require project-team confirmation.",
+    "Peak memory was not instrumented.",
+    "A full custom nested search for the 70K benchmark was not completed."
+  ],
+  "artifact_hashes": {
+    "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf": "5b3af530a1dad81602ec708baaf41ae235c264ac4960caacc55bdc2415cf18c3",
+    "paper/multi_dataset_study_20261108_dedup_safe/BUILD_MANIFEST.json": "26c2b858d0dc605f09ad5f2ff9b161a8d8a651d0b2ccf532c0ebe5b251525f20",
+    "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108.pdf": "8a83d49d223407325fad85c6c05b18fd4e80e4d72361d6981d6ee16a81882b5b"
+  },
+  "submission_ready": false
+}

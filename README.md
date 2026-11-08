@@ -1,11 +1,38 @@
 # CARDIODIAG Research Extension
 
+<!-- CURRENT_COMPLETION_STATUS_20261108 START -->
+## Completion update (2026-11-08)
+
+The frozen multi-dataset run remains preserved. A subsequent exact-row audit found Hungary rows 101/102 crossing development and outer-test in one frozen fold, plus one duplicate group in VA Long Beach. A duplicate-safe rerun completed 12 within-task model configurations and all 72 directed CAD transfers after removing exact duplicates before partitioning. The revised seven-page manuscript and its compiled PDF are under paper/multi_dataset_study_20261108_dedup_safe/ and output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf. The corrected Hungary and VA results supersede those two frozen within-task estimates; their rerun fold differences also include fold reshuffling. This is retrospective benchmark work and does not establish independent external validation or clinical use.
+<!-- CURRENT_COMPLETION_STATUS_20261108 END -->
+
 This repository preserves the original CARDIODIAG notebooks and datasets while
 adding a separate, leakage-controlled research implementation. The research
 implementation is not a clinical diagnostic device and must not be used for
 patient care.
 
 ## Current status
+
+### Completion branch update (2026-11-08)
+
+The `research/cardiodiag-complete-project-finalization` branch extends the
+multi-dataset study with verified training/validation diagnostics, 80/90/95%
+conformal evaluation, cross-cohort OOD average precision and alert rates,
+full confusion-derived metrics, a 17-source inventory, data-quality tables,
+module inventory, and EDA/reliability figures. The frozen study evaluated seven
+separate tasks with six models (42 task/model summaries and 114 outer/official
+test folds) and 72 directed transfers among the four UCI angiographic cohorts.
+All 114 selected-fit probability replays and all 72 cross-cohort OOD AUC checks
+matched saved outputs; 1,362 aggregate metric checks matched row-level saved
+predictions. The transfers remain retrospective because the UCI component
+cohorts are represented in Heart5 and patient-level independence is unknown.
+
+The focused completion reports and final acceptance matrix are linked from
+`docs/CARDIODIAG_COMPLETE_TECHNICAL_RESEARCH_REPORT.md`. Machine-readable
+completion outputs are under `results/final_research_20261108/`. The existing
+six-page manuscript is preserved under `paper/multi_dataset_study_20261108/`;
+its original build manifest and PDF hash verify. A revised seven-page duplicate-safe manuscript was freshly compiled with Tectonic 0.17.0 and visually checked under paper/multi_dataset_study_20261108_dedup_safe/; its PDF is output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf. Current verification and remaining
+submission blockers are in `docs/FINAL_PROJECT_ACCEPTANCE_MATRIX.md`.
 
 **Engineering demonstration: GO. Generalization research claim: NO-GO. Journal submission: NO-GO pending evidence and author metadata.**
 The pipeline trains across four UCI cohorts and has a source-only evaluation

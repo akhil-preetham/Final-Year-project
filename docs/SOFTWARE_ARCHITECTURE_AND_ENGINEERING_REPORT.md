@@ -1,0 +1,7 @@
+# Software architecture and engineering report
+
+The repository preserves an original/student implementation and a corrected research implementation. The latter is a Python package under `src/cardiodiag`, with separate modules for data loading/schema, fold-local preprocessing, feature selection, model factories (including unchanged OVEC/OSEC definitions), nested validation, metrics/reliability, uncertainty and experiment provenance. `experiments/` contains runnable study entry points, `tests/` exercises package behavior, and `demo/` contains offline demonstration code. `paper/` holds the editable manuscript and tables; `results/` is organized by experiment evidence.
+
+The primary pipeline fits imputation, encoding and scaling within training partitions. Current nested evaluation keeps tuning inside outer training folds and scores held-out folds once. The cross-cohort OOD extension fits a support score only on source feature vectors. The historical path is preserved for forensic comparison and clearly separated from corrected evidence.
+
+The generated `module_inventory.csv` inventories Python modules by line count and internal imports; `module_dependency_edges.csv` provides a module graph. Existing `uv.lock` is the dependency lock. `pyproject.toml` requires Python >=3.11,<3.14. Verification results are recorded in the acceptance matrix and run manifest. The project is a local research prototype, not a clinical application.

@@ -1,0 +1,65 @@
+{
+  "study": "CARDIODIAG final completion diagnostics",
+  "source_run_id": "20261107T202404Z",
+  "branch": "research/cardiodiag-complete-project-finalization",
+  "primary_run_status": "completed_with_failures",
+  "protocol": {
+    "within_task": "3x3 nested stratified CV where supported; SPECTF official 80/187 split",
+    "primary_models": [
+      "logistic",
+      "knn",
+      "svm",
+      "random_forest",
+      "ovec",
+      "osec"
+    ],
+    "threshold_metrics_threshold": 0.5,
+    "conformal_nominal_coverage": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "cross_ood_target_labels_used": false,
+    "training_metrics": "selected pipeline resubstitution on development rows",
+    "metric_source": "saved row-level predictions plus exact refit replay"
+  },
+  "source_manifest": "results/multi_dataset_evaluation_20261108/manifests/experiment_manifest.json",
+  "diagnostics_manifest": "results/final_research_20261108/completion_diagnostics_manifest.json",
+  "failure_ledger": "results/final_research_20261108/metrics/failed_experiments.csv",
+  "input_sha256": {
+    "results/multi_dataset_evaluation_20261108/manifests/experiment_manifest.json": "0aa37744cfb762100f8b3db3cc067c716e912e8d18a859831003c7de167a7319",
+    "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/out_of_fold_and_official_predictions.csv": "4a68ae09d04bc17d128bfe3f6f803e7adea25f4812625ed414cbc5e8641be5aa",
+    "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/fold_assignments.csv": "933d19b116b3a8220083258e3d16c61267ed94abb8d6a6d04ecf209d4b6fce38",
+    "results/multi_dataset_evaluation_20261108/datasets/dataset_manifest.json": "d9d302d0a1d7260f7a2d2fd01f5da88179f0c0883094586e39abc3b3bf6e57b4"
+  },
+  "verification_manifest": "results/final_research_20261108/manifests/verification_manifest.json",
+  "duplicate_safe_sensitivity": {
+    "manifest": "results/final_research_20261108/duplicate_safe_manifest.json",
+    "analysis_script": "experiments/run_duplicate_safe_sensitivity.py",
+    "models": "results/final_research_20261108/metrics/duplicate_safe_within_model_metrics.csv",
+    "folds": "results/final_research_20261108/metrics/duplicate_safe_within_fold_metrics.csv",
+    "conformal": "results/final_research_20261108/metrics/duplicate_safe_conformal_metrics.csv",
+    "cross_dataset": "results/final_research_20261108/metrics/duplicate_safe_cross_dataset_metrics.csv",
+    "transfer_summary": "results/final_research_20261108/metrics/duplicate_safe_transfer_summary.csv",
+    "model_count": 12,
+    "fold_count": 36,
+    "transfer_count": 72,
+    "runtime_seconds": 545.2915249000034,
+    "all_exact_duplicates_absent_after_deduplication": true,
+    "target_outcomes_used_for_ood_or_model_selection": false,
+    "interpretation": "Descriptive sensitivity analysis; removing duplicate rows also changes fold composition, so differences from the frozen run are not paired causal effects."
+  },
+  "final_analysis_outputs": {
+    "model_metrics": "results/final_research_20261108/metrics/final_analysis_model_metrics.csv",
+    "fold_metrics": "results/final_research_20261108/metrics/final_analysis_fold_metrics.csv",
+    "figures": "results/final_research_20261108/figures/"
+  },
+  "manuscript": {
+    "source": "paper/multi_dataset_study_20261108_dedup_safe/main.tex",
+    "pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf",
+    "build_manifest": "paper/multi_dataset_study_20261108_dedup_safe/BUILD_MANIFEST.json",
+    "pages": 7,
+    "submission_ready": false
+  },
+  "row_level_predictions_and_checkpoints": "local and ignored by Git; frozen original artifacts preserved"
+}

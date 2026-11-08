@@ -1,0 +1,9 @@
+# Dataset provenance report
+
+This inventory follows `results/multi_dataset_evaluation_20261108/datasets/dataset_manifest.json` and its dataset screening table. The seven evaluated prepared datasets are UCI Cleveland, Hungary, Switzerland and VA Long Beach Heart Disease; UCI Heart Failure Clinical Records; UCI Myocardial Infarction Complications; and UCI SPECTF Heart. Source attribution and SHA-256 records remain in the frozen manifests.
+
+The evaluated UCI pages record CC BY 4.0 attribution. This does not resolve redistribution terms for unrelated third-party datasets. The candidate table records unresolved or distinct decisions for Mendeley 2021 (reference standard and predictor timing unclear), Z-Alizadeh Sani (different threshold), AngioCAD (incomplete feature mapping and uncertain units), Duke ACATH (>=75% endpoint and missing cholesterol), Kaggle Cardio Train 70K (unknown license and distinct target), and controlled-access MIMIC-IV/MultiD4CAD. Statlog is an exact Cleveland duplicate after label harmonization. Mendeley 2026 is an exact duplicate of Heart5. Heart5 is a 918-record composite with 914 unique component-source matches and 4 ambiguous matches; available records do not prove person-level independence.
+
+The four UCI CAD cohorts have no exact pairwise feature-row matches in the recorded screen, but no stable participant IDs exist to establish patient independence. Heart-failure death, MI lethal complication and SPECT normal/abnormal remain distinct tasks. Feature compatibility does not establish cohort independence.
+
+See `dataset_inventory.csv`, `dataset_compatibility_matrix.csv`, `dataset_class_distribution.csv`, `dataset_missing_value_report.csv`, and `dataset_duplicate_report.csv`. Raw dataset files and restricted-access material are excluded from the release branch.

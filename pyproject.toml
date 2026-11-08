@@ -52,3 +52,7 @@ exclude = ["**/*.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# The generator embeds long Markdown prose and LaTeX table strings by design.
+"experiments/finalize_multi_dataset_evaluation.py" = ["E501"]

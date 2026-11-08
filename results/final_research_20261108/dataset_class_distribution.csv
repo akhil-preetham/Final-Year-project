@@ -1,0 +1,25 @@
+dataset_id,dataset,partition,class_label,count,prevalence,n
+uci_cleveland,UCI Cleveland,all,0,164,0.5412541254125413,303
+uci_cleveland,UCI Cleveland,all,1,139,0.4587458745874587,303
+uci_hungary,UCI Hungary,all,0,188,0.6394557823129252,294
+uci_hungary,UCI Hungary,all,1,106,0.3605442176870748,294
+uci_switzerland,UCI Switzerland,all,0,8,0.065040650406504,123
+uci_switzerland,UCI Switzerland,all,1,115,0.934959349593496,123
+uci_va_long_beach,UCI VA Long Beach,all,0,51,0.255,200
+uci_va_long_beach,UCI VA Long Beach,all,1,149,0.745,200
+uci_heart_failure_519,UCI Heart Failure,all,0,203,0.6789297658862876,299
+uci_heart_failure_519,UCI Heart Failure,all,1,96,0.3210702341137124,299
+uci_mi_complications_579,UCI MI Complications,all,0,1429,0.8405882352941176,1700
+uci_mi_complications_579,UCI MI Complications,all,1,271,0.1594117647058823,1700
+uci_spectf_heart,UCI SPECTF Heart,official_train,0,40,0.5,80
+uci_spectf_heart,UCI SPECTF Heart,official_train,1,40,0.5,80
+uci_spectf_heart,UCI SPECTF Heart,official_test,0,15,0.0802139037433155,187
+uci_spectf_heart,UCI SPECTF Heart,official_test,1,172,0.9197860962566844,187
+uci_cleveland,UCI Cleveland,deduplicated_sensitivity,0,164,0.5412541254125413,303
+uci_cleveland,UCI Cleveland,deduplicated_sensitivity,1,139,0.45874587458745875,303
+uci_hungary,UCI Hungary,deduplicated_sensitivity,0,187,0.6382252559726962,293
+uci_hungary,UCI Hungary,deduplicated_sensitivity,1,106,0.36177474402730375,293
+uci_switzerland,UCI Switzerland,deduplicated_sensitivity,0,8,0.06504065040650407,123
+uci_switzerland,UCI Switzerland,deduplicated_sensitivity,1,115,0.9349593495934959,123
+uci_va_long_beach,UCI VA Long Beach,deduplicated_sensitivity,0,51,0.2562814070351759,199
+uci_va_long_beach,UCI VA Long Beach,deduplicated_sensitivity,1,148,0.7437185929648241,199

@@ -1,0 +1,90 @@
+{
+  "study": "CARDIODIAG completion diagnostics",
+  "run_id": "completion_diagnostics_20261108",
+  "source_run_id": "20261107T202404Z",
+  "generated_utc": "2026-11-07T22:11:48.543688+00:00",
+  "protocol": {
+    "saved_best_hyperparameters_reused": true,
+    "outer_test_labels_used_for_selection": false,
+    "cross_target_outcome_labels_used_for_ood": false,
+    "within_task_fit_scope": "saved development fold; calibration and test remain held out",
+    "conformal_levels": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "ood_threshold_quantile": 0.95
+  },
+  "source_files_sha256": {
+    "results/multi_dataset_evaluation_20261108/metrics/fold_metrics.csv": "085e46fe4fe7844ef225b110279a7847313bc88cf60d30487b35d80abb4454b9",
+    "results/multi_dataset_evaluation_20261108/metrics/cross_dataset_metrics.csv": "d489f5dc2e72ca9ee4567d10ce85ae4a9b54a64437c78b29aa12e7d97272f619",
+    "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/fold_assignments.csv": "933d19b116b3a8220083258e3d16c61267ed94abb8d6a6d04ecf209d4b6fce38",
+    "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/out_of_fold_and_official_predictions.csv": "4a68ae09d04bc17d128bfe3f6f803e7adea25f4812625ed414cbc5e8641be5aa",
+    "results/multi_dataset_evaluation_20261108/predictions/20261107T202404Z/cross_dataset_split_assignments.csv": "3eaeb029d352ab52eccab1e58c0b8c996a37a4e134d13fa6f1539c39a1952448",
+    "results/multi_dataset_evaluation_20261108/datasets/dataset_manifest.json": "d9d302d0a1d7260f7a2d2fd01f5da88179f0c0883094586e39abc3b3bf6e57b4",
+    "experiments/run_project_completion_diagnostics.py": "d1cc026b3a432e442ec1f3912351997394572effb42704f5e3c68967fb52f520",
+    "data/processed/multi_dataset_evaluation_20261108/uci_cleveland.csv": "3d7cdc8fac1b49dbc4c6cae589ad0fe542a82d7bce70b4fa2d52da76ccb3063a",
+    "data/processed/multi_dataset_evaluation_20261108/uci_hungary.csv": "5fd24fb96c17acbd27e50f6515ba86c54305da5cd5ae2141e7effbe36bcfb726",
+    "data/processed/multi_dataset_evaluation_20261108/uci_switzerland.csv": "df14e4894ed62681ce6abe451b07447b4b7c2282e77af4f4d46fc153cd98d2f8",
+    "data/processed/multi_dataset_evaluation_20261108/uci_va_long_beach.csv": "374b6cba4526696ac4dfaaa9a2709dffebe1b6309623a65454f2d62eaf9f47fc",
+    "data/processed/multi_dataset_evaluation_20261108/uci_heart_failure_519_binary_event.csv": "b5a9f02eed02639743c056d98a0019aadd91b0eb7d48518fdf2ee220ac5fe175",
+    "data/processed/multi_dataset_evaluation_20261108/uci_mi_complications_579_admission_binary.csv": "eccf2384eac0594fd1028e352568877ecd89f0795d5452a0ab790872f38dc348",
+    "data/processed/multi_dataset_evaluation_20261108/uci_spectf_train.csv": "5bb6ba125f14adde5812c5b3ac0da60ae5bea1160f8396284702220878889a2f",
+    "data/processed/multi_dataset_evaluation_20261108/uci_spectf_test.csv": "8de18096a3a4f41b411d0294145742c819fb6f5afebedfd86417c58fffefb21d"
+  },
+  "counts": {
+    "within_task_model_folds": 114,
+    "conformal_rows": 342,
+    "cross_ood_model_transfers": 72,
+    "within_task_probability_reproductions_passed": 114,
+    "within_task_primary_auc_matches": 114,
+    "cross_ood_auc_reproductions_passed": 72
+  },
+  "environment": {
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "logical_cpus": 12,
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2",
+    "scipy": "1.17.1",
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 12,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "peak_memory_instrumented": false
+  },
+  "row_level_outputs_are_local": true,
+  "local_row_level_paths": [
+    "predictions_source_order/training_validation_predictions.csv",
+    "predictions_source_order/cross_dataset_ood_scores.csv",
+    "checkpoints_source_order/"
+  ]
+}

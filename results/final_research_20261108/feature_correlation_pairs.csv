@@ -1,0 +1,24 @@
+dataset_id,feature_a,feature_b,spearman_rho,absolute_rho,threshold,interpretation
+uci_mi_complications_579,S_AD_ORIT,KFK_BLOOD,-1.0,1.0,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,D_AD_ORIT,KFK_BLOOD,-1.0,1.0,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,KFK_BLOOD,NA_KB,1.0,1.0,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,KFK_BLOOD,LID_KB,1.0,1.0,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,SEX,KFK_BLOOD,-0.8944271909999159,0.8944271909999159,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,KFK_BLOOD,GEPAR_S_n,0.8944271909999159,0.8944271909999159,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,STENOK_AN,KFK_BLOOD,0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,FK_STENOK,KFK_BLOOD,0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,ritm_ecg_p_01,KFK_BLOOD,0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,ritm_ecg_p_02,KFK_BLOOD,-0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,n_r_ecg_p_06,KFK_BLOOD,-0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,n_p_ecg_p_10,KFK_BLOOD,-0.8660254037844387,0.8660254037844387,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,S_AD_KBRIG,D_AD_KBRIG,0.8579257420527346,0.8579257420527346,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,STENOK_AN,FK_STENOK,0.8561676377152317,0.8561676377152317,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,MP_TP_POST,ritm_ecg_p_02,0.8456950630339487,0.8456950630339487,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,S_AD_ORIT,D_AD_ORIT,0.845319692880707,0.845319692880707,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,GIPO_K,K_BLOOD,-0.8420106658789696,0.8420106658789696,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,AGE,KFK_BLOOD,-0.8,0.8,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_mi_complications_579,KFK_BLOOD,TIME_B_S,-0.8,0.8,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_spectf_heart,F13R,F13S,0.8630522623688875,0.8630522623688875,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_spectf_heart,F22R,F22S,0.8447889445713335,0.8447889445713335,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_spectf_heart,F21R,F22R,0.8166123751752482,0.8166123751752482,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis
+uci_spectf_heart,F21S,F22S,0.8094935625931128,0.8094935625931128,0.8,descriptive pairwise rank correlation; not a VIF or causal analysis

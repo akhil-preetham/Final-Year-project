@@ -1,0 +1,44 @@
+{
+  "manifest_file": "results/final_research_20261108/manifests/offline_demo_verification_manifest.json",
+  "message": "Synthetic cases demonstrate an accepted in-domain prediction, uncertainty abstention, out-of-support abstention, and unknown-site abstention. Every abstention withholds the probability; out-of-support rows also omit the conformal set.",
+  "new_unseen_domain": {
+    "action": "abstain",
+    "ood_score": null,
+    "prediction": null,
+    "prediction_set": [],
+    "probability": null,
+    "reason": "domain_not_in_source_registry"
+  },
+  "registered_domain": "cleveland",
+  "registered_source_classified": {
+    "action": "classify",
+    "ood_score": 0.5774316876393601,
+    "prediction": 0,
+    "prediction_set": [
+      0
+    ],
+    "probability": 0.07143675921820442,
+    "reason": null
+  },
+  "registered_source_outside_support": {
+    "action": "abstain",
+    "ood_score": 11.183511751572642,
+    "prediction": null,
+    "prediction_set": [],
+    "probability": null,
+    "reason": "outside_source_feature_support"
+  },
+  "registered_source_uncertain": {
+    "action": "abstain",
+    "ood_score": 0.10294932283130964,
+    "prediction": null,
+    "prediction_set": [
+      0,
+      1
+    ],
+    "probability": null,
+    "reason": "non_singleton_conformal_set"
+  },
+  "result_file": "results/final_research_20261108/manifests/offline_demo_verification.json",
+  "synthetic_example_only": true
+}

@@ -1,0 +1,14 @@
+dataset,candidate,roc_auc,brier,ece,protocol,source,note
+Heart5,Logistic,0.922575,0.108764,0.042428,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Heart5,OVEC,0.924376,0.101386,0.064511,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Heart5,OSEC,0.912056,0.112506,0.077005,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Heart5,Stable logistic,0.922715,0.108699,0.042472,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Heart5,Stable OSEC,0.911677,0.112456,0.082004,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Mendeley,Logistic,0.987705,0.032236,0.098549,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Mendeley,OVEC,0.994561,0.029531,0.091993,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Mendeley,OSEC,0.985657,0.031626,0.0972,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Mendeley,Stable logistic,0.989635,0.031629,0.074198,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Mendeley,Stable OSEC,0.992516,0.028423,0.170655,matched corrected 2x2 comparison; pooled predictions,docs/ABLATION_REPORT.md,
+Heart5,AURA without dynamic fusion,0.922556,,,historical AURA ablation; exploratory,docs/ABLATION_REPORT.md,removing dynamic fusion reduced ROC-AUC
+Heart5,AURA without multiview,0.925855,0.101326,,historical AURA ablation; exploratory,docs/ABLATION_REPORT.md,removing multiview slightly improved this task
+Mendeley,AURA full,0.995854,0.019551,,historical AURA ablation; exploratory,docs/ABLATION_REPORT.md,single tree model often selected; switches may be inactive

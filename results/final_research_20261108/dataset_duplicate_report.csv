@@ -1,0 +1,13 @@
+scope,dataset_a,dataset_b,exact_duplicate_rows_or_overlap,label_conflict_groups,interpretation
+within_dataset_predictors,uci_cleveland,,0,0,Exact duplicate predictor rows within prepared cohort.
+within_dataset_predictors,uci_hungary,,1,0,Exact duplicate predictor rows within prepared cohort.
+within_dataset_predictors,uci_switzerland,,0,0,Exact duplicate predictor rows within prepared cohort.
+within_dataset_predictors,uci_va_long_beach,,1,0,Exact duplicate predictor rows within prepared cohort.
+within_dataset_predictors,uci_heart_failure_519,,0,0,Exact duplicate predictor rows within prepared cohort.
+within_dataset_predictors,uci_mi_complications_579,,0,0,Exact duplicate predictor rows within prepared cohort.
+between_cohorts_exact_feature_rows,uci_cleveland,uci_hungary,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.
+between_cohorts_exact_feature_rows,uci_cleveland,uci_switzerland,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.
+between_cohorts_exact_feature_rows,uci_cleveland,uci_va_long_beach,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.
+between_cohorts_exact_feature_rows,uci_hungary,uci_switzerland,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.
+between_cohorts_exact_feature_rows,uci_hungary,uci_va_long_beach,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.
+between_cohorts_exact_feature_rows,uci_switzerland,uci_va_long_beach,0,,Exact row matching is a screening check only; UCI files have no persistent participant linkage key.

@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-11-08T04:58:54.550662+00:00",
+  "demo_code_sha256": "8791c78554ef2c78dcd57d2ccfd1597c1ffcaf54b04026713a5cf2a861df7eeb",
+  "model_bundle": "results/transfer_20261105_duke_acath_final/model_bundle.joblib",
+  "model_bundle_sha256": "62697fe9ece1ad6c3268cdbad484c8138eca1737564c72dbfea5ad057fb13755",
+  "result_file": "results/final_research_20261108/manifests/offline_demo_verification.json",
+  "result_sha256": "6362971139d244acc064f0eac451a15121f578273393653dc92c48be64cc3adf",
+  "synthetic_inputs": {
+    "registered_classified": [
+      {
+        "age": 35.0,
+        "chol": 180.0,
+        "sex": "female"
+      }
+    ],
+    "registered_outside_support": [
+      {
+        "age": 100.0,
+        "chol": 1000.0,
+        "sex": "male"
+      }
+    ],
+    "registered_uncertain": [
+      {
+        "age": 55.0,
+        "chol": 220.0,
+        "sex": "male"
+      }
+    ]
+  }
+}

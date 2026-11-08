@@ -1,0 +1,69 @@
+{
+  "project": "CARDIODIAG",
+  "experiment_run_id": "20261107T202404Z",
+  "branch": "research/cardiodiag-complete-project-finalization",
+  "build_status": "success",
+  "generated_at_utc": "2026-11-08T05:04:15.739584+00:00",
+  "compiler": "Tectonic 0.17.0",
+  "compiler_binary_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "output_pdf": "output/pdf/CARDIODIAG_MultiDataset_Experimental_Evaluation_20261108_DedupSafe.pdf",
+  "output_pdf_sha256": "5b3af530a1dad81602ec708baaf41ae235c264ac4960caacc55bdc2415cf18c3",
+  "pages": 7,
+  "page_size": "US Letter, 612 x 792 pt",
+  "source_files_sha256": {
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/calibration_curves.pdf": "fe92e93a7b873a695cd28ffa90e64c6e19a4fbf633bd4a87577a419ae1aa9225",
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/cross_dataset_mean_auc_heatmap.pdf": "fbc7b58bb8027c0d0814d49c09e653c0d4774640db99daaf75ac9eb1b400f31e",
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/model_performance_comparison.pdf": "f6f2282d730a7a33c0e72b4652406736cfc2ebaff2f93e71c974ed748321b2c0",
+    "paper/multi_dataset_study_20261108_dedup_safe/main.bbl": "81aa94c77a496fb79ca1807cad345fc727e5b3c6dda6f212bd6de36487436262",
+    "paper/multi_dataset_study_20261108_dedup_safe/main.tex": "7b1b12b778576b3d174a46ab3727b61cf79fe07351581d721de429c9486ae758",
+    "paper/multi_dataset_study_20261108_dedup_safe/README.md": "12a4f10629148ee0989d149401f7bb8e9523215f0d0f2dda6107546f77cb8ed3",
+    "paper/multi_dataset_study_20261108_dedup_safe/references.bbl": "81aa94c77a496fb79ca1807cad345fc727e5b3c6dda6f212bd6de36487436262",
+    "paper/multi_dataset_study_20261108_dedup_safe/references.bib": "4d905ce29728cd7799ad773d8e5252e1287aeda8d3f3faf0ef71d298757d1b57",
+    "paper/multi_dataset_study_20261108_dedup_safe/run_metadata.tex": "8c2e2104452665363bf7e1ae6488118d1084a80137475d56616939f723de62fc",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/cad_model_metrics.tex": "6df7eba9ade3333a7e12e292b0183927157f96528ff98ea7108160c88b3a6377",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/cross_cohort_summary.tex": "6b7b6772992ed7dbd90e1a4c35d3943d2fd2a3d1d415916b3b7901b2590d0baf",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/dataset_characteristics.tex": "53085db298e2e56f1da085c5c131de634634f11b52a998ec18511f5e986bf76a",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/duplicate_sensitivity.tex": "9aa764f120646a03f46c0ea5a8de2209619a49cf8fca091fe895029da3b626fe",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/model_auc_matrix.tex": "cf0bbc2fd7affacb695c896c0aa039c9d160545c217ba1be4b82508614ace765",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/other_task_model_metrics.tex": "36305648c359fc30333204cde5bf557005b21149af3b7e287e62dbaf91ea6faa",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/uncertainty_ranges.tex": "efaab0a8263f05083d888f40b2413e48f3b6fb1ddbefae108e6e868e3cde3ea1"
+  },
+  "citation_keys_count": 11,
+  "bibliography_items_count": 11,
+  "unresolved_citations": [],
+  "unresolved_references": [],
+  "missing_inputs": [],
+  "missing_figures": [],
+  "text_checks": {
+    "question_question": 0,
+    "undefined_word_markers": 0
+  },
+  "verification": {
+    "fresh_source_bundle_build": true,
+    "citations_resolved": true,
+    "references_resolved": true,
+    "figures_exist_and_render": true,
+    "tables_fit_and_render": true,
+    "visual_render_reviewed": true,
+    "reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "page_count_verified": true,
+    "author_and_affiliation_confirmed": false,
+    "institutional_ethics_determination_confirmed": false,
+    "funding_conflict_and_contribution_declarations_confirmed": false,
+    "submission_ready": false,
+    "nonfatal_warnings": [
+      "Tectonic reported two underfull vertical-box warnings (source lines 103 and 158).",
+      "Fontconfig reported no default config file; PDF was produced and visually reviewed.",
+      "Tectonic font-shape substitutions were used for unavailable TU/ptm shapes."
+    ],
+    "visual_review_notes": "Seven pages inspected; figures and tables remain inside page bounds, with no clipping or unresolved reference markers."
+  }
+}

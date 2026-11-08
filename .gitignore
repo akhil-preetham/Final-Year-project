@@ -30,3 +30,12 @@ data/processed/
 # Keep row-level multi-dataset predictions and resumable checkpoints local.
 /results/multi_dataset_evaluation_20261108/experiments/
 /results/multi_dataset_evaluation_20261108/predictions/
+
+# Keep completion diagnostic row-level outputs and resumable checkpoints local.
+/results/final_research_20261108/predictions/
+/results/final_research_20261108/checkpoints/
+/results/final_research_20261108/predictions_source_order/
+/results/final_research_20261108/checkpoints_source_order/
+/results/final_research_20261108/checkpoints_source_order_v2/
+/results/final_research_20261108/duplicate_safe_local/
+/paper/multi_dataset_study_20261108/paper/

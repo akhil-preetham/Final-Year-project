@@ -1,0 +1,167 @@
+{
+  "source_run_id": "20261107T202404Z",
+  "analysis": "exact predictor-row deduplication sensitivity; frozen outputs preserved",
+  "generated_utc": "2026-11-07T22:50:36.610025+00:00",
+  "datasets": {
+    "uci_cleveland": {
+      "n_before": 303,
+      "n_after": 303,
+      "duplicate_rows_removed": 0,
+      "duplicate_groups": [],
+      "source_file_sha256": "3d7cdc8fac1b49dbc4c6cae589ad0fe542a82d7bce70b4fa2d52da76ccb3063a"
+    },
+    "uci_hungary": {
+      "n_before": 294,
+      "n_after": 293,
+      "duplicate_rows_removed": 1,
+      "duplicate_groups": [
+        {
+          "dataset": "uci_hungary",
+          "group_id": 1,
+          "original_row_indices": "101;102",
+          "group_size": 2,
+          "label": 0,
+          "duplicate_rows_removed": 1,
+          "action": "retain first row; remove duplicates before any split"
+        }
+      ],
+      "source_file_sha256": "5fd24fb96c17acbd27e50f6515ba86c54305da5cd5ae2141e7effbe36bcfb726"
+    },
+    "uci_switzerland": {
+      "n_before": 123,
+      "n_after": 123,
+      "duplicate_rows_removed": 0,
+      "duplicate_groups": [],
+      "source_file_sha256": "df14e4894ed62681ce6abe451b07447b4b7c2282e77af4f4d46fc153cd98d2f8"
+    },
+    "uci_va_long_beach": {
+      "n_before": 200,
+      "n_after": 199,
+      "duplicate_rows_removed": 1,
+      "duplicate_groups": [
+        {
+          "dataset": "uci_va_long_beach",
+          "group_id": 1,
+          "original_row_indices": "139;187",
+          "group_size": 2,
+          "label": 1,
+          "duplicate_rows_removed": 1,
+          "action": "retain first row; remove duplicates before any split"
+        }
+      ],
+      "source_file_sha256": "374b6cba4526696ac4dfaaa9a2709dffebe1b6309623a65454f2d62eaf9f47fc"
+    }
+  },
+  "frozen_partition_boundary_audit": [
+    {
+      "dataset": "uci_hungary",
+      "duplicate_group_id": 1,
+      "fold": "1",
+      "original_row_indices": "101;102",
+      "row_roles": "development;development",
+      "crossed_development_and_outer_test": false,
+      "crossed_calibration_and_outer_test": false,
+      "crossed_development_and_calibration": false
+    },
+    {
+      "dataset": "uci_hungary",
+      "duplicate_group_id": 1,
+      "fold": "2",
+      "original_row_indices": "101;102",
+      "row_roles": "conformal_calibration;outer_test",
+      "crossed_development_and_outer_test": false,
+      "crossed_calibration_and_outer_test": true,
+      "crossed_development_and_calibration": false
+    },
+    {
+      "dataset": "uci_hungary",
+      "duplicate_group_id": 1,
+      "fold": "3",
+      "original_row_indices": "101;102",
+      "row_roles": "outer_test;development",
+      "crossed_development_and_outer_test": true,
+      "crossed_calibration_and_outer_test": false,
+      "crossed_development_and_calibration": false
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "duplicate_group_id": 1,
+      "fold": "1",
+      "original_row_indices": "139;187",
+      "row_roles": "development;development",
+      "crossed_development_and_outer_test": false,
+      "crossed_calibration_and_outer_test": false,
+      "crossed_development_and_calibration": false
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "duplicate_group_id": 1,
+      "fold": "2",
+      "original_row_indices": "139;187",
+      "row_roles": "conformal_calibration;development",
+      "crossed_development_and_outer_test": false,
+      "crossed_calibration_and_outer_test": false,
+      "crossed_development_and_calibration": true
+    },
+    {
+      "dataset": "uci_va_long_beach",
+      "duplicate_group_id": 1,
+      "fold": "3",
+      "original_row_indices": "139;187",
+      "row_roles": "outer_test;outer_test",
+      "crossed_development_and_outer_test": false,
+      "crossed_calibration_and_outer_test": false,
+      "crossed_development_and_calibration": false
+    }
+  ],
+  "exact_duplicate_groups_across_all_evaluated_tasks": 2,
+  "counts": {
+    "within_task_models": 12,
+    "within_task_folds": 36,
+    "cross_transfer_models": 72,
+    "all_exact_duplicates_absent_after_deduplication": true,
+    "target_outcomes_used_for_ood_or_model_selection": false
+  },
+  "runtime_seconds": 545.2915249000034,
+  "environment": {
+    "python": "3.11.16 (main, Sep  1 2026, 14:15:24) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2",
+    "scipy": "1.17.1",
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 12,
+        "prefix": "vcomp",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\akhil\\Downloads\\Final_Year_Project\\Cardio-Diag-Approach-Code\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "peak_memory_instrumented": false
+  },
+  "row_level_outputs_are_local": true,
+  "analysis_script_sha256": "cd82e7703143cefd469d8f3145a2df6a38f23437df80cea14c5f2d4764fe91c8"
+}

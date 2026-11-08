@@ -1,0 +1,48 @@
+{
+  "study": "CARDIODIAG duplicate-safe completion deliverables",
+  "source_run_id": "20261107T202404Z",
+  "duplicate_safe_run": "results/final_research_20261108/duplicate_safe_manifest.json",
+  "counts": {
+    "within_task_models": 12,
+    "within_task_folds": 36,
+    "cross_transfer_models": 72,
+    "all_exact_duplicates_absent_after_deduplication": true,
+    "target_outcomes_used_for_ood_or_model_selection": false
+  },
+  "descriptive_data_rows": {
+    "numeric": 174,
+    "categorical": 105,
+    "correlations": 23,
+    "leakage": 11
+  },
+  "duplicate_safe_transfer_direction_rows": 12,
+  "duplicate_safe_within_model_rows": 12,
+  "manuscript_source": "paper/multi_dataset_study_20261108_dedup_safe/main.tex",
+  "row_level_outputs_are_local": true,
+  "sha256": {
+    "results/final_research_20261108/duplicate_safe_manifest.json": "d1ef3d4bd7f70e8064b44d2a8c23bf03e383d3cef14ac5942e078f994528da9f",
+    "results/final_research_20261108/duplicate_audit.csv": "1cddb6647eaf48061bb9f87b8d232a4779b939f031f7c02d29fbc99b760b5370",
+    "results/final_research_20261108/duplicate_partition_audit.csv": "ed5bc6652d1ba5eb7168aaca4f5580e448566cf63aecc481e5f645af46428a1f",
+    "results/final_research_20261108/leakage_audit.csv": "b882812b49a162cd03c7755698ec49229227f4776829ef89a451335cc98f7283",
+    "results/final_research_20261108/feature_distribution_summary.csv": "c3504e2183946bb4b4dbfbd890ba518e6ef696e0ed6a038fa08dbfda051f8d5a",
+    "results/final_research_20261108/categorical_value_distribution.csv": "1d54248f28aa7fe4251cc418627a32b47b0e0db7a1de33d21cc39f50e72d3d5b",
+    "results/final_research_20261108/feature_correlation_pairs.csv": "4d034e84d84086488fd92c4a91050e2fcb06e92674d02c951e1507bd15dc539d",
+    "results/final_research_20261108/metrics/duplicate_safe_within_model_metrics.csv": "c185024fadbbe85b474f760aba50581b541c916d2c8906bd354286120565c783",
+    "results/final_research_20261108/metrics/duplicate_safe_within_fold_metrics.csv": "ecefc830b914c31f84e43166b2a7300e1e84670db686e2dcc8eef1b76388b9df",
+    "results/final_research_20261108/metrics/duplicate_safe_conformal_metrics.csv": "3805671801e68c865bd44b74c16fca2cd39f7958608fac31724a311cf8cf26e0",
+    "results/final_research_20261108/metrics/duplicate_safe_cross_dataset_metrics.csv": "891e604a9332b907c4e7e352ee7eac77300ca5ec9756ab81e964481af9719162",
+    "results/final_research_20261108/metrics/duplicate_safe_transfer_summary.csv": "f279a57de6899d391a27dfa7fab3b495059152db3161f1803b0f8532e119d733",
+    "results/final_research_20261108/metrics/final_analysis_fold_metrics.csv": "c16606741b0990454f97e170d286f3e6774df50c6fbb563581049872512d7c6f",
+    "results/final_research_20261108/metrics/final_analysis_model_metrics.csv": "7cfb27e2c37a7b06eec1cc98bf7cf8498f8d8914a9115e371b81353e0c706def",
+    "paper/multi_dataset_study_20261108_dedup_safe/main.tex": "7b1b12b778576b3d174a46ab3727b61cf79fe07351581d721de429c9486ae758",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/model_auc_matrix.tex": "cf0bbc2fd7affacb695c896c0aa039c9d160545c217ba1be4b82508614ace765",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/cad_model_metrics.tex": "6df7eba9ade3333a7e12e292b0183927157f96528ff98ea7108160c88b3a6377",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/duplicate_sensitivity.tex": "9aa764f120646a03f46c0ea5a8de2209619a49cf8fca091fe895029da3b626fe",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/cross_cohort_summary.tex": "6b7b6772992ed7dbd90e1a4c35d3943d2fd2a3d1d415916b3b7901b2590d0baf",
+    "paper/multi_dataset_study_20261108_dedup_safe/tables/uncertainty_ranges.tex": "efaab0a8263f05083d888f40b2413e48f3b6fb1ddbefae108e6e868e3cde3ea1",
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/cross_dataset_mean_auc_heatmap.pdf": "fbc7b58bb8027c0d0814d49c09e653c0d4774640db99daaf75ac9eb1b400f31e",
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/calibration_curves.pdf": "fe92e93a7b873a695cd28ffa90e64c6e19a4fbf633bd4a87577a419ae1aa9225",
+    "paper/multi_dataset_study_20261108_dedup_safe/figures/model_performance_comparison.pdf": "f6f2282d730a7a33c0e72b4652406736cfc2ebaff2f93e71c974ed748321b2c0"
+  },
+  "finalizer_script_sha256": "e36def58405ea54cbc4026747d958f1a63e6bc151ddb0984c21419615226dc4a"
+}
